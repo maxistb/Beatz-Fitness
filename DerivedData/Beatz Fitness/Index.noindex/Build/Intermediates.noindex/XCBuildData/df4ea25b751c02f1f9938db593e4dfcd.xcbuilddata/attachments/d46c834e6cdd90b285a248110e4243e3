@@ -1,0 +1,27 @@
+{
+  "" : {
+    "dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Styleguide.build/Debug-iphoneos/Styleguide.build/Objects-normal/arm64/Styleguide-master.d",
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Styleguide.build/Debug-iphoneos/Styleguide.build/Objects-normal/arm64/Styleguide-master.dia",
+    "emit-module-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Styleguide.build/Debug-iphoneos/Styleguide.build/Objects-normal/arm64/Styleguide-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Styleguide.build/Debug-iphoneos/Styleguide.build/Objects-normal/arm64/Styleguide-master-emit-module.dia",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Styleguide.build/Debug-iphoneos/Styleguide.build/Objects-normal/arm64/Styleguide-master.swiftdeps"
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Styleguide.build/Debug-iphoneos/Styleguide.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Styleguide.build/Debug-iphoneos/Styleguide.build/DerivedSources/resource_bundle_accessor.swift" : {
+
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/Packages/Styleguide/Sources/Styleguide/CornerRadius.swift" : {
+
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/Packages/Styleguide/Sources/Styleguide/Generated/ColorImageAsset.swift" : {
+
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/Packages/Styleguide/Sources/Styleguide/Generated/L10n-Constants.swift" : {
+
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/Packages/Styleguide/Sources/Styleguide/Spacing.swift" : {
+
+  }
+}

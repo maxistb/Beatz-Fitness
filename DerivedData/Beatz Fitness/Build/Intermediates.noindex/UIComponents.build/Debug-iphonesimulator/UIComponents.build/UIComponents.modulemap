@@ -1,0 +1,4 @@
+module UIComponents {
+header "UIComponents-Swift.h"
+export *
+}

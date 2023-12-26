@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)"
+options: "73448de7e1fa43cb9d41fc772515fa2d9bce58f74fc53e44b4914a8097e4a40c"
+build_start_time: [1703530085, 341853000]
+build_end_time: [1703530087, 73907000]
+inputs:
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/Packages/UIComponents/Sources/UIComponents/UIComponents.swift": [1703419587, 723177531]

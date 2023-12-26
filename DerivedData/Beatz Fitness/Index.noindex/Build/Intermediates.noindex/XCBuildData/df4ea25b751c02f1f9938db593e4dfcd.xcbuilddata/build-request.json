@@ -1,0 +1,62 @@
+{
+  "buildCommand" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : true,
+    "targets" : null
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "e4f312781bbdecd21390f76b6df55131fb624496aa56a90df74019c7cdeebb02"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4236502583e0f69044ce4d5b9dbb013181"
+    }
+  ],
+  "containerPath" : "/Users/maximillianstabe/Desktop/Beatz Fitness/Beatz Fitness.xcworkspace",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "indexbuild",
+    "activeArchitecture" : "arm64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator17.2",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "arm64",
+        "x86_64"
+      ],
+      "targetArchitecture" : "arm64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Products",
+      "derivedDataPath" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/PrecompiledHeaders",
+      "indexRegularBuildIntermediatesPath" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex",
+      "indexRegularBuildProductsPath" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Products",
+      "pchPath" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "NO",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "qos" : "utility",
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

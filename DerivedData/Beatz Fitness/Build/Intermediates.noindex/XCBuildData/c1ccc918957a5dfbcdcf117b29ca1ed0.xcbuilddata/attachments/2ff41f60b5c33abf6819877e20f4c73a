@@ -1,0 +1,68 @@
+{
+  "" : {
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz Fitness-master.dia",
+    "emit-module-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz Fitness-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz Fitness-master-emit-module.dia",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz Fitness-master.swiftdeps"
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/App/CoreData/Persistence.swift" : {
+    "const-values" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Persistence.swiftconstvalues",
+    "dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Persistence.d",
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Persistence.dia",
+    "index-unit-output-path" : "/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Persistence.o",
+    "llvm-bc" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Persistence.bc",
+    "object" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Persistence.o",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Persistence.swiftdeps",
+    "swiftmodule" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Persistence~partial.swiftmodule"
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/App/Initialization/Beatz_FitnessApp.swift" : {
+    "const-values" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_FitnessApp.swiftconstvalues",
+    "dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_FitnessApp.d",
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_FitnessApp.dia",
+    "index-unit-output-path" : "/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_FitnessApp.o",
+    "llvm-bc" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_FitnessApp.bc",
+    "object" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_FitnessApp.o",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_FitnessApp.swiftdeps",
+    "swiftmodule" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_FitnessApp~partial.swiftmodule"
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/App/Views/ContentView.swift" : {
+    "const-values" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/DerivedSources/CoreDataGenerated/Beatz_Fitness/Beatz_Fitness+CoreDataModel.swift" : {
+    "const-values" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_Fitness+CoreDataModel.swiftconstvalues",
+    "dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_Fitness+CoreDataModel.d",
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_Fitness+CoreDataModel.dia",
+    "index-unit-output-path" : "/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_Fitness+CoreDataModel.o",
+    "llvm-bc" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_Fitness+CoreDataModel.bc",
+    "object" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_Fitness+CoreDataModel.o",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_Fitness+CoreDataModel.swiftdeps",
+    "swiftmodule" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Beatz_Fitness+CoreDataModel~partial.swiftmodule"
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/DerivedSources/CoreDataGenerated/Beatz_Fitness/Item+CoreDataClass.swift" : {
+    "const-values" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataClass.swiftconstvalues",
+    "dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataClass.d",
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataClass.dia",
+    "index-unit-output-path" : "/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataClass.o",
+    "llvm-bc" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataClass.bc",
+    "object" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataClass.o",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataClass.swiftdeps",
+    "swiftmodule" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataClass~partial.swiftmodule"
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/DerivedSources/CoreDataGenerated/Beatz_Fitness/Item+CoreDataProperties.swift" : {
+    "const-values" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataProperties.swiftconstvalues",
+    "dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataProperties.d",
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataProperties.dia",
+    "index-unit-output-path" : "/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataProperties.o",
+    "llvm-bc" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataProperties.bc",
+    "object" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataProperties.o",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataProperties.swiftdeps",
+    "swiftmodule" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphonesimulator/Beatz Fitness.build/Objects-normal/arm64/Item+CoreDataProperties~partial.swiftmodule"
+  }
+}

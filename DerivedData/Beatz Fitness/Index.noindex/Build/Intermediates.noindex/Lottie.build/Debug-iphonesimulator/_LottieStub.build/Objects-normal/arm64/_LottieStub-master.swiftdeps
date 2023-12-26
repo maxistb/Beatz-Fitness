@@ -1,0 +1,7 @@
+version: "Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)"
+options: "d66d4a045370ac46f91dad41a5d85dfd8688fa6d84885d370bb2f8003f77b892"
+build_start_time: [1703530085, 341734000]
+build_end_time: [1703530085, 426770000]
+inputs:
+  ? "/Users/maximillianstabe/Library/Developer/Xcode/DerivedData/Beatz_Fitness-eoftirqycnajxucikmlbkwlfqovu/SourcePackages/checkouts/lottie-spm/Sources/_LottieStub/Stub.swift"
+  : [1703530022, 621652698]

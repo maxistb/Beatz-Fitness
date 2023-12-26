@@ -1,0 +1,27 @@
+{
+  "" : {
+    "dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphoneos/Beatz Fitness.build/Objects-normal/arm64/Beatz Fitness-master.d",
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphoneos/Beatz Fitness.build/Objects-normal/arm64/Beatz Fitness-master.dia",
+    "emit-module-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphoneos/Beatz Fitness.build/Objects-normal/arm64/Beatz Fitness-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphoneos/Beatz Fitness.build/Objects-normal/arm64/Beatz Fitness-master-emit-module.dia",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphoneos/Beatz Fitness.build/Objects-normal/arm64/Beatz Fitness-master.swiftdeps"
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/App/CoreData/Persistence.swift" : {
+
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/App/Initialization/Beatz_FitnessApp.swift" : {
+
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/App/Views/ContentView.swift" : {
+
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphoneos/Beatz Fitness.build/DerivedSources/CoreDataGenerated/Beatz_Fitness/Beatz_Fitness+CoreDataModel.swift" : {
+
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphoneos/Beatz Fitness.build/DerivedSources/CoreDataGenerated/Beatz_Fitness/Item+CoreDataClass.swift" : {
+
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Beatz Fitness.build/Debug-iphoneos/Beatz Fitness.build/DerivedSources/CoreDataGenerated/Beatz_Fitness/Item+CoreDataProperties.swift" : {
+
+  }
+}

@@ -1,0 +1,13 @@
+version: "Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)"
+options: "3939593ec5607b04407382d8ffd127e161318e1cec5eae8ee95fcaaa09454931"
+build_start_time: [1703530085, 439356000]
+build_end_time: [1703530087, 194393000]
+inputs:
+  ? "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/DerivedSources/GeneratedAssetSymbols.swift"
+  : [1703530085, 432921817]
+  ? "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/DerivedSources/resource_bundle_accessor.swift"
+  : [1703530085, 429077000]
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/Packages/Styleguide/Sources/Styleguide/CornerRadius.swift": [1703419541, 41318077]
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/Packages/Styleguide/Sources/Styleguide/Generated/ColorImageAsset.swift": [1703493180, 446424104]
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/Packages/Styleguide/Sources/Styleguide/Generated/L10n-Constants.swift": [1703529341, 782533933]
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/Packages/Styleguide/Sources/Styleguide/Spacing.swift": [1703419541, 50126793]

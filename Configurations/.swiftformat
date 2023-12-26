@@ -1,0 +1,14 @@
+--swiftversion 5.3
+--exclude Configurations,Packages,Pods
+
+--commas inline
+
+--indent 2
+
+--decimalgrouping 3,0
+
+--disable enumNamespaces, wrapMultilineStatementBraces
+
+--disable unusedArguments
+
+--disable redundantSelf

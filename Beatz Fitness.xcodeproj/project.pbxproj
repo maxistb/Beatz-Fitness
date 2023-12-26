@@ -1,0 +1,549 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A3188DF2B3849E60044761B /* Beatz_Fitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3188DE2B3849E60044761B /* Beatz_Fitness.swift */; };
+		7A3188E12B3849E60044761B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3188E02B3849E60044761B /* ContentView.swift */; };
+		7A3188F72B384CA40044761B /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 7A3188F62B384CA40044761B /* UIComponents */; };
+		7A3188FB2B3856100044761B /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 7A3188FA2B3856100044761B /* Styleguide */; };
+		7A3189032B38604C0044761B /* Pods_Beatz_Fitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D96A35215996C2FDB748A6 /* Pods_Beatz_Fitness.framework */; };
+		7A3189042B38604C0044761B /* Pods_Beatz_Fitness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94D96A35215996C2FDB748A6 /* Pods_Beatz_Fitness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A7B763F2B3B221E007BDAFE /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 7A7B763E2B3B221E007BDAFE /* Styleguide */; };
+		7A9598482B3A0409004C3A4E /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 7A9598472B3A0409004C3A4E /* Styleguide */; };
+		7AD1880B2B3ABD97000F8D3E /* NewFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD1880A2B3ABD97000F8D3E /* NewFile.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7A3189052B38604C0044761B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7A3189042B38604C0044761B /* Pods_Beatz_Fitness.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A427FEC2B3A08E30064BA95 /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7A3188DB2B3849E60044761B /* Beatz Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Beatz Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A3188DE2B3849E60044761B /* Beatz_Fitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beatz_Fitness.swift; sourceTree = "<group>"; };
+		7A3188E02B3849E60044761B /* ContentView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 1; };
+		7A3188F42B384BA60044761B /* UIComponents */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UIComponents; sourceTree = "<group>"; };
+		7A3188F82B3854A30044761B /* Styleguide */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Styleguide; sourceTree = "<group>"; };
+		7A5F48102B3AB755006375C0 /* .swiftformat */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; tabWidth = 1; };
+		7A5F48122B3AB87C006375C0 /* Project-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Base.xcconfig"; sourceTree = "<group>"; };
+		7A5F48132B3AB8F1006375C0 /* Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug.xcconfig"; sourceTree = "<group>"; };
+		7A5F48152B3ABAC1006375C0 /* .swiftlint.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; tabWidth = 1; };
+		7AD1880A2B3ABD97000F8D3E /* NewFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFile.swift; sourceTree = "<group>"; };
+		8B1468AC5C2803D917F6C27A /* Pods-Beatz Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beatz Fitness.debug.xcconfig"; path = "Target Support Files/Pods-Beatz Fitness/Pods-Beatz Fitness.debug.xcconfig"; sourceTree = "<group>"; };
+		90D8B8E2A0F26415F388C6D3 /* Pods-Beatz Fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beatz Fitness.release.xcconfig"; path = "Target Support Files/Pods-Beatz Fitness/Pods-Beatz Fitness.release.xcconfig"; sourceTree = "<group>"; };
+		94D96A35215996C2FDB748A6 /* Pods_Beatz_Fitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beatz_Fitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A3188D82B3849E60044761B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A3188F72B384CA40044761B /* UIComponents in Frameworks */,
+				7A7B763F2B3B221E007BDAFE /* Styleguide in Frameworks */,
+				7A9598482B3A0409004C3A4E /* Styleguide in Frameworks */,
+				7A3189032B38604C0044761B /* Pods_Beatz_Fitness.framework in Frameworks */,
+				7A3188FB2B3856100044761B /* Styleguide in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		360A0AD8BD8D8D3FEC04EE2F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B1468AC5C2803D917F6C27A /* Pods-Beatz Fitness.debug.xcconfig */,
+				90D8B8E2A0F26415F388C6D3 /* Pods-Beatz Fitness.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7A3188D22B3849E60044761B = {
+			isa = PBXGroup;
+			children = (
+				7A3188DD2B3849E60044761B /* App */,
+				7A5F480D2B3AB4CB006375C0 /* Configurations */,
+				7A3188F32B384AEF0044761B /* Packages */,
+				7A3188DC2B3849E60044761B /* Products */,
+				7A3188F92B3856100044761B /* Frameworks */,
+				360A0AD8BD8D8D3FEC04EE2F /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		7A3188DC2B3849E60044761B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A3188DB2B3849E60044761B /* Beatz Fitness.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7A3188DD2B3849E60044761B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7AB94A982B3865FD0043083F /* Initialization */,
+				7AB94A962B3865990043083F /* Views */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		7A3188F32B384AEF0044761B /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				7A3188F82B3854A30044761B /* Styleguide */,
+				7A3188F42B384BA60044761B /* UIComponents */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		7A3188F92B3856100044761B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94D96A35215996C2FDB748A6 /* Pods_Beatz_Fitness.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7A5F480D2B3AB4CB006375C0 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				7A5F48102B3AB755006375C0 /* .swiftformat */,
+				7A5F48152B3ABAC1006375C0 /* .swiftlint.yml */,
+				7A5F48122B3AB87C006375C0 /* Project-Base.xcconfig */,
+				7A5F48132B3AB8F1006375C0 /* Project-Debug.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		7AB94A962B3865990043083F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7A3188E02B3849E60044761B /* ContentView.swift */,
+				7AD1880A2B3ABD97000F8D3E /* NewFile.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7AB94A982B3865FD0043083F /* Initialization */ = {
+			isa = PBXGroup;
+			children = (
+				7A3188DE2B3849E60044761B /* Beatz_Fitness.swift */,
+			);
+			path = Initialization;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A3188DA2B3849E60044761B /* Beatz Fitness */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A3188F02B3849E70044761B /* Build configuration list for PBXNativeTarget "Beatz Fitness" */;
+			buildPhases = (
+				3E321B0BAB23B44649FD0613 /* [CP] Check Pods Manifest.lock */,
+				7A3188D72B3849E60044761B /* Sources */,
+				7A3188D82B3849E60044761B /* Frameworks */,
+				7A3188D92B3849E60044761B /* Resources */,
+				7A3189052B38604C0044761B /* Embed Frameworks */,
+				7A427FEC2B3A08E30064BA95 /* Embed ExtensionKit Extensions */,
+				7A5F48142B3AB9DE006375C0 /* SwiftLint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Beatz Fitness";
+			packageProductDependencies = (
+				7A3188F62B384CA40044761B /* UIComponents */,
+				7A3188FA2B3856100044761B /* Styleguide */,
+				7A9598472B3A0409004C3A4E /* Styleguide */,
+				7A7B763E2B3B221E007BDAFE /* Styleguide */,
+			);
+			productName = "Beatz Fitness";
+			productReference = 7A3188DB2B3849E60044761B /* Beatz Fitness.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A3188D32B3849E60044761B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1510;
+				TargetAttributes = {
+					7A3188DA2B3849E60044761B = {
+						CreatedOnToolsVersion = 15.1;
+					};
+				};
+			};
+			buildConfigurationList = 7A3188D62B3849E60044761B /* Build configuration list for PBXProject "Beatz Fitness" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = de;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				de,
+			);
+			mainGroup = 7A3188D22B3849E60044761B;
+			packageReferences = (
+				7A3188F52B384CA40044761B /* XCLocalSwiftPackageReference "Packages/UIComponents" */,
+				7A9598462B3A0409004C3A4E /* XCLocalSwiftPackageReference "Packages/Styleguide" */,
+			);
+			productRefGroup = 7A3188DC2B3849E60044761B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A3188DA2B3849E60044761B /* Beatz Fitness */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7A3188D92B3849E60044761B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3E321B0BAB23B44649FD0613 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Beatz Fitness-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A5F48142B3AB9DE006375C0 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A3188D72B3849E60044761B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A3188E12B3849E60044761B /* ContentView.swift in Sources */,
+				7A3188DF2B3849E60044761B /* Beatz_Fitness.swift in Sources */,
+				7AD1880B2B3ABD97000F8D3E /* NewFile.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7A3188EE2B3849E70044761B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7A3188EF2B3849E70044761B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7A3188F12B3849E70044761B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B1468AC5C2803D917F6C27A /* Pods-Beatz Fitness.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 9RY44N87S7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "Beatz Fitness";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Maximillian-Stabe.Beatz-Fitness";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		7A3188F22B3849E70044761B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90D8B8E2A0F26415F388C6D3 /* Pods-Beatz Fitness.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 9RY44N87S7;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "Beatz Fitness";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Maximillian-Stabe.Beatz-Fitness";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A3188D62B3849E60044761B /* Build configuration list for PBXProject "Beatz Fitness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A3188EE2B3849E70044761B /* Debug */,
+				7A3188EF2B3849E70044761B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A3188F02B3849E70044761B /* Build configuration list for PBXNativeTarget "Beatz Fitness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A3188F12B3849E70044761B /* Debug */,
+				7A3188F22B3849E70044761B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		7A3188F52B384CA40044761B /* XCLocalSwiftPackageReference "Packages/UIComponents" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/UIComponents;
+		};
+		7A9598462B3A0409004C3A4E /* XCLocalSwiftPackageReference "Packages/Styleguide" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/Styleguide;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7A3188F62B384CA40044761B /* UIComponents */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UIComponents;
+		};
+		7A3188FA2B3856100044761B /* Styleguide */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Styleguide;
+		};
+		7A7B763E2B3B221E007BDAFE /* Styleguide */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Styleguide;
+		};
+		7A9598472B3A0409004C3A4E /* Styleguide */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Styleguide;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 7A3188D32B3849E60044761B /* Project object */;
+}

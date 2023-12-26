@@ -1,0 +1,52 @@
+Target dependency graph (24 targets)
+Target 'Pods-Beatz Fitness' in project 'Pods'
+➜ Explicit dependency on target 'SwiftGen' in project 'Pods'
+Target 'SwiftGen' in project 'Pods' (no dependencies)
+Target 'Beatz Fitness' in project 'Beatz Fitness'
+➜ Implicit dependency on target 'Pods-Beatz Fitness' in project 'Pods' via file 'Pods_Beatz_Fitness.framework' in build phase 'Link Binary'
+➜ Explicit dependency on target 'UIComponents' in project 'UIComponents'
+➜ Explicit dependency on target 'Styleguide' in project 'Styleguide'
+Target 'Styleguide' in project 'Styleguide'
+➜ Explicit dependency on target 'Styleguide' in project 'Styleguide'
+➜ Explicit dependency on target 'Styleguide_Styleguide' in project 'Styleguide'
+➜ Explicit dependency on target 'SwiftGenPlugin' in project 'SwiftGenPlugin'
+➜ Explicit dependency on target 'Lottie' in project 'Lottie'
+Target 'Styleguide' in project 'Styleguide'
+➜ Explicit dependency on target 'Styleguide_Styleguide' in project 'Styleguide'
+➜ Explicit dependency on target 'SwiftGenPlugin' in project 'SwiftGenPlugin'
+➜ Explicit dependency on target 'Lottie' in project 'Lottie'
+Target 'Lottie' in project 'Lottie'
+➜ Explicit dependency on target '_LottieStub' in project 'Lottie'
+Target '_LottieStub' in project 'Lottie' (no dependencies)
+Target 'SwiftGenPlugin' in project 'SwiftGenPlugin' (no dependencies)
+Target 'Styleguide_Styleguide' in project 'Styleguide' (no dependencies)
+Target 'UIComponents' in project 'UIComponents'
+➜ Explicit dependency on target 'UIComponents' in project 'UIComponents'
+Target 'UIComponents' in project 'UIComponents' (no dependencies)
+Target 'Pods-Beatz Fitness' in project 'Pods'
+➜ Explicit dependency on target 'SwiftGen' in project 'Pods'
+Target 'SwiftGen' in project 'Pods' (no dependencies)
+Target 'Beatz Fitness' in project 'Beatz Fitness'
+➜ Implicit dependency on target 'Pods-Beatz Fitness' in project 'Pods' via file 'Pods_Beatz_Fitness.framework' in build phase 'Link Binary'
+➜ Explicit dependency on target 'UIComponents' in project 'UIComponents'
+➜ Explicit dependency on target 'Styleguide' in project 'Styleguide'
+Target 'Styleguide' in project 'Styleguide'
+➜ Explicit dependency on target 'Styleguide' in project 'Styleguide'
+➜ Explicit dependency on target 'Styleguide_Styleguide' in project 'Styleguide'
+➜ Explicit dependency on target 'SwiftGenPlugin' in project 'SwiftGenPlugin'
+➜ Explicit dependency on target 'Lottie' in project 'Lottie'
+Target 'Styleguide' in project 'Styleguide'
+➜ Explicit dependency on target 'Styleguide_Styleguide' in project 'Styleguide'
+➜ Explicit dependency on target 'SwiftGenPlugin' in project 'SwiftGenPlugin'
+➜ Explicit dependency on target 'Lottie' in project 'Lottie'
+Target 'Lottie' in project 'Lottie'
+➜ Explicit dependency on target '_LottieStub' in project 'Lottie'
+Target '_LottieStub' in project 'Lottie' (no dependencies)
+Target 'SwiftGenPlugin' in project 'SwiftGenPlugin' (no dependencies)
+Target 'Styleguide_Styleguide' in project 'Styleguide' (no dependencies)
+Target 'UIComponents' in project 'UIComponents'
+➜ Explicit dependency on target 'UIComponents' in project 'UIComponents'
+Target 'UIComponents' in project 'UIComponents' (no dependencies)
+Target 'Pods-Beatz Fitness' in project 'Pods'
+➜ Explicit dependency on target 'SwiftGen' in project 'Pods'
+Target 'SwiftGen' in project 'Pods' (no dependencies)

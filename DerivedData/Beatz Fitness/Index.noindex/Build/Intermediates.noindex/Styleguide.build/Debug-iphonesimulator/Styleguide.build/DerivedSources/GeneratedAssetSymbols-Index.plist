@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>colors</key>
+	<array/>
+	<key>images</key>
+	<array>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/maximillianstabe/Desktop/Beatz Fitness/Packages/Styleguide/Sources/Styleguide/Resources/Assets/Media.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameTestImage</string>
+			<key>relativePath</key>
+			<string>./TestImage.imageset</string>
+			<key>swiftSymbol</key>
+			<string>test</string>
+		</dict>
+	</array>
+	<key>symbols</key>
+	<array/>
+</dict>
+</plist>

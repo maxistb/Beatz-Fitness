@@ -1,0 +1,12 @@
+{
+  "" : {
+    "dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/UIComponents.build/Debug-iphoneos/UIComponents.build/Objects-normal/arm64/UIComponents-master.d",
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/UIComponents.build/Debug-iphoneos/UIComponents.build/Objects-normal/arm64/UIComponents-master.dia",
+    "emit-module-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/UIComponents.build/Debug-iphoneos/UIComponents.build/Objects-normal/arm64/UIComponents-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/UIComponents.build/Debug-iphoneos/UIComponents.build/Objects-normal/arm64/UIComponents-master-emit-module.dia",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Index.noindex/Build/Intermediates.noindex/UIComponents.build/Debug-iphoneos/UIComponents.build/Objects-normal/arm64/UIComponents-master.swiftdeps"
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/Packages/UIComponents/Sources/UIComponents/UIComponents.swift" : {
+
+  }
+}

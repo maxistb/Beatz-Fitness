@@ -1,0 +1,68 @@
+{
+  "" : {
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/Styleguide-master.dia",
+    "emit-module-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/Styleguide-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/Styleguide-master-emit-module.dia",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/Styleguide-master.swiftdeps"
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/DerivedSources/resource_bundle_accessor.swift" : {
+    "const-values" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/resource_bundle_accessor.swiftconstvalues",
+    "dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/resource_bundle_accessor.d",
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/resource_bundle_accessor.dia",
+    "index-unit-output-path" : "/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/resource_bundle_accessor.o",
+    "llvm-bc" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/resource_bundle_accessor.bc",
+    "object" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/resource_bundle_accessor.o",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/resource_bundle_accessor.swiftdeps",
+    "swiftmodule" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/resource_bundle_accessor~partial.swiftmodule"
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/Packages/Styleguide/Sources/Styleguide/CornerRadius.swift" : {
+    "const-values" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/CornerRadius.swiftconstvalues",
+    "dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/CornerRadius.d",
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/CornerRadius.dia",
+    "index-unit-output-path" : "/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/CornerRadius.o",
+    "llvm-bc" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/CornerRadius.bc",
+    "object" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/CornerRadius.o",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/CornerRadius.swiftdeps",
+    "swiftmodule" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/CornerRadius~partial.swiftmodule"
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/Packages/Styleguide/Sources/Styleguide/Generated/ColorImageAsset.swift" : {
+    "const-values" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/ColorImageAsset.swiftconstvalues",
+    "dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/ColorImageAsset.d",
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/ColorImageAsset.dia",
+    "index-unit-output-path" : "/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/ColorImageAsset.o",
+    "llvm-bc" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/ColorImageAsset.bc",
+    "object" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/ColorImageAsset.o",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/ColorImageAsset.swiftdeps",
+    "swiftmodule" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/ColorImageAsset~partial.swiftmodule"
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/Packages/Styleguide/Sources/Styleguide/Generated/L10n-Constants.swift" : {
+    "const-values" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/L10n-Constants.swiftconstvalues",
+    "dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/L10n-Constants.d",
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/L10n-Constants.dia",
+    "index-unit-output-path" : "/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/L10n-Constants.o",
+    "llvm-bc" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/L10n-Constants.bc",
+    "object" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/L10n-Constants.o",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/L10n-Constants.swiftdeps",
+    "swiftmodule" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/L10n-Constants~partial.swiftmodule"
+  },
+  "/Users/maximillianstabe/Desktop/Beatz Fitness/Packages/Styleguide/Sources/Styleguide/Spacing.swift" : {
+    "const-values" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/Spacing.swiftconstvalues",
+    "dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/Spacing.d",
+    "diagnostics" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/Spacing.dia",
+    "index-unit-output-path" : "/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/Spacing.o",
+    "llvm-bc" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/Spacing.bc",
+    "object" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/Spacing.o",
+    "swift-dependencies" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/Spacing.swiftdeps",
+    "swiftmodule" : "/Users/maximillianstabe/Desktop/Beatz Fitness/DerivedData/Beatz Fitness/Build/Intermediates.noindex/Styleguide.build/Debug-iphonesimulator/Styleguide.build/Objects-normal/arm64/Spacing~partial.swiftmodule"
+  }
+}

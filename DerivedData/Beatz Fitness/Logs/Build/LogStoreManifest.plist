@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>0331DBB2-9B6E-4881-A6EE-D95D91D35B45</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>0331DBB2-9B6E-4881-A6EE-D95D91D35B45.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Beatz Fitness project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Beatz Fitness</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Beatz Fitness</string>
+			<key>timeStartedRecording</key>
+			<real>725222807.06773806</real>
+			<key>timeStoppedRecording</key>
+			<real>725222807.18543696</real>
+			<key>title</key>
+			<string>Build Beatz Fitness</string>
+			<key>uniqueIdentifier</key>
+			<string>0331DBB2-9B6E-4881-A6EE-D95D91D35B45</string>
+		</dict>
+		<key>10A4791C-BD47-46B1-BA63-F998588351CC</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>10A4791C-BD47-46B1-BA63-F998588351CC.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>2</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>1</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Beatz Fitness project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Beatz Fitness</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Beatz Fitness</string>
+			<key>timeStartedRecording</key>
+			<real>725222829.58295</real>
+			<key>timeStoppedRecording</key>
+			<real>725222835.04560995</real>
+			<key>title</key>
+			<string>Build Beatz Fitness</string>
+			<key>uniqueIdentifier</key>
+			<string>10A4791C-BD47-46B1-BA63-F998588351CC</string>
+		</dict>
+		<key>A3A56C8D-703E-4428-94B4-016443C1C567</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>A3A56C8D-703E-4428-94B4-016443C1C567.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>2</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>1</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Beatz Fitness project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Beatz Fitness</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Beatz Fitness</string>
+			<key>timeStartedRecording</key>
+			<real>725222881.58155704</real>
+			<key>timeStoppedRecording</key>
+			<real>725222884.72136998</real>
+			<key>title</key>
+			<string>Build Beatz Fitness</string>
+			<key>uniqueIdentifier</key>
+			<string>A3A56C8D-703E-4428-94B4-016443C1C567</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
