@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="DiaryEntry" representedClassName="DiaryEntry" syncable="YES">
+        <attribute name="bodyWeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="endTraining" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <relationship name="diaryExercises" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Exercise"/>
+        <relationship name="diarySplit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Split" inverseName="splitLastDiaryEntry" inverseEntity="Split"/>
+    </entity>
+    <entity name="Exercise" representedClassName="Exercise" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="countSets" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <relationship name="exerciseDiaryEntry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DiaryEntry"/>
+        <relationship name="exerciseSets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrainingSet" inverseName="setExercise" inverseEntity="TrainingSet"/>
+        <relationship name="exerciseSplit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Split" inverseName="splitExercises" inverseEntity="Split"/>
+    </entity>
+    <entity name="Split" representedClassName="Split" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="splitExercises" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Exercise" inverseName="exerciseSplit" inverseEntity="Exercise"/>
+        <relationship name="splitLastDiaryEntry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DiaryEntry" inverseName="diarySplit" inverseEntity="DiaryEntry"/>
+    </entity>
+    <entity name="Timer" representedClassName="Timer" syncable="YES">
+        <attribute name="minutes" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="seconds" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="TrainingSet" representedClassName="TrainingSet" syncable="YES">
+        <attribute name="calories" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="distanceKM" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="exerciseName" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isDropset" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="isWarmup" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="minutes" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="reps" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="seconds" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="setDiaryEntry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DiaryEntry"/>
+        <relationship name="setExercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="exerciseSets" inverseEntity="Exercise"/>
+    </entity>
+</model>

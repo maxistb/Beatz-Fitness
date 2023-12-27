@@ -10,6 +10,14 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 public enum L10n {
+  /// Beatz
+  public static let beatz = L10n.tr("Localization", "beatz", fallback: "Beatz")
+  /// Statistik
+  public static let statistic = L10n.tr("Localization", "statistic", fallback: "Statistik")
+  /// Trainingstagebuch
+  public static let trainingbook = L10n.tr("Localization", "trainingbook", fallback: "Trainingstagebuch")
+  /// Trainingspläne
+  public static let trainingplans = L10n.tr("Localization", "trainingplans", fallback: "Trainingspläne")
   /// 🏋🏻 Trainingspläne
   public static let trainingsplansHeader = L10n.tr("Localization", "trainingsplans_header", fallback: "🏋🏻 Trainingspläne")
 }
