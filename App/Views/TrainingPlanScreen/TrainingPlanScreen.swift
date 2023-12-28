@@ -8,9 +8,11 @@ import SwiftUI
 
 struct TrainingPlanScreen: View {
   @FetchRequest(
-    sortDescriptors: [NSSortDescriptor(
-      keyPath: \Split.order,
-      ascending: true)])
+    sortDescriptors: [
+      NSSortDescriptor(
+        keyPath: \Split.order,
+        ascending: true)
+    ])
   var splits: FetchedResults<Split>
   @State private var showAddSplitSheet = false
   @StateObject var viewModel: SplitViewModel
@@ -22,16 +24,12 @@ struct TrainingPlanScreen: View {
         recommendedSection
       }
       .navigationTitle(L10n.trainingsplansHeader)
-      .toolbar {
-        toolbarContent
-      }
-      .sheet(isPresented: $showAddSplitSheet, content: {
-        AddSplitView()
+      .toolbar { toolbarContent }
+      .sheet(isPresented: $showAddSplitSheet) {
+        AddSplitView(viewModel: viewModel)
           .presentationDragIndicator(.visible)
-          .presentationDetents(
-            [.medium, .large]
-          )
-      })
+          .presentationDetents([.medium, .large])
+      }
     }
   }
 
@@ -41,11 +39,18 @@ struct TrainingPlanScreen: View {
         NavigationLink {
           SplitDetailScreen()
         } label: {
-          Text(split.name)
+          Text("\(split.name) \(split.order)")
         }
+        .modifier(SwipeAction(splits: splits, split: split, viewModel: viewModel))
+      }
+      .onMove { indices, newOffset in
+        viewModel.moveSplit(splits: splits, oldIndices: indices, newIndex: newOffset)
+      }
+      .onDelete { indexSet in
+        viewModel.deleteSplit(splits: splits, indicesToDelete: indexSet)
       }
     } header: {
-      Text("Eigene Splits")
+      Text(L10n.ownSplits)
     }
   }
 
@@ -53,16 +58,14 @@ struct TrainingPlanScreen: View {
     Section {
       NavigationLink("Push", destination: SplitDetailScreen())
     } header: {
-      Text("Empfohlene Trainingspläne")
+      Text(L10n.recommendedPlans)
     }
   }
 
   @ToolbarContentBuilder
   private var toolbarContent: some ToolbarContent {
     ToolbarItem(placement: .topBarLeading) {
-      Button(action: {}, label: {
-        Text("Bearbeiten")
-      })
+      EditButton()
     }
 
     ToolbarItem(placement: .topBarTrailing) {
@@ -72,6 +75,30 @@ struct TrainingPlanScreen: View {
         Image(systemName: "plus")
       })
     }
+  }
+}
+
+private struct SwipeAction: ViewModifier {
+  @State private var showingAlert = false
+  let splits: FetchedResults<Split>
+  let split: Split
+  let viewModel: SplitViewModel
+
+  func body(content: Content) -> some View {
+    content
+      .swipeActions {
+        Button(action: {
+          showingAlert = true
+        }, label: {
+          Image(systemName: "trash")
+        })
+        .tint(.red)
+      }
+      .confirmationDialog(L10n.deleteSplitConfirmationDialog, isPresented: $showingAlert, titleVisibility: .visible) {
+        Button(L10n.delete) {
+          viewModel.deleteSplit(splits: splits, indicesToDelete: IndexSet(integer: IndexSet.Element(split.order)))
+        }
+      }
   }
 }
 

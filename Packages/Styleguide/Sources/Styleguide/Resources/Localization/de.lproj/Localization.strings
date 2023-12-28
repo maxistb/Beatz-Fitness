@@ -3,3 +3,10 @@
 "trainingbook" = "Trainingstagebuch";
 "statistic" = "Statistik";
 "beatz" = "Beatz";
+"delete_split_confirmation_dialog" = "Willst du den Trainingsplan wirklich löschen? Dies kann nicht Rückgängig gemacht werden.";
+"delete" = "Löschen";
+"recommended_plans" = "Empfohlene Trainingspläne";
+"own_splits" = "Eigene Splits";
+"name_of_split" = "Name vom Split";
+"add_split" = "Split Hinzufügen";
+"save" = "Speichern";

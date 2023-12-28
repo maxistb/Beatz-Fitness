@@ -26,7 +26,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="splitExercises" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Exercise" inverseName="exerciseSplit" inverseEntity="Exercise"/>
+        <relationship name="splitExercises" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Exercise" inverseName="exerciseSplit" inverseEntity="Exercise"/>
         <relationship name="splitLastDiaryEntry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DiaryEntry" inverseName="diarySplit" inverseEntity="DiaryEntry"/>
     </entity>
     <entity name="Timer" representedClassName="Timer" syncable="YES">

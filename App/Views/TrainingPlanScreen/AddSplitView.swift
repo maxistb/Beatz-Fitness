@@ -3,6 +3,7 @@
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 
+import Styleguide
 import SwiftUI
 import UIComponents
 
@@ -11,22 +12,18 @@ import UIComponents
 struct AddSplitView: View {
   @Environment(\.dismiss) var dismiss
   @State private var splitName = ""
+  let viewModel: SplitViewModel
 
   var body: some View {
     NavigationStack {
       List {
-        TextField("Name vom Split", text: $splitName)
+        TextField(L10n.nameOfSplit, text: $splitName)
 
         Section {
           HStack(alignment: .center, content: {
             Spacer()
-            SaveButton(title: "Speichern") {
-              Split.createSplit(
-                name: splitName,
-                notes: splitName,
-                splitLastDiaryEntry: nil,
-                splitExercises: nil,
-                order: 1)
+            SaveButton(title: L10n.save) {
+              viewModel.createSplit(name: splitName, notes: "", splitLastDiaryEntry: nil, splitExercises: nil)
               dismiss()
             }
             Spacer()
@@ -34,11 +31,7 @@ struct AddSplitView: View {
         }
         .listRowBackground(Color.clear)
       }
-      .navigationTitle("Split hinzufügen")
+      .navigationTitle(L10n.addSplit)
     }
   }
-}
-
-#Preview {
-  AddSplitView()
 }
