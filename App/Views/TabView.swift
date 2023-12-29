@@ -15,26 +15,30 @@ struct BottomTabView: View {
           Image(systemName: "list.clipboard.fill")
           Text(L10n.trainingplans)
         }
+        .toolbarBackground(.visible, for: .tabBar)
 
-      TrainingPlanScreen(viewModel: viewModel)
+      TrainingDiaryScreen()
         .tabItem {
           Image(systemName: "book")
           Text(L10n.trainingbook)
         }
+        .toolbarBackground(.visible, for: .tabBar)
 
-      TrainingPlanScreen(viewModel: viewModel)
+      TrainingDiaryScreen()
         .tabItem {
           Image(systemName: "chart.bar.xaxis")
           Text(L10n.statistic)
         }
+        .toolbarBackground(.visible, for: .tabBar)
 
-      TrainingPlanScreen(viewModel: viewModel)
+      TrainingDiaryScreen()
         .tabItem {
           Image(systemName: "house.fill")
           Text(L10n.statistic)
         }
+        .toolbarBackground(.visible, for: .tabBar)
+
     }
-    .toolbarBackground(.visible, for: .tabBar)
     .navigationBarBackButtonHidden()
     .tint(Asset.Color.beatzColor.swiftUIColor)
   }

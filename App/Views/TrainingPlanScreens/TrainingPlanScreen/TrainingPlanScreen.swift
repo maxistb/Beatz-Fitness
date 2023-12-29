@@ -37,9 +37,9 @@ struct TrainingPlanScreen: View {
     Section {
       ForEach(splits, id: \.self) { split in
         NavigationLink {
-          SplitDetailScreen()
+          SplitScreen(split: split)
         } label: {
-          Text("\(split.name) \(split.order)")
+          Text(split.name)
         }
         .modifier(SwipeAction(splits: splits, split: split, viewModel: viewModel))
       }

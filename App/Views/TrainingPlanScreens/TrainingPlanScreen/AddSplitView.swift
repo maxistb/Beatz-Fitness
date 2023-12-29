@@ -23,7 +23,7 @@ struct AddSplitView: View {
           HStack(alignment: .center, content: {
             Spacer()
             SaveButton(title: L10n.save) {
-              viewModel.createSplit(name: splitName, notes: "", splitLastDiaryEntry: nil, splitExercises: nil)
+              viewModel.createSplit(name: splitName, notes: "", splitLastDiaryEntry: nil, splitExercises: [])
               dismiss()
             }
             Spacer()

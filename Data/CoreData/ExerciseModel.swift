@@ -13,14 +13,35 @@ public class Exercise: NSManagedObject {
     return NSFetchRequest<Exercise>(entityName: "Exercise")
   }
 
-  @NSManaged public var id: UUID?
-  @NSManaged public var category: String?
-  @NSManaged public var name: String?
+  @NSManaged public var id: UUID
+  @NSManaged public var category: String
+  @NSManaged public var name: String
   @NSManaged public var countSets: Int16
-  @NSManaged public var notes: String?
-  @NSManaged public var exerciseSets: NSSet?
-  @NSManaged public var exerciseSplit: Split?
-  @NSManaged public var exerciseDiaryEntry: DiaryEntry?
+  @NSManaged public var order: Int16
+  @NSManaged public var notes: String
+  @NSManaged public var exerciseSets: [TrainingSet]
+  @NSManaged public var exerciseSplit: Split
+
+  class func createExercise(
+    name: String,
+    category: String,
+    countSets: Int,
+    notes: String,
+    order: Int,
+    exerciseSplit: Split
+  ) {
+    let newExercise = Exercise(context: CoreDataStack.shared.mainContext)
+    newExercise.id = UUID()
+    newExercise.name = name
+    newExercise.category = category
+    newExercise.countSets = Int16(countSets)
+    newExercise.order = Int16(order)
+    newExercise.notes = notes
+    newExercise.exerciseSets = []
+    newExercise.exerciseSplit = exerciseSplit
+
+    try? CoreDataStack.shared.mainContext.save()
+  }
 }
 
 // MARK: Generated accessors for exerciseSets

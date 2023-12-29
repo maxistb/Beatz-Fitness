@@ -15,16 +15,16 @@ public class Split: NSManagedObject {
 
   @NSManaged public var id: UUID
   @NSManaged public var name: String
-  @NSManaged public var notes: String?
+  @NSManaged public var notes: String
   @NSManaged public var splitLastDiaryEntry: DiaryEntry?
-  @NSManaged public var splitExercises: NSOrderedSet?
+  @NSManaged public var splitExercises: [Exercise]
   @NSManaged public var order: Int16
 
   class func createSplit(
     name: String,
-    notes: String?,
+    notes: String,
     splitLastDiaryEntry: DiaryEntry?,
-    splitExercises: NSOrderedSet?,
+    splitExercises: [Exercise],
     order: Int16
   ) {
     let newSplit = Split(context: CoreDataStack.shared.mainContext)
