@@ -33,8 +33,8 @@
 		7A5C506E2B3D895A00A4D551 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A5C506D2B3D895A00A4D551 /* Launch Screen.storyboard */; };
 		7A5C50702B3D8A1200A4D551 /* Beatz-Fitness-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5C506F2B3D8A1200A4D551 /* Beatz-Fitness-Info.plist */; };
 		7A5C50722B3D8BB100A4D551 /* SplitScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C50712B3D8BB100A4D551 /* SplitScreen.swift */; };
-		7A5C50742B3D94C200A4D551 /* AddUebungView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C50732B3D94C200A4D551 /* AddUebungView.swift */; };
-		7A5C50762B3D970E00A4D551 /* UebungViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C50752B3D970E00A4D551 /* UebungViewModel.swift */; };
+		7A5C50742B3D94C200A4D551 /* AddEditUebungView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C50732B3D94C200A4D551 /* AddEditUebungView.swift */; };
+		7A5C50762B3D970E00A4D551 /* SplitScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C50752B3D970E00A4D551 /* SplitScreenViewModel.swift */; };
 		7A7B763F2B3B221E007BDAFE /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 7A7B763E2B3B221E007BDAFE /* Styleguide */; };
 		7A9598482B3A0409004C3A4E /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 7A9598472B3A0409004C3A4E /* Styleguide */; };
 /* End PBXBuildFile section */
@@ -85,8 +85,8 @@
 		7A5C506D2B3D895A00A4D551 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		7A5C506F2B3D8A1200A4D551 /* Beatz-Fitness-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beatz-Fitness-Info.plist"; sourceTree = "<group>"; };
 		7A5C50712B3D8BB100A4D551 /* SplitScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitScreen.swift; sourceTree = "<group>"; };
-		7A5C50732B3D94C200A4D551 /* AddUebungView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUebungView.swift; sourceTree = "<group>"; };
-		7A5C50752B3D970E00A4D551 /* UebungViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UebungViewModel.swift; sourceTree = "<group>"; };
+		7A5C50732B3D94C200A4D551 /* AddEditUebungView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditUebungView.swift; sourceTree = "<group>"; };
+		7A5C50752B3D970E00A4D551 /* SplitScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitScreenViewModel.swift; sourceTree = "<group>"; };
 		7A5F48102B3AB755006375C0 /* .swiftformat */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; tabWidth = 1; };
 		7A5F48122B3AB87C006375C0 /* Project-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Base.xcconfig"; sourceTree = "<group>"; };
 		7A5F48132B3AB8F1006375C0 /* Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug.xcconfig"; sourceTree = "<group>"; };
@@ -226,8 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				7A5C50712B3D8BB100A4D551 /* SplitScreen.swift */,
-				7A5C50732B3D94C200A4D551 /* AddUebungView.swift */,
-				7A5C50752B3D970E00A4D551 /* UebungViewModel.swift */,
+				7A5C50732B3D94C200A4D551 /* AddEditUebungView.swift */,
+				7A5C50752B3D970E00A4D551 /* SplitScreenViewModel.swift */,
 			);
 			path = SplitScreen;
 			sourceTree = "<group>";
@@ -247,8 +247,8 @@
 		7AB94A962B3865990043083F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7A5571B12B3C57CA00E61CE0 /* TrainingPlanScreens */,
 				7A5571832B3C0E2600E61CE0 /* TabView.swift */,
+				7A5571B12B3C57CA00E61CE0 /* TrainingPlanScreens */,
 				7A5571852B3C129C00E61CE0 /* SplitDetailScreen.swift */,
 				7A5571872B3C156C00E61CE0 /* TrainingDiaryScreen.swift */,
 			);
@@ -404,12 +404,12 @@
 				7A5571A32B3C1CBE00E61CE0 /* SplitModel.swift in Sources */,
 				7A55719C2B3C1CBE00E61CE0 /* TimerModel.swift in Sources */,
 				7A55718D2B3C1C2F00E61CE0 /* CoreDataModel.xcdatamodel in Sources */,
-				7A5C50762B3D970E00A4D551 /* UebungViewModel.swift in Sources */,
+				7A5C50762B3D970E00A4D551 /* SplitScreenViewModel.swift in Sources */,
 				7A5571B02B3C3BCA00E61CE0 /* Machines.swift in Sources */,
 				7A5571B52B3C5DDF00E61CE0 /* CoreDataStack.swift in Sources */,
 				7A5C50722B3D8BB100A4D551 /* SplitScreen.swift in Sources */,
 				7A5571862B3C129C00E61CE0 /* SplitDetailScreen.swift in Sources */,
-				7A5C50742B3D94C200A4D551 /* AddUebungView.swift in Sources */,
+				7A5C50742B3D94C200A4D551 /* AddEditUebungView.swift in Sources */,
 				7A5571B72B3C605D00E61CE0 /* SplitViewModel.swift in Sources */,
 				7A5571842B3C0E2600E61CE0 /* TabView.swift in Sources */,
 				7A55719D2B3C1CBE00E61CE0 /* DiaryEntryModel.swift in Sources */,

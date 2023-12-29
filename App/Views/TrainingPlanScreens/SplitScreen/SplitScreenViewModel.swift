@@ -6,7 +6,7 @@
 import Foundation
 import SwiftUI
 
-class UebungViewModel: ObservableObject {
+class SplitScreenViewModel: ObservableObject {
   func createUebungForSplit(name: String, category: String, countSets: Int, notes: String, split: Split) {
     let newOrder = split.splitExercises.count
     Exercise.createExercise(name: name, category: category, countSets: countSets, notes: notes, order: newOrder, exerciseSplit: split)

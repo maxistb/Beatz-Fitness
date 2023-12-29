@@ -11,7 +11,7 @@ struct SplitScreen: View {
     entity: Exercise.entity(),
     sortDescriptors: [NSSortDescriptor(keyPath: \Exercise.order, ascending: true)]
   ) var exercises: FetchedResults<Exercise>
-  @ObservedObject private var viewModel = UebungViewModel()
+  @ObservedObject private var viewModel = SplitScreenViewModel()
 
   @State private var showAddUebungSheet = false
   @State private var showMachinesBeatzSheet = false
@@ -28,7 +28,7 @@ struct SplitScreen: View {
 
       Section("Übungen") {
         ForEach(exercises.filter { $0.exerciseSplit == split }, id: \.self) { exercise in
-          NavigationLink { SplitDetailScreen() }
+          NavigationLink { AddEditUebungView(split: split, viewModel: viewModel, exercise: exercise) }
             label: { createExerciseLabel(exercise: exercise) }
         }
         .onDelete { indexSet in viewModel.deleteExercise(exercises: exercises, indicesToDelete: indexSet) }
@@ -37,7 +37,7 @@ struct SplitScreen: View {
     }
     .navigationTitle(split.name)
     .toolbar { createToolbar() }
-    .sheet(isPresented: $showAddUebungSheet) { AddUebungView(split: split, viewModel: viewModel) }
+    .sheet(isPresented: $showAddUebungSheet) { AddEditUebungView(split: split, viewModel: viewModel) }
   }
 
   @ToolbarContentBuilder
@@ -72,7 +72,7 @@ struct SplitScreen: View {
 
   private func createExerciseLabel(exercise: Exercise) -> some View {
     VStack(alignment: .leading, spacing: 8) {
-      Text("\(exercise.order) \(exercise.name)")
+      Text(exercise.name)
         .font(.headline)
 
       Text("\(exercise.countSets) \(exercise.countSets == 1 ? "Satz" : "Sätze")")
