@@ -37,7 +37,7 @@ struct TrainingPlanScreen: View {
     Section {
       ForEach(splits, id: \.self) { split in
         NavigationLink {
-          SplitScreen(split: split)
+          ExercisesScreen(split: split)
         } label: {
           Text(split.name)
         }

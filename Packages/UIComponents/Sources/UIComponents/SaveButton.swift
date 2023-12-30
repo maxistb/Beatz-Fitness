@@ -7,6 +7,7 @@ import Styleguide
 import SwiftUI
 
 public struct SaveButton: View {
+  @State private var isClicked = false
   private let action: () -> Void
   private let title: String
 
@@ -18,13 +19,14 @@ public struct SaveButton: View {
   public var body: some View {
     Button {
       action()
+      isClicked = true
     } label: {
       Text(title)
     }
     .font(.headline)
     .foregroundColor(.white)
     .frame(width: 200, height: 50)
-    .background(Asset.Color.beatzColor.swiftUIColor)
+    .background(isClicked ? Color.blue : Asset.Color.beatzColor.swiftUIColor)
     .cornerRadius(15.0)
   }
 }

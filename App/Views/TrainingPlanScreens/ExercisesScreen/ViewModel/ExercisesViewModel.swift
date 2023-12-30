@@ -6,7 +6,7 @@
 import Foundation
 import SwiftUI
 
-class SplitScreenViewModel: ObservableObject {
+class ExercisesViewModel: ObservableObject {
   func createUebungForSplit(name: String, category: String, countSets: Int, notes: String, split: Split) {
     let newOrder = split.splitExercises.count
     Exercise.createExercise(name: name, category: category, countSets: countSets, notes: notes, order: newOrder, exerciseSplit: split)
@@ -33,14 +33,4 @@ class SplitScreenViewModel: ObservableObject {
     }
     try? CoreDataStack.shared.mainContext.save()
   }
-}
-
-public enum ExerciseCategory {
-  case weightlifting
-  case staticexercise
-  case bodyweight
-  case supported
-  case repsonly
-  case time
-  case cardio
 }

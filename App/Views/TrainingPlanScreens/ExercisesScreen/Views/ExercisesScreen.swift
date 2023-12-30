@@ -6,12 +6,12 @@
 import Styleguide
 import SwiftUI
 
-struct SplitScreen: View {
+struct ExercisesScreen: View {
   @FetchRequest(
     entity: Exercise.entity(),
     sortDescriptors: [NSSortDescriptor(keyPath: \Exercise.order, ascending: true)]
   ) var exercises: FetchedResults<Exercise>
-  @ObservedObject private var viewModel = SplitScreenViewModel()
+  @ObservedObject private var viewModel = ExercisesViewModel()
 
   @State private var showAddUebungSheet = false
   @State private var showMachinesBeatzSheet = false
@@ -38,6 +38,7 @@ struct SplitScreen: View {
     .navigationTitle(split.name)
     .toolbar { createToolbar() }
     .sheet(isPresented: $showAddUebungSheet) { AddEditUebungView(split: split, viewModel: viewModel) }
+    .sheet(isPresented: $showMachinesBeatzSheet) { BeatzExercisesView(split: split, viewModel: viewModel) }
   }
 
   @ToolbarContentBuilder

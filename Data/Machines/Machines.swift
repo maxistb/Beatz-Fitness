@@ -6,6 +6,7 @@
 // swiftlint:disable line_length cyclomatic_complexity
 
 import Foundation
+import SwiftUI
 
 enum Machines: String {
   case abduktormaschine
@@ -38,7 +39,7 @@ enum Machines: String {
     .reverseButterfly, .rudern,
     .seithebenmaschine,
     .tBar,
-    .wadenmaschine
+    .wadenmaschine,
   ]
 
   func getURLForCase() -> String {
@@ -124,6 +125,13 @@ enum Machines: String {
       "T-Bar"
     case .wadenmaschine:
       "Wadenmaschine"
+    }
+  }
+
+  func getMachineCategory() -> String {
+    switch self {
+    default:
+      "weightlifting"
     }
   }
 }

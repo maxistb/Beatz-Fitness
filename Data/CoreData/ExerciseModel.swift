@@ -19,6 +19,7 @@ public class Exercise: NSManagedObject {
   @NSManaged public var countSets: Int16
   @NSManaged public var order: Int16
   @NSManaged public var notes: String
+  @NSManaged public var imageURL: String?
   @NSManaged public var exerciseSets: [TrainingSet]
   @NSManaged public var exerciseSplit: Split
 
