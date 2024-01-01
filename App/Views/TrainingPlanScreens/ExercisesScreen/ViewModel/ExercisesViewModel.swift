@@ -6,7 +6,11 @@
 import Foundation
 import SwiftUI
 
-class ExercisesViewModel: ObservableObject {
+final class ExercisesViewModel: ObservableObject {
+  static let shared = ExercisesViewModel()
+
+  private init() {}
+
   func createUebungForSplit(name: String, category: String, countSets: Int, notes: String, split: Split) {
     let newOrder = split.splitExercises.count
     Exercise.createExercise(name: name, category: category, countSets: countSets, notes: notes, order: newOrder, exerciseSplit: split)

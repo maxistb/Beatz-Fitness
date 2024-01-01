@@ -11,7 +11,6 @@ struct ExercisesScreen: View {
     entity: Exercise.entity(),
     sortDescriptors: [NSSortDescriptor(keyPath: \Exercise.order, ascending: true)]
   ) var exercises: FetchedResults<Exercise>
-  @ObservedObject private var viewModel = ExercisesViewModel()
 
   @State private var showAddUebungSheet = false
   @State private var showMachinesBeatzSheet = false
@@ -21,24 +20,24 @@ struct ExercisesScreen: View {
   var body: some View {
     Form {
       Section {
-        NavigationLink("Training starten", destination: SplitDetailScreen())
+        NavigationLink("Training starten", destination: TrainingScreen(split: split))
           .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
         notesTextField()
       }
 
       Section("Übungen") {
         ForEach(exercises.filter { $0.exerciseSplit == split }, id: \.self) { exercise in
-          NavigationLink { AddEditUebungView(split: split, viewModel: viewModel, exercise: exercise) }
+          NavigationLink { AddEditUebungView(split: split, exercise: exercise) }
             label: { createExerciseLabel(exercise: exercise) }
         }
-        .onDelete { indexSet in viewModel.deleteExercise(exercises: exercises, indicesToDelete: indexSet) }
-        .onMove { indices, newOffset in viewModel.moveExercise(exercises: exercises, oldIndices: indices, newIndex: newOffset) }
+        .onDelete { indexSet in ExercisesViewModel.shared.deleteExercise(exercises: exercises, indicesToDelete: indexSet) }
+        .onMove { indices, newOffset in ExercisesViewModel.shared.moveExercise(exercises: exercises, oldIndices: indices, newIndex: newOffset) }
       }
     }
     .navigationTitle(split.name)
     .toolbar { createToolbar() }
-    .sheet(isPresented: $showAddUebungSheet) { AddEditUebungView(split: split, viewModel: viewModel) }
-    .sheet(isPresented: $showMachinesBeatzSheet) { BeatzExercisesView(split: split, viewModel: viewModel) }
+    .sheet(isPresented: $showAddUebungSheet) { AddEditUebungView(split: split) }
+    .sheet(isPresented: $showMachinesBeatzSheet) { BeatzExercisesView(split: split) }
   }
 
   @ToolbarContentBuilder
@@ -77,7 +76,7 @@ struct ExercisesScreen: View {
         .font(.headline)
 
       Text("\(exercise.countSets) \(exercise.countSets == 1 ? "Satz" : "Sätze")")
-        .foregroundColor(.gray)
+        .foregroundStyle(.gray)
 
       TextField("Notizen", text: Binding(
         get: { exercise.notes },
@@ -86,7 +85,7 @@ struct ExercisesScreen: View {
           try? CoreDataStack.shared.mainContext.save()
         }
       ))
-      .foregroundColor(.secondary)
+      .foregroundStyle(.secondary)
     }
   }
 }

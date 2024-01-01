@@ -24,6 +24,9 @@ public typealias AssetColorTypeAlias = ColorAsset.Color
 public enum Asset {
   public enum Color {
     public static let beatzColor = ColorAsset(name: "beatzColor")
+    public static let timerButtonCancel = ColorAsset(name: "timerButtonCancel")
+    public static let timerButtonPause = ColorAsset(name: "timerButtonPause")
+    public static let timerButtonStart = ColorAsset(name: "timerButtonStart")
   }
   public enum Media {
   }

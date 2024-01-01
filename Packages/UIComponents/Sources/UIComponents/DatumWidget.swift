@@ -36,7 +36,7 @@ public struct DatumWidget: View {
       .cornerRadius(5, corners: [.topLeft, .topRight])
       .frame(width: 40, height: 25)
       .padding(.top, -5)
-      .foregroundColor(isLightMode ? .pink : Asset.Color.beatzColor.swiftUIColor)
+      .foregroundStyle(isLightMode ? .pink : Asset.Color.beatzColor.swiftUIColor)
   }
 
   private var bottomRectangle: some View {
@@ -44,7 +44,7 @@ public struct DatumWidget: View {
       .cornerRadius(5, corners: [.bottomRight, .bottomLeft])
       .frame(width: 40, height: 25)
       .offset(y: 10)
-      .foregroundColor(
+      .foregroundStyle(
         isLightMode ? Color(red: 241 / 255, green: 240 / 255, blue: 246 / 255)
           : Color(red: 43 / 255, green: 43 / 255, blue: 45 / 255))
   }
@@ -53,7 +53,7 @@ public struct DatumWidget: View {
     Text(dayName)
       .font(.custom("", size: 12))
       .fontWeight(.heavy)
-      .foregroundColor(.white)
+      .foregroundStyle(.white)
       .bold()
       .padding(.top, -15)
   }
@@ -61,7 +61,7 @@ public struct DatumWidget: View {
   private var dayOfMonthText: some View {
     Text("\(dayNumber)")
       .fontWeight(isLightMode ? .medium : .heavy)
-      .foregroundColor(isLightMode ? .black : .white)
+      .foregroundStyle(isLightMode ? .black : .white)
       .bold()
       .padding(.top, 20)
   }

@@ -36,10 +36,10 @@ extension CategorySelectionView {
     HStack {
       VStack(alignment: .leading) {
         Text(category.getHeader())
-          .foregroundColor(self.colorScheme == .dark ? .white : .black)
+          .foregroundStyle(self.colorScheme == .dark ? .white : .black)
         Text(category.getSubHeader())
           .font(.subheadline)
-          .foregroundColor(.secondary)
+          .foregroundStyle(.secondary)
       }
       Spacer()
       if self.currentClickedCategory == category {

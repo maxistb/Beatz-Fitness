@@ -24,7 +24,7 @@ public struct SaveButton: View {
       Text(title)
     }
     .font(.headline)
-    .foregroundColor(.white)
+    .foregroundStyle(.white)
     .frame(width: 200, height: 50)
     .background(isClicked ? Color.blue : Asset.Color.beatzColor.swiftUIColor)
     .cornerRadius(15.0)

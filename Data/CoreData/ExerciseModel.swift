@@ -37,9 +37,13 @@ public class Exercise: NSManagedObject {
     newExercise.category = category
     newExercise.countSets = Int16(countSets)
     newExercise.order = Int16(order)
-    newExercise.notes = notes
     newExercise.exerciseSets = []
+    newExercise.notes = notes
     newExercise.exerciseSplit = exerciseSplit
+
+//    for _ in 0..<countSets {
+//      TrainingSet.createTrainingSet(exercise: newExercise)
+//    }
 
     try? CoreDataStack.shared.mainContext.save()
   }

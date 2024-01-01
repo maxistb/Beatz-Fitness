@@ -18,13 +18,11 @@ struct AddEditUebungView: View {
   @State private var category: ExerciseCategory = .weightlifting
 
   let split: Split
-  let viewModel: ExercisesViewModel
   let exercise: FetchedResults<Exercise>.Element?
   private let isExerciseNil: Bool
 
-  init(split: Split, viewModel: ExercisesViewModel, exercise: FetchedResults<Exercise>.Element? = nil) {
+  init(split: Split, exercise: FetchedResults<Exercise>.Element? = nil) {
     self.split = split
-    self.viewModel = viewModel
     self.exercise = exercise
     self._exerciseName = State(initialValue: exercise?.name ?? "")
     self._exerciseNotes = State(initialValue: exercise?.notes ?? "")
@@ -76,10 +74,10 @@ struct AddEditUebungView: View {
       } label: {
         VStack(alignment: .leading) {
           Text(category.getCategoryHeader())
-            .foregroundColor(self.colorScheme == .dark ? .white : .black)
+            .foregroundStyle(self.colorScheme == .dark ? .white : .black)
           Text(category.getHeader())
             .font(.subheadline)
-            .foregroundColor(.secondary)
+            .foregroundStyle(.secondary)
         }
       }
     }
@@ -100,7 +98,7 @@ struct AddEditUebungView: View {
 extension AddEditUebungView {
   private func validateAndSave() {
     if !exerciseName.isEmpty {
-      viewModel.createUebungForSplit(
+      ExercisesViewModel.shared.createUebungForSplit(
         name: exerciseName,
         category: exerciseCategory,
         countSets: exerciseSets,

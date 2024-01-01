@@ -13,19 +13,41 @@ public class TrainingSet: NSManagedObject {
     return NSFetchRequest<TrainingSet>(entityName: "TrainingSet")
   }
 
-  @NSManaged public var date: Date?
-  @NSManaged public var id: UUID?
-  @NSManaged public var weight: Double
-  @NSManaged public var reps: Double
+  @NSManaged public var id: UUID
+  @NSManaged public var weight: String
+  @NSManaged public var reps: String
   @NSManaged public var isWarmup: Bool
-  @NSManaged public var isDropset: Double
-  @NSManaged public var category: String?
-  @NSManaged public var calories: Int16
-  @NSManaged public var minutes: Int16
-  @NSManaged public var seconds: Int16
-  @NSManaged public var notes: String?
-  @NSManaged public var distanceKM: Double
-  @NSManaged public var exerciseName: String?
-  @NSManaged public var setExercise: Exercise?
+  @NSManaged public var isDropset: Bool
+  @NSManaged public var category: String
+  @NSManaged public var calories: String
+  @NSManaged public var minutes: String
+  @NSManaged public var seconds: String
+  @NSManaged public var notes: String
+  @NSManaged public var distanceKM: String
+  @NSManaged public var setExercise: Exercise
   @NSManaged public var setDiaryEntry: DiaryEntry?
+
+  class func createTrainingSet(exercise: Exercise) -> TrainingSet {
+    let trainingSet = TrainingSet(context: CoreDataStack.shared.mainContext)
+    trainingSet.id = UUID()
+    trainingSet.weight = ""
+    trainingSet.reps = ""
+    trainingSet.isWarmup = false
+    trainingSet.isDropset = false
+    trainingSet.category = exercise.category
+    trainingSet.calories = ""
+    trainingSet.minutes = ""
+    trainingSet.seconds = ""
+    trainingSet.notes = ""
+    trainingSet.distanceKM = ""
+    trainingSet.setExercise = exercise
+    trainingSet.setDiaryEntry = nil
+
+    return trainingSet
+  }
+
+  class func deleteTrainingSet(trainingSet: TrainingSet) {
+    CoreDataStack.shared.mainContext.delete(trainingSet)
+    try? CoreDataStack.shared.mainContext.save()
+  }
 }
