@@ -31,10 +31,10 @@ struct BottomTabView: View {
         }
         .toolbarBackground(.visible, for: .tabBar)
 
-      TrainingDiaryScreen()
+      BeatzHomeScreen()
         .tabItem {
           Image(systemName: "house.fill")
-          Text(L10n.statistic)
+          Text(L10n.beatz)
         }
         .toolbarBackground(.visible, for: .tabBar)
 

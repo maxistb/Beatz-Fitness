@@ -144,11 +144,13 @@ private struct AddTimerSection: View {
     }
     .sheet(isPresented: $showAddTimerView) {
       AddTimerView(isPresented: $showAddTimerView, model: model)
-//        .modifier(AvailablePresentationMediumDragVisibleMod())
+        .presentationDetents([.medium, .large])
+        .presentationDragIndicator(.visible)
     }
     .sheet(isPresented: $showEditTimerView) {
       EditTimerView()
-//        .modifier(AvailablePresentationMediumDragVisibleMod())
+        .presentationDetents([.medium, .large])
+        .presentationDragIndicator(.visible)
     }
   }
 

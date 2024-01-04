@@ -11,14 +11,16 @@ struct TrainingScreen: View {
   @Environment(\.dismiss) var dismiss
   @ObservedObject private var timerViewModel = TimerViewModel()
 
+  let split: Split
+
   @State private var trainingNotes = ""
   @State private var bodyWeight = ""
-  @State private var showExitAlert = false
   @State private var showSwapExerciseSheet = false
   @State private var showExerciseBottomSheet = false
   @State private var showTimer = false
 
-  let split: Split
+  @State private var showAlert = false
+  @State private var alertCase: TrainingScreenAlerts = .saveTraining
 
   var body: some View {
     List {
@@ -59,7 +61,7 @@ struct TrainingScreen: View {
       Section {
         HStack {
           Spacer()
-          SaveButton(title: "Training abschließen") {}
+          SaveButton(title: "Training abschließen") { alertCase = .saveTraining ; showAlert = true }
           Spacer()
         }
       }
@@ -68,14 +70,14 @@ struct TrainingScreen: View {
     .navigationTitle(split.name)
     .navigationBarBackButtonHidden()
     .toolbar { createToolbar() }
-    .alert(isPresented: $showExitAlert) {
+    .alert(isPresented: $showAlert) {
       Alert(
-        title: Text("Möchtest du das Training abbrechen?"),
-        message: Text("Die Daten werden nicht gespeichert."),
+        title: Text(alertCase.getAlertTitle),
+        message: Text(alertCase.getAlertMessage),
         primaryButton: .cancel(Text("Abbrechen")),
         secondaryButton: .default(
           Text("OK"),
-          action: { dismiss() }))
+          action: { alertCase.action() }))
     }
     .sheet(isPresented: $showSwapExerciseSheet) { SwapExerciseView(split: split) }
     .sheet(isPresented: $showTimer) { TimerView(model: timerViewModel) }
@@ -84,7 +86,7 @@ struct TrainingScreen: View {
   @ToolbarContentBuilder
   private func createToolbar() -> some ToolbarContent {
     ToolbarItem(placement: .topBarLeading) {
-      Button { showExitAlert = true }
+      Button { showAlert = true; alertCase = .exitTraining }
         label: { Image(systemName: "rectangle.portrait.and.arrow.right") }
     }
 
@@ -111,7 +113,7 @@ struct TrainingScreen: View {
         })
 
         #warning("TODO: Implement func to save as Trainingplan")
-        Button(action: {}, label: {
+        Button(action: { alertCase = .saveAsTrainingplan ; showAlert = true }, label: {
           HStack {
             Text("Als Trainingsplan speichern")
             Spacer()

@@ -1,0 +1,40 @@
+{
+  "Trainers": [
+    {
+      "trainerName": "Vivi",
+      "trainerTaskDescription": "Training",
+      "imageURL": "https://lh3.googleusercontent.com/drive-viewer/AEYmBYQkg3JmuYsvK91q_r6lTXvtVJ4BQMgnAKHFhetSy_TYt0AitnwyDlfqT5SkG59g4mEOBEHlc76SnlVC4rBrsSvnTL-JFQ=s1600"
+    },
+    {
+      "trainerName": "Finja",
+      "trainerTaskDescription": "Personal Training",
+      "imageURL": "https://lh3.googleusercontent.com/drive-viewer/AEYmBYR3Yp8SBfJoe1OjFjIQXKRxBJXnEcxdLMKOqvCEUjL_XhDQ88wLqvMzyxnMcmjBZihcceReu6CmTBiAcal61jzIdDjcuA=s1600"
+    },
+    {
+      "trainerName": "Larissa",
+      "trainerTaskDescription": "Training",
+      "imageURL": "https://lh3.googleusercontent.com/drive-viewer/AEYmBYT633P2A7fS0ekqpA6sOA64hdvFj5G7RyRy9yvVa7mLwXFI9CCWvD1qLrJ06lG9ItgCTs3lYmcu2KZNTMGH6p6TuYpEyw=s1600"
+    },
+    {
+      "trainerName": "Birte",
+      "trainerTaskDescription": "Studioleitung",
+      "imageURL": "https://lh3.googleusercontent.com/drive-viewer/AEYmBYSlc3Le1JjxgIRqea4G-UqR4MsstkjeLETAiOy0DOnXY8nh_Pn6SnHzyy3RQk2K3uSjzB3H0-tixuXqLIxFaYQPAG9a1Q=s1600"
+    },
+    {
+      "trainerName": "Dome & Rike",
+      "trainerTaskDescription": "Inhaber des Beatz",
+      "imageURL": "https://lh3.googleusercontent.com/drive-viewer/AEYmBYTi0uRxRcnKSOUH_oa50qIq5BMT9S_sxtwcS4dN3nSbnwIAhAAsWlwsahfQzTMq1E4FwDlD2aP_V6XqVnTC6OgcW7PmWg=s1600"
+    },
+    {
+      "trainerName": "Ranjid",
+      "trainerTaskDescription": "Putzkraft",
+      "imageURL": "https://lh3.googleusercontent.com/drive-viewer/AEYmBYTi1exYEbZKAOE8uw9Tb0ecdDBcuolR23WH5gb0O1AOMMO6coHfza8K4mzp0QIQyl--GdKWz0jyQqeFv4InOJmDndrW6w=s1600"
+    },
+    {
+      "trainerName": "Anny",
+      "trainerTaskDescription": "",
+      "imageURL": "https://lh3.googleusercontent.com/drive-viewer/AEYmBYSnvDNjwBCgERQ4WABIbNpydTRnlFYcND4oqDKQLt1x9gudtl0Zf8N1So826HzPcwatclLxqL0PzNLFUML3d_DvKW6fJQ=s1600"
+    }
+  ]
+}
+
