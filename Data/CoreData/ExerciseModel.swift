@@ -2,7 +2,7 @@
 // Created by Maximillian Stabe on 27.12.23.
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
-//
+// swiftlint:disable function_parameter_count
 
 import CoreData
 import Foundation
@@ -41,10 +41,6 @@ public class Exercise: NSManagedObject {
     newExercise.notes = notes
     newExercise.exerciseSplit = exerciseSplit
 
-//    for _ in 0..<countSets {
-//      TrainingSet.createTrainingSet(exercise: newExercise)
-//    }
-
     try? CoreDataStack.shared.mainContext.save()
   }
 }
@@ -64,3 +60,5 @@ public extension Exercise {
   @objc(removeExerciseSets:)
   @NSManaged func removeFromExerciseSets(_ values: NSSet)
 }
+
+// swiftlint:enable function_parameter_count

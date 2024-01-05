@@ -3,8 +3,8 @@
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 
-import SwiftUI
 import NukeUI
+import SwiftUI
 
 public struct NavigationLinkWithImageAndText: View {
   private let imageURL: URL?

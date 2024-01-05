@@ -30,8 +30,12 @@ struct ExercisesScreen: View {
           NavigationLink { AddEditUebungView(split: split, exercise: exercise) }
             label: { createExerciseLabel(exercise: exercise) }
         }
-        .onDelete { indexSet in ExercisesViewModel.shared.deleteExercise(exercises: exercises, indicesToDelete: indexSet) }
-        .onMove { indices, newOffset in ExercisesViewModel.shared.moveExercise(exercises: exercises, oldIndices: indices, newIndex: newOffset) }
+        .onDelete { indexSet in
+          ExercisesViewModel.shared.deleteExercise(exercises: exercises, indicesToDelete: indexSet)
+        }
+        .onMove { indices, newOffset in
+          ExercisesViewModel.shared.moveExercise(exercises: exercises, oldIndices: indices, newIndex: newOffset)
+        }
       }
     }
     .navigationTitle(split.name)

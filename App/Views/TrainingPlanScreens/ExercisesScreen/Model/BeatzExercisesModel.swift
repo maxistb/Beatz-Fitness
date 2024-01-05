@@ -5,14 +5,6 @@
 
 import Foundation
 
-
-
-struct BeatzExerciseModel {
-  let name: String
-  let category: String
-  let imageURL: String
-}
-
 struct Machines: Codable {
   let machines: [Machine]
 
@@ -80,7 +72,9 @@ enum MachineCategory: String, Codable {
   }
 
   func getSectionsAndHeader() -> [([ExerciseCategory], String)] {
-    [(getWeightliftingSection(), "Krafttraining"), (getBodyweightSection(), "Eigengewicht"), (getCardioSection(), "Cardio")]
+    [(getWeightliftingSection(), "Krafttraining"),
+     (getBodyweightSection(), "Eigengewicht"),
+     (getCardioSection(), "Cardio")]
   }
 
   func getCategoryHeader() -> String {

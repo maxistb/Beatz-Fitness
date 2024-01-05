@@ -5,8 +5,6 @@
 
 import SwiftUI
 
-#warning("TODO: Move Exercise")
-
 struct SwapExerciseView: View {
   @Environment(\.dismiss) private var dismiss
   let split: Split
@@ -17,7 +15,6 @@ struct SwapExerciseView: View {
         ForEach(split.splitExercises, id: \.id) { exercise in
           Text(exercise.name)
         }
-        .onMove { _,_ in }
       }
       .environment(\.editMode, .constant(.active))
       .navigationBarTitle("Übungen neu anordnen")

@@ -77,7 +77,12 @@ private struct SelectBeatzExercisesView: View {
   private func addExercisesToSplit() {
     for machine in selectedMachines {
       ExercisesViewModel.shared
-        .createUebungForSplit(name: machine.displayName, category: machine.category.rawValue, countSets: 3, notes: "", split: split)
+        .createUebungForSplit(
+          name: machine.displayName,
+          category: machine.category.rawValue,
+          countSets: 3,
+          notes: "",
+          split: split)
     }
   }
 

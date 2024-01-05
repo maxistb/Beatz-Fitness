@@ -5,6 +5,4 @@
 
 import Foundation
 
-class TrainingViewModel: ObservableObject {
-  
-}
+class TrainingViewModel: ObservableObject {}

@@ -46,13 +46,20 @@ struct CancelButtonStyle: ButtonStyle {
   func makeBody(configuration: Configuration) -> some View {
     configuration.label
       .frame(width: 70, height: 70)
-      .foregroundStyle(isLightMode ? Asset.Color.timerButtonPause.swiftUIColor : Asset.Color.timerButtonCancel.swiftUIColor)
-      .background(isLightMode ? Asset.Color.timerButtonPause.swiftUIColor.opacity(0.3) : Asset.Color.timerButtonCancel.swiftUIColor.opacity(0.3))
+      .foregroundStyle(isLightMode ?
+        Asset.Color.timerButtonPause.swiftUIColor
+        : Asset.Color.timerButtonCancel.swiftUIColor)
+      .background(isLightMode
+        ? Asset.Color.timerButtonPause.swiftUIColor.opacity(0.3)
+        : Asset.Color.timerButtonCancel.swiftUIColor.opacity(0.3))
       .clipShape(Circle())
       .padding(.all, 3)
       .overlay(
         Circle()
-          .stroke(isLightMode ? Asset.Color.timerButtonPause.swiftUIColor.opacity(0.3) : Asset.Color.timerButtonCancel.swiftUIColor.opacity(0.3), lineWidth: 2)
+          .stroke(isLightMode
+            ? Asset.Color.timerButtonPause.swiftUIColor.opacity(0.3)
+            : Asset.Color.timerButtonCancel.swiftUIColor.opacity(0.3),
+            lineWidth: 2)
       )
   }
 }
