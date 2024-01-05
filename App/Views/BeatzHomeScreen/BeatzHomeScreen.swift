@@ -90,3 +90,5 @@ struct BeatzHomeScreen: View {
     }
   }
 }
+
+// swiftlint:enable line_length

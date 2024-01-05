@@ -50,7 +50,10 @@ struct AddEditUebungView: View {
         )
       }
       .navigationTitle(isExerciseNil ? "Übung hinzufügen" : "Übung bearbeiten")
-      .onChange(of: self.exerciseCategory) { _ in self.category = getExerciseCategoryForString(exerciseCategory: exerciseCategory) }
+      .onChange(of: self.exerciseCategory) { _ in
+        self.category = getExerciseCategoryForString(
+          exerciseCategory: exerciseCategory)
+      }
       .onAppear { self.category = getExerciseCategoryForString(exerciseCategory: exerciseCategory) }
     }
   }

@@ -1,0 +1,104 @@
+{
+  "courses": {
+    "Monday": [
+      {
+        "name": "Functional Fitness",
+        "time": "9 - 10 Uhr",
+        "trainer": "mit Dome"
+      },
+      {
+        "name": "Rückenfit",
+        "time": "10 - 11 Uhr",
+        "trainer": "mit Larissa"
+      },
+      {
+        "name": "Jumping",
+        "time": "18 - 19 Uhr mit Anmeldung",
+        "trainer": "mit Birte"
+      },
+      {
+        "name": "Body Complete",
+        "time": "19 - 20 Uhr",
+        "trainer": "mit Birte"
+      }
+    ],
+    "Tuesday": [
+      {
+        "name": "Yoga",
+        "time": "10 - 11 Uhr",
+        "trainer": "mit Jelena"
+      },
+      {
+        "name": "Knock-Out",
+        "time": "18 - 19 Uhr",
+        "trainer": "mit Larissa"
+      },
+      {
+        "name": "Bauch, Beine & Po",
+        "time": "19 - 20 Uhr",
+        "trainer": "mit Larissa"
+      }
+    ],
+    "Wednesday": [
+      {
+        "name": "Mama Kurs",
+        "time": "10 - 11 Uhr ab einer Anmeldung von 10 Personen mit Kind",
+        "trainer": "mit Larissa"
+      },
+      {
+        "name": "Zumba",
+        "time": "18 - 19 Uhr",
+        "trainer": "mit Birte"
+      },
+      {
+        "name": "Bauch Intensiv",
+        "time": "19 - 19:30 Uhr",
+        "trainer": "mit Dome"
+      }
+    ],
+    "Thursday": [
+      {
+        "name": "Zumba",
+        "time": "9:30 - 10:30 Uhr",
+        "trainer": "mit Birte"
+      },
+      {
+        "name": "Rückenexpress",
+        "time": "10:30 - 11 Uhr",
+        "trainer": "mit Birte"
+      },
+      {
+        "name": "Hit am Cage",
+        "time": "18 - 18:30 Uhr",
+        "trainer": "mit Larissa"
+      },
+      {
+        "name": "Yoga",
+        "time": "18 - 19 Uhr",
+        "trainer": "mit Jelena"
+      },
+      {
+        "name": "Piloxing",
+        "time": "19 - 20 Uhr",
+        "trainer": "mit Larissa"
+      }
+    ],
+    "Friday": [
+      {
+        "name": "Body Complete",
+        "time": "19 - 20 Uhr",
+        "trainer": "mit Birte"
+      },
+      {
+        "name": "Functional Fitness",
+        "time": "10 - 11 Uhr",
+        "trainer": "mit Dome"
+      },
+      {
+        "name": "Jumping",
+        "time": "18 - 19 Uhr mit Anmeldung",
+        "trainer": "mit Birte"
+      }
+    ]
+  }
+}

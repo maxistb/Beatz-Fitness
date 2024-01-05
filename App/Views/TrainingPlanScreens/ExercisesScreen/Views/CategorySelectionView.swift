@@ -14,7 +14,10 @@ struct CategorySelectionView: View {
 
   init(exerciseCategory: Binding<String>) {
     self._exerciseCategory = exerciseCategory
-    self._currentClickedCategory = State(initialValue: getExerciseCategoryForString(exerciseCategory: exerciseCategory.wrappedValue))
+    self._currentClickedCategory = State(
+      initialValue: getExerciseCategoryForString(
+        exerciseCategory: exerciseCategory.wrappedValue)
+    )
   }
 
   var body: some View {

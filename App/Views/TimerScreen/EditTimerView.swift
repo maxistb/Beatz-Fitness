@@ -9,7 +9,7 @@ import SwiftUI
 struct EditTimerView: View {
   @State private var editMode: EditMode = .active
   @Environment(\.dismiss) private var dismiss
-    
+
   @FetchRequest(
     entity: TimerEntity.entity(),
     sortDescriptors: [
@@ -25,7 +25,7 @@ struct EditTimerView: View {
         ForEach(timers.indices, id: \.self) { index in
           let timer = timers[index]
           let formattedTimer = String(format: "%02d:%02d", timer.minutes, timer.seconds)
-                    
+
           Text(formattedTimer)
         }
         .onDelete(perform: deleteTimers)
@@ -35,19 +35,19 @@ struct EditTimerView: View {
       .environment(\.editMode, $editMode)
     }
   }
-    
+
   private var doneButton: some View {
     Button("Fertig", action: {
       dismiss.callAsFunction()
     })
   }
-    
+
   private func deleteTimers(at offsets: IndexSet) {
     offsets.forEach { index in
       let timer = timers[index]
       CoreDataStack.shared.mainContext.delete(timer)
     }
-        
+
     try? CoreDataStack.shared.mainContext.save()
   }
 }

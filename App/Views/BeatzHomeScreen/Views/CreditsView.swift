@@ -56,33 +56,35 @@ private struct CreditsDetailView: View {
           .foregroundColor(.secondary)
 
         if creditPerson.hasWebsite {
-          Button(action: {
-            UIApplication.shared.open(URL(string: creditPerson.websiteLink)!)
-          }) {
-            Text(creditPerson.buttonTitle)
-              .font(.headline)
-              .foregroundColor(Asset.Color.beatzColor.swiftUIColor)
-              .frame(height: 50)
-              .frame(maxWidth: .infinity)
-              .background(colorScheme == .dark ?
-                Color(red: 26/255, green: 27/255, blue: 28/255) :
-                Color(red: 240/255, green: 240/255, blue: 245/255))
-              .cornerRadius(15.0)
-          }
-          .padding()
-          .frame(maxWidth: .infinity)
+          Button { UIApplication.shared.open(URL(string: creditPerson.websiteLink)!) }
+            label: {
+              Text(creditPerson.buttonTitle)
+                .font(.headline)
+                .foregroundColor(Asset.Color.beatzColor.swiftUIColor)
+                .frame(height: 50)
+                .frame(maxWidth: .infinity)
+                .background(colorScheme == .dark ?
+                  Asset.Color.darkSecondary.swiftUIColor :
+                  Asset.Color.lightSecondary.swiftUIColor)
+                .cornerRadius(15.0)
+            }
+            .padding()
+            .frame(maxWidth: .infinity)
         }
 
-//        Text(try? AttributedString(markdown: infoText))
-//          .padding()
-//          .background(
-//            RoundedRectangle(cornerRadius: 10)
-//              .padding(.horizontal)
-//              .foregroundColor(
-//                colorScheme == .dark ?
-//                  Color(red: 26/255, green: 27/255, blue: 28/255) :
-//                  Color(red: 240/255, green: 240/255, blue: 245/255)))
-//          .multilineTextAlignment(.leading)
+        Text(creditPerson.infoText)
+          .padding(.vertical, 10)
+          .padding(.horizontal, 25)
+          .multilineTextAlignment(.leading)
+          .background(
+            RoundedRectangle(cornerRadius: 10)
+              .padding(.horizontal)
+              .foregroundColor(
+                colorScheme == .dark ?
+                  Asset.Color.darkSecondary.swiftUIColor :
+                  Asset.Color.lightSecondary.swiftUIColor
+              )
+          )
       }
     }
   }

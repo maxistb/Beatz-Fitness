@@ -68,7 +68,11 @@ private struct SelectBeatzExercisesView: View {
     List {
       Section("Übungen") {
         ForEach(machines, id: \.rawValue) { machine in
-          ExerciseRow(selectedMachines: $selectedMachines, machine: machine, isSelectMachinesView: isSelectMachinesView, action: action)
+          ExerciseRow(
+            selectedMachines: $selectedMachines,
+            machine: machine,
+            isSelectMachinesView: isSelectMachinesView,
+            action: action)
         }
       }
     }
@@ -149,8 +153,8 @@ private struct ExerciseRow: View {
 
   private func selectMachine() {
     isSelected.toggle()
-    if isSelected { selectedMachines.insert(machine) }
-    else { selectedMachines.remove(machine) }
+    if isSelected { selectedMachines.insert(machine) } else { selectedMachines.remove(machine)
+    }
   }
 }
 
