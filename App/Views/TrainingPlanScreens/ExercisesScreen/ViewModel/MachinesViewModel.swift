@@ -5,17 +5,17 @@
 
 import Foundation
 
-class CoursesViewModel: ObservableObject {
-  @Published var courses: Courses?
+class MachinesViewModel: ObservableObject {
+  @Published var machines: Machines?
 
-  let url = Bundle.main.url(forResource: "Courses", withExtension: "json")!
+  let url = Bundle.main.url(forResource: "Machines", withExtension: "json")!
 
-  func getCourses() async throws -> Courses {
+  func getMachines() async throws -> Machines {
     do {
       let (data, _) = try await URLSession.shared.data(from: url)
 
-      let courses = try JSONDecoder().decode(Courses.self, from: data)
-      return courses
+      let machines = try JSONDecoder().decode(Machines.self, from: data)
+      return machines
     } catch {
       print("DEBUG: Error fetching data - \(error.localizedDescription)")
       throw error

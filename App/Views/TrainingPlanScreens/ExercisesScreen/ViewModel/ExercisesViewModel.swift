@@ -13,7 +13,13 @@ final class ExercisesViewModel: ObservableObject {
 
   func createUebungForSplit(name: String, category: String, countSets: Int, notes: String, split: Split) {
     let newOrder = split.splitExercises.count
-    Exercise.createExercise(name: name, category: category, countSets: countSets, notes: notes, order: newOrder, exerciseSplit: split)
+    Exercise.createExercise(
+      name: name,
+      category: category,
+      countSets: countSets,
+      notes: notes,
+      order: newOrder,
+      exerciseSplit: split)
   }
 
   func deleteExercise(exercises: FetchedResults<Exercise>, indicesToDelete: IndexSet) {

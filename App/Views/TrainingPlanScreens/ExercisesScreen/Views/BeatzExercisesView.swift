@@ -7,6 +7,7 @@ import NukeUI
 import SwiftUI
 
 struct BeatzExercisesView: View {
+  @ObservedObject private var viewModel = MachinesViewModel()
   let split: Split
   let action: (() -> Void)?
   private let isSelectMachinesView: Bool
@@ -14,7 +15,7 @@ struct BeatzExercisesView: View {
   init(split: Split, action: (() -> Void)? = nil) {
     self.split = split
     self.action = action
-    if let action = self.action {
+    if self.action != nil {
       self.isSelectMachinesView = false
     } else {
       self.isSelectMachinesView = true
@@ -23,28 +24,21 @@ struct BeatzExercisesView: View {
 
   var body: some View {
     NavigationStack {
-      List(getMachinesAndMuscleGroups(), id: \.1) { machines, muscleGroup in
-        NavigationLink(
-          muscleGroup,
-          destination: SelectBeatzExercisesView(
-            machines: machines,
-            header: muscleGroup,
-            split: split,
-            isSelectMachinesView: isSelectMachinesView, action: action))
+      List(MachineMuscleGroup.allCases, id: \.hashValue) { muscleGroup in
+        if let machines = viewModel.machines?.machines {
+          NavigationLink(
+            muscleGroup.getName(),
+            destination: SelectBeatzExercisesView(
+              machines: machines.filter { $0.muscleGroup == muscleGroup },
+              header: muscleGroup.getName(),
+              split: split,
+              isSelectMachinesView: isSelectMachinesView, action: action))
+        }
       }
-      .navigationTitle(isSelectMachinesView ? "Übung ersetzen" : "Übungen")
+      .navigationTitle(isSelectMachinesView ? "Übungen" : "Übung ersetzen")
       .toolbar { createToolbar() }
+      .task { viewModel.machines = try? await viewModel.getMachines() }
     }
-  }
-
-  private func getMachinesAndMuscleGroups() -> [([Machines], String)] {
-    return [
-      ([.abduktormaschine, .adduktormaschine, .beinpressmaschine, .beinpressePlateloaded, .beinstreckerNeu,
-        .kickbackmaschine, .wadenmaschine], "Beine"),
-      ([.bankdrueckmaschine, .brustpresse, .butterfly], "Brust"),
-      ([.dipmaschine], "Trizeps"),
-      ([.highrow, .klimmzugmaschine, .latzugBasic, .latzugmaschine, .rudern, .tBar], "Rücken")
-    ]
   }
 
   @ToolbarContentBuilder
@@ -57,8 +51,8 @@ struct BeatzExercisesView: View {
 
 private struct SelectBeatzExercisesView: View {
   @Environment(\.dismiss) var dismiss
-  @State private var selectedMachines: Set<Machines> = []
-  let machines: [Machines]
+  @State private var selectedMachines: Set<Machine> = []
+  let machines: [Machine]
   let header: String
   let split: Split
   let isSelectMachinesView: Bool
@@ -67,7 +61,7 @@ private struct SelectBeatzExercisesView: View {
   var body: some View {
     List {
       Section("Übungen") {
-        ForEach(machines, id: \.rawValue) { machine in
+        ForEach(machines, id: \.hashValue) { machine in
           ExerciseRow(
             selectedMachines: $selectedMachines,
             machine: machine,
@@ -83,7 +77,7 @@ private struct SelectBeatzExercisesView: View {
   private func addExercisesToSplit() {
     for machine in selectedMachines {
       ExercisesViewModel.shared
-        .createUebungForSplit(name: machine.getMachineName(), category: machine.getMachineCategory(), countSets: 3, notes: "", split: split)
+        .createUebungForSplit(name: machine.displayName, category: machine.category.rawValue, countSets: 3, notes: "", split: split)
     }
   }
 
@@ -102,9 +96,9 @@ private struct ExerciseRow: View {
   @Environment(\.dismiss) private var dismiss
 
   @State private var isSelected: Bool = false
-  @Binding var selectedMachines: Set<Machines>
+  @Binding var selectedMachines: Set<Machine>
 
-  let machine: Machines
+  let machine: Machine
   let isSelectMachinesView: Bool
   let action: (() -> Void)?
 
@@ -131,7 +125,7 @@ private struct ExerciseRow: View {
 
   @MainActor
   private var imageView: some View {
-    LazyImage(url: URL(string: machine.getURLForCase())) { state in
+    LazyImage(url: URL(string: machine.imageURL)) { state in
       if let image = state.image {
         image
           .resizable()
@@ -143,9 +137,9 @@ private struct ExerciseRow: View {
 
   private var machineNameView: some View {
     VStack(alignment: .leading) {
-      Text(machine.getMachineName())
+      Text(machine.displayName)
         .font(.headline)
-      Text(machine.getMachineCategory())
+      Text(machine.description)
         .font(.subheadline)
         .foregroundStyle(.secondary)
     }
@@ -153,7 +147,10 @@ private struct ExerciseRow: View {
 
   private func selectMachine() {
     isSelected.toggle()
-    if isSelected { selectedMachines.insert(machine) } else { selectedMachines.remove(machine)
+    if isSelected {
+      selectedMachines.insert(machine)
+    } else {
+      selectedMachines.remove(machine)
     }
   }
 }

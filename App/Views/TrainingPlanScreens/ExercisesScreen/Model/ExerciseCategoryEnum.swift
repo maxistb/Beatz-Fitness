@@ -51,7 +51,9 @@ enum ExerciseCategory: String {
   }
 
   func getSectionsAndHeader() -> [([ExerciseCategory], String)] {
-    [(getWeightliftingSection(), "Krafttraining"), (getBodyweightSection(), "Eigengewicht"), (getCardioSection(), "Cardio")]
+    [(getWeightliftingSection(), "Krafttraining"),
+     (getBodyweightSection(), "Eigengewicht"),
+     (getCardioSection(), "Cardio")]
   }
 
   func getCategoryHeader() -> String {

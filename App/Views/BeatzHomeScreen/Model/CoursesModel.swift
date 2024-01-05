@@ -5,11 +5,11 @@
 
 import Foundation
 
-struct Welcome: Codable {
-  let courses: Courses
+struct Courses: Codable {
+  let courses: CoursesDay
 }
 
-struct Courses: Codable {
+struct CoursesDay: Codable {
   let monday: [Course]
   let tuesday: [Course]
   let wednesday: [Course]

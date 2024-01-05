@@ -26,7 +26,6 @@
 		7A5571A82B3C384200E61CE0 /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 7A5571A72B3C384200E61CE0 /* NukeExtensions */; };
 		7A5571AA2B3C384200E61CE0 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7A5571A92B3C384200E61CE0 /* NukeUI */; };
 		7A5571AC2B3C384200E61CE0 /* NukeVideo in Frameworks */ = {isa = PBXBuildFile; productRef = 7A5571AB2B3C384200E61CE0 /* NukeVideo */; };
-		7A5571B02B3C3BCA00E61CE0 /* Machines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5571AF2B3C3BCA00E61CE0 /* Machines.swift */; };
 		7A5571B32B3C57F800E61CE0 /* AddSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5571B22B3C57F800E61CE0 /* AddSplitView.swift */; };
 		7A5571B52B3C5DDF00E61CE0 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5571B42B3C5DDF00E61CE0 /* CoreDataStack.swift */; };
 		7A5571B72B3C605D00E61CE0 /* SplitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5571B62B3C605D00E61CE0 /* SplitViewModel.swift */; };
@@ -58,6 +57,8 @@
 		7AE280DF2B45CAFA00DF3DC4 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE280DE2B45CAFA00DF3DC4 /* CreditsView.swift */; };
 		7AE280E12B47512600DF3DC4 /* Credits.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AE280E02B47512600DF3DC4 /* Credits.json */; };
 		7AE280E32B47530900DF3DC4 /* CreditsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE280E22B47530900DF3DC4 /* CreditsModel.swift */; };
+		7AE4ABC62B4851FA0015F41E /* Machines.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4ABC52B4851FA0015F41E /* Machines.json */; };
+		7AE4ABCA2B4865430015F41E /* MachinesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4ABC92B4865430015F41E /* MachinesViewModel.swift */; };
 		7AEB016E2B42E1C1003197FC /* SwapExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB016D2B42E1C1003197FC /* SwapExerciseView.swift */; };
 		7AEB01702B42EB2C003197FC /* TrainingBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB016F2B42EB2C003197FC /* TrainingBottomSheetView.swift */; };
 		7AEB01882B435624003197FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB01822B435624003197FC /* ContentView.swift */; };
@@ -108,7 +109,6 @@
 		7A5571932B3C1CBD00E61CE0 /* DiaryEntryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryEntryModel.swift; sourceTree = "<group>"; };
 		7A5571962B3C1CBD00E61CE0 /* ExerciseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
 		7A5571992B3C1CBE00E61CE0 /* SplitModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitModel.swift; sourceTree = "<group>"; };
-		7A5571AF2B3C3BCA00E61CE0 /* Machines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machines.swift; sourceTree = "<group>"; };
 		7A5571B22B3C57F800E61CE0 /* AddSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSplitView.swift; sourceTree = "<group>"; };
 		7A5571B42B3C5DDF00E61CE0 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		7A5571B62B3C605D00E61CE0 /* SplitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewModel.swift; sourceTree = "<group>"; };
@@ -142,6 +142,8 @@
 		7AE280DE2B45CAFA00DF3DC4 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		7AE280E02B47512600DF3DC4 /* Credits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Credits.json; sourceTree = "<group>"; };
 		7AE280E22B47530900DF3DC4 /* CreditsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsModel.swift; sourceTree = "<group>"; };
+		7AE4ABC52B4851FA0015F41E /* Machines.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Machines.json; sourceTree = "<group>"; };
+		7AE4ABC92B4865430015F41E /* MachinesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachinesViewModel.swift; sourceTree = "<group>"; };
 		7AEB016D2B42E1C1003197FC /* SwapExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapExerciseView.swift; sourceTree = "<group>"; };
 		7AEB016F2B42EB2C003197FC /* TrainingBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingBottomSheetView.swift; sourceTree = "<group>"; };
 		7AEB01822B435624003197FC /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -251,17 +253,8 @@
 			children = (
 				7A55718F2B3C1CB100E61CE0 /* CoreData */,
 				7AE280D92B45BFD300DF3DC4 /* JSON */,
-				7A5571AE2B3C3BA200E61CE0 /* Machines */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		7A5571AE2B3C3BA200E61CE0 /* Machines */ = {
-			isa = PBXGroup;
-			children = (
-				7A5571AF2B3C3BCA00E61CE0 /* Machines.swift */,
-			);
-			path = Machines;
 			sourceTree = "<group>";
 		};
 		7A5571B12B3C57CA00E61CE0 /* TrainingPlanScreens */ = {
@@ -372,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				7A5C50752B3D970E00A4D551 /* ExercisesViewModel.swift */,
+				7AE4ABC92B4865430015F41E /* MachinesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -416,6 +410,7 @@
 				7A7080FD2B47F5E00095C664 /* Courses.json */,
 				7AE280E02B47512600DF3DC4 /* Credits.json */,
 				7AE280D72B45BE5000DF3DC4 /* Trainers.json */,
+				7AE4ABC52B4851FA0015F41E /* Machines.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -517,6 +512,7 @@
 				7AE280D82B45BE5000DF3DC4 /* Trainers.json in Resources */,
 				7A7080FE2B47F5E00095C664 /* Courses.json in Resources */,
 				7AE280E12B47512600DF3DC4 /* Credits.json in Resources */,
+				7AE4ABC62B4851FA0015F41E /* Machines.json in Resources */,
 				7A5C506E2B3D895A00A4D551 /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,12 +603,12 @@
 				7A5C50762B3D970E00A4D551 /* ExercisesViewModel.swift in Sources */,
 				7A7081072B4808BC0095C664 /* CreditsViewModel.swift in Sources */,
 				7AE280E32B47530900DF3DC4 /* CreditsModel.swift in Sources */,
-				7A5571B02B3C3BCA00E61CE0 /* Machines.swift in Sources */,
 				7AEB016E2B42E1C1003197FC /* SwapExerciseView.swift in Sources */,
 				7AE280DD2B45CA0F00DF3DC4 /* LocationView.swift in Sources */,
 				7A5571B52B3C5DDF00E61CE0 /* CoreDataStack.swift in Sources */,
 				7AEB01882B435624003197FC /* ContentView.swift in Sources */,
 				7A5C50722B3D8BB100A4D551 /* ExercisesScreen.swift in Sources */,
+				7AE4ABCA2B4865430015F41E /* MachinesViewModel.swift in Sources */,
 				7AE280DF2B45CAFA00DF3DC4 /* CreditsView.swift in Sources */,
 				7A5571862B3C129C00E61CE0 /* SplitDetailScreen.swift in Sources */,
 				7A5C50742B3D94C200A4D551 /* AddEditUebungView.swift in Sources */,
