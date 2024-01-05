@@ -10,10 +10,10 @@ import SwiftUI
 
 struct CoursesView: View {
   @ObservedObject private var viewModel: CoursesViewModel = .init()
-  @State private var selectedDay: Days = .monday
+  @State private var selectedDayIndex = 0
   @State private var currentShownCourses: [Course]?
 
-  enum Days {
+  enum Days: Int {
     case monday
     case tuesday
     case wednesday
@@ -42,15 +42,15 @@ struct CoursesView: View {
         HStack(spacing: 20) {
           ForEach(getCourses(viewModel: viewModel), id: \.0) { day, courses in
             Button {
-              selectedDay = day
+              selectedDayIndex = day.rawValue
               currentShownCourses = courses
             } label: {
               Text(day.getName())
                 .font(.headline)
-                .foregroundColor(selectedDay == day ? .white : .gray)
+                .foregroundColor(selectedDayIndex == day.rawValue ? .white : .gray)
                 .padding(.vertical, 10)
                 .padding(.horizontal, 20)
-                .background(selectedDay == day ? Asset.Color.beatzColor.swiftUIColor : Color.clear)
+                .background(selectedDayIndex == day.rawValue ? Asset.Color.beatzColor.swiftUIColor : Color.clear)
                 .cornerRadius(20)
             }
           }
@@ -59,6 +59,22 @@ struct CoursesView: View {
       if let courses = currentShownCourses {
         List(courses, id: \.self) { course in
           createCourseCell(course: course)
+        }
+        .gesture(
+          DragGesture()
+            .onEnded { value in
+              withAnimation(.timingCurve(0.2, 0.2, 0.2, 0.2)) {
+                if value.translation.width < 0, selectedDayIndex < 4 {
+                  selectedDayIndex += 1
+                } else if value.translation.width > 0, selectedDayIndex > 0 {
+                  selectedDayIndex -= 1
+                }
+              }
+            })
+        .onChange(of: selectedDayIndex) { newIndex in
+          if let newCourses = getCourses(viewModel: viewModel)[newIndex].1 { // gets the courses at specified index
+            currentShownCourses = newCourses
+          }
         }
       }
     }
