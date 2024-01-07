@@ -8,7 +8,7 @@ import Foundation
 import SwiftUI
 
 class SplitViewModel: ObservableObject {
-  func createSplit(name: String, notes: String, splitLastDiaryEntry: DiaryEntry?, splitExercises: [Exercise]) {
+  func createSplit(name: String, notes: String, splitLastDiaryEntry: DiaryEntry?, splitExercises: Set<Exercise>) {
     let order = (try? CoreDataStack.shared.mainContext.fetch(Split.fetchRequest()).count) ?? 0
     Split.createSplit(
       name: name,

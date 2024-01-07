@@ -12,8 +12,11 @@ struct SwapExerciseView: View {
   var body: some View {
     NavigationStack {
       List {
-        ForEach(split.splitExercises, id: \.id) { exercise in
+        ForEach(Array(split.splitExercises), id: \.id) { exercise in
           Text(exercise.name)
+        }
+        .onMove { source, destination in
+          moveExercise(source: source, destination: destination)
         }
       }
       .environment(\.editMode, .constant(.active))
@@ -27,6 +30,6 @@ struct SwapExerciseView: View {
   }
 
   private func moveExercise(source: IndexSet, destination: Int) {
-    split.splitExercises.move(fromOffsets: source, toOffset: destination)
+//    split.splitExercises.move(fromOffsets: source, toOffset: destination)
   }
 }

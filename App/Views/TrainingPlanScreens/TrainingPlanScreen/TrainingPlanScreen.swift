@@ -21,7 +21,6 @@ struct TrainingPlanScreen: View {
     NavigationStack {
       Form {
         ownSplitSection
-        recommendedSection
       }
       .navigationTitle(L10n.trainingsplansHeader)
       .toolbar { toolbarContent }
@@ -41,7 +40,7 @@ struct TrainingPlanScreen: View {
         } label: {
           Text(split.name)
         }
-        .modifier(SwipeAction(splits: splits, split: split, viewModel: viewModel))
+        .modifier(SwipeActionWithAlert(splits: splits, split: split, viewModel: viewModel))
       }
       .onMove { indices, newOffset in
         viewModel.moveSplit(splits: splits, oldIndices: indices, newIndex: newOffset)
@@ -51,14 +50,6 @@ struct TrainingPlanScreen: View {
       }
     } header: {
       Text(L10n.ownSplits)
-    }
-  }
-
-  private var recommendedSection: some View {
-    Section {
-      NavigationLink("Push", destination: SplitDetailScreen())
-    } header: {
-      Text(L10n.recommendedPlans)
     }
   }
 
@@ -78,7 +69,7 @@ struct TrainingPlanScreen: View {
   }
 }
 
-private struct SwipeAction: ViewModifier {
+private struct SwipeActionWithAlert: ViewModifier {
   @State private var showingAlert = false
   let splits: FetchedResults<Split>
   let split: Split
@@ -98,6 +89,22 @@ private struct SwipeAction: ViewModifier {
         Button(L10n.delete) {
           viewModel.deleteSplit(splits: splits, indicesToDelete: IndexSet(integer: IndexSet.Element(split.order)))
         }
+      }
+  }
+}
+
+struct SwipeActionModifier: ViewModifier {
+  let action: ()
+
+  func body(content: Content) -> some View {
+    content
+      .swipeActions {
+        Button(action: {
+          action
+        }, label: {
+          Image(systemName: "trash")
+        })
+        .tint(.red)
       }
   }
 }

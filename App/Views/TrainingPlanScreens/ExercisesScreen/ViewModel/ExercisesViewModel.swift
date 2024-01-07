@@ -11,7 +11,7 @@ final class ExercisesViewModel: ObservableObject {
 
   private init() {}
 
-  func createUebungForSplit(name: String, category: String, countSets: Int, notes: String, split: Split) {
+  func createExerciseForSplit(name: String, category: String, countSets: Int, notes: String, split: Split) {
     let newOrder = split.splitExercises.count
     Exercise.createExercise(
       name: name,
@@ -22,7 +22,7 @@ final class ExercisesViewModel: ObservableObject {
       exerciseSplit: split)
   }
 
-  func deleteExercise(exercises: FetchedResults<Exercise>, indicesToDelete: IndexSet) {
+  func deleteExercise(exercises: Set<Exercise>, indicesToDelete: IndexSet) {
     for indexToDelete in indicesToDelete {
       for exercise in exercises {
         if exercise.order > indexToDelete {
@@ -35,8 +35,8 @@ final class ExercisesViewModel: ObservableObject {
     try? CoreDataStack.shared.mainContext.save()
   }
 
-  func moveExercise(exercises: FetchedResults<Exercise>, oldIndices: IndexSet, newIndex: Int) {
-    var exerciseArray = Array(exercises)
+  func moveExercise(exercises: Set<Exercise>, oldIndices: IndexSet, newIndex: Int) {
+    var exerciseArray = Array(exercises).sorted { $0.order < $1.order }
     exerciseArray.move(fromOffsets: oldIndices, toOffset: newIndex)
     for (index, exercise) in exerciseArray.enumerated() {
       exercise.order = Int16(index)

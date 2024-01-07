@@ -7,11 +7,6 @@ import Styleguide
 import SwiftUI
 
 struct ExercisesScreen: View {
-  @FetchRequest(
-    entity: Exercise.entity(),
-    sortDescriptors: [NSSortDescriptor(keyPath: \Exercise.order, ascending: true)]
-  ) var exercises: FetchedResults<Exercise>
-
   @State private var showAddUebungSheet = false
   @State private var showMachinesBeatzSheet = false
 
@@ -26,15 +21,18 @@ struct ExercisesScreen: View {
       }
 
       Section("Übungen") {
-        ForEach(exercises.filter { $0.exerciseSplit == split }, id: \.self) { exercise in
+        ForEach(split.splitExercises.sorted { $0.order < $1.order }, id: \.self) { exercise in
           NavigationLink { AddEditUebungView(split: split, exercise: exercise) }
             label: { createExerciseLabel(exercise: exercise) }
         }
         .onDelete { indexSet in
-          ExercisesViewModel.shared.deleteExercise(exercises: exercises, indicesToDelete: indexSet)
+          ExercisesViewModel.shared.deleteExercise(exercises: split.splitExercises, indicesToDelete: indexSet)
         }
         .onMove { indices, newOffset in
-          ExercisesViewModel.shared.moveExercise(exercises: exercises, oldIndices: indices, newIndex: newOffset)
+          ExercisesViewModel.shared.moveExercise(
+            exercises: split.splitExercises,
+            oldIndices: indices,
+            newIndex: newOffset)
         }
       }
     }

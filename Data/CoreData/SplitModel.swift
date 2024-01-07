@@ -1,5 +1,5 @@
 //
-// Created by Maximillian Stabe on 27.12.23.
+// Created by Maximillian Stabe on 06.01.24.
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 //
@@ -16,15 +16,15 @@ public class Split: NSManagedObject {
   @NSManaged public var id: UUID
   @NSManaged public var name: String
   @NSManaged public var notes: String
-  @NSManaged public var splitLastDiaryEntry: DiaryEntry?
-  @NSManaged public var splitExercises: [Exercise]
   @NSManaged public var order: Int16
+  @NSManaged public var splitExercises: Set<Exercise>
+  @NSManaged public var splitLastDiaryEntry: DiaryEntry?
 
   class func createSplit(
     name: String,
     notes: String,
     splitLastDiaryEntry: DiaryEntry?,
-    splitExercises: [Exercise],
+    splitExercises: Set<Exercise>,
     order: Int16
   ) {
     let newSplit = Split(context: CoreDataStack.shared.mainContext)
@@ -49,7 +49,7 @@ public extension Split {
   @NSManaged func removeFromSplitExercises(at idx: Int)
 
   @objc(insertSplitExercises:atIndexes:)
-  @NSManaged func insertIntoSplitExercises(_ values: [Exercise], at indexes: NSIndexSet)
+  @NSManaged func insertIntoSplitExercises(_ values: Set<Exercise>, at indexes: NSIndexSet)
 
   @objc(removeSplitExercisesAtIndexes:)
   @NSManaged func removeFromSplitExercises(at indexes: NSIndexSet)
@@ -58,7 +58,7 @@ public extension Split {
   @NSManaged func replaceSplitExercises(at idx: Int, with value: Exercise)
 
   @objc(replaceSplitExercisesAtIndexes:withSplitExercises:)
-  @NSManaged func replaceSplitExercises(at indexes: NSIndexSet, with values: [Exercise])
+  @NSManaged func replaceSplitExercises(at indexes: NSIndexSet, with values: Set<Exercise>)
 
   @objc(addSplitExercisesObject:)
   @NSManaged func addToSplitExercises(_ value: Exercise)

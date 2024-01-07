@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="DiaryEntry" representedClassName="DiaryEntry" syncable="YES">
-        <attribute name="bodyWeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="bodyWeight" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="duration" optional="YES" attributeType="String"/>
         <attribute name="endTraining" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
-        <relationship name="diaryExercises" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Exercise"/>
+        <relationship name="diaryExercises" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DiaryExercise" inverseName="diary" inverseEntity="DiaryExercise"/>
         <relationship name="diarySplit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Split" inverseName="splitLastDiaryEntry" inverseEntity="Split"/>
+    </entity>
+    <entity name="DiaryExercise" representedClassName="DiaryExercise" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <relationship name="diary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DiaryEntry" inverseName="diaryExercises" inverseEntity="DiaryEntry"/>
+        <relationship name="trainingSets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrainingSet" inverseName="diaryExercise" inverseEntity="TrainingSet"/>
     </entity>
     <entity name="Exercise" representedClassName="Exercise" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String"/>
@@ -18,7 +24,6 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="exerciseDiaryEntry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DiaryEntry"/>
         <relationship name="exerciseSets" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TrainingSet" inverseName="setExercise" inverseEntity="TrainingSet"/>
         <relationship name="exerciseSplit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Split" inverseName="splitExercises" inverseEntity="Split"/>
     </entity>
@@ -44,9 +49,11 @@
         <attribute name="isWarmup" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="minutes" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="reps" optional="YES" attributeType="String"/>
         <attribute name="seconds" optional="YES" attributeType="String"/>
         <attribute name="weight" optional="YES" attributeType="String"/>
+        <relationship name="diaryExercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DiaryExercise" inverseName="trainingSets" inverseEntity="DiaryExercise"/>
         <relationship name="setDiaryEntry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DiaryEntry"/>
         <relationship name="setExercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="exerciseSets" inverseEntity="Exercise"/>
     </entity>

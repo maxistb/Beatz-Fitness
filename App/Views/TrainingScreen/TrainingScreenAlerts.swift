@@ -3,15 +3,48 @@
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
 enum TrainingScreenAlerts {
-  case saveTraining
-  case exitTraining
+  case saveTraining(DismissAction, TrainingViewModel)
+  case exitTraining(DismissAction)
   case saveAsTrainingplan
   case notDecimalInput
 
-  var getAlertTitle: String {
+  var createAlert: Alert {
+    switch self {
+    case .saveTraining:
+      Alert(
+        title: Text(self.getAlertTitle),
+        message: Text(self.getAlertMessage),
+        dismissButton: .default(
+          Text("OK"),
+          action: { self.action() }))
+    case .exitTraining(let dismissAction):
+      Alert(
+        title: Text(self.getAlertTitle),
+        message: Text(self.getAlertMessage),
+        primaryButton: .cancel(Text("Abbrechen")),
+        secondaryButton: .default(
+          Text("OK"),
+          action: { self.action() }))
+    case .saveAsTrainingplan:
+      Alert(
+        title: Text(self.getAlertTitle),
+        message: Text(self.getAlertMessage),
+        primaryButton: .cancel(Text("Abbrechen")),
+        secondaryButton: .default(
+          Text("OK"),
+          action: { self.action() }))
+    case .notDecimalInput:
+      Alert(
+        title: Text(self.getAlertTitle),
+        message: Text(self.getAlertMessage),
+        dismissButton: .default(Text("OK")))
+    }
+  }
+
+  private var getAlertTitle: String {
     switch self {
     case .saveTraining:
       "Training abgeschlossen"
@@ -24,7 +57,7 @@ enum TrainingScreenAlerts {
     }
   }
 
-  var getAlertMessage: String {
+  private var getAlertMessage: String {
     switch self {
     case .saveTraining:
       "Das Training wurde erfolgreich gespeichert."
@@ -37,16 +70,17 @@ enum TrainingScreenAlerts {
     }
   }
 
-  var action: () -> Void {
+  private var action: () -> Void {
     switch self {
-    case .saveTraining:
-      {}
-    case .exitTraining:
-      {}
+    case .saveTraining(let dismissAction, let viewModel):
+        print(viewModel.bodyWeight)
+        return dismissAction.callAsFunction
+    case .exitTraining(let dismissAction):
+      return dismissAction.callAsFunction
     case .saveAsTrainingplan:
-      {}
+      return {}
     case .notDecimalInput:
-      {}
+      return {}
     }
   }
 }

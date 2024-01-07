@@ -1,8 +1,8 @@
 //
-// Created by Maximillian Stabe on 27.12.23.
+// Created by Maximillian Stabe on 06.01.24.
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
-// swiftlint:disable function_parameter_count
+//
 
 import CoreData
 import Foundation
@@ -13,14 +13,13 @@ public class Exercise: NSManagedObject {
     return NSFetchRequest<Exercise>(entityName: "Exercise")
   }
 
-  @NSManaged public var id: UUID
   @NSManaged public var category: String
-  @NSManaged public var name: String
   @NSManaged public var countSets: Int16
-  @NSManaged public var order: Int16
+  @NSManaged public var id: UUID
+  @NSManaged public var name: String
   @NSManaged public var notes: String
-  @NSManaged public var imageURL: String?
-  @NSManaged public var exerciseSets: [TrainingSet]
+  @NSManaged public var order: Int16
+  @NSManaged public var exerciseSets: Set<TrainingSet>
   @NSManaged public var exerciseSplit: Split
 
   class func createExercise(
@@ -37,12 +36,36 @@ public class Exercise: NSManagedObject {
     newExercise.category = category
     newExercise.countSets = Int16(countSets)
     newExercise.order = Int16(order)
-    newExercise.exerciseSets = []
     newExercise.notes = notes
     newExercise.exerciseSplit = exerciseSplit
 
     try? CoreDataStack.shared.mainContext.save()
   }
+
+  class func createExerciseForDiary(
+    name: String,
+    category: String,
+    countSets: Int16,
+    notes: String,
+    order: Int16,
+    exerciseSplit: Split,
+    exerciseSets: Set<TrainingSet>
+  ) -> Exercise {
+    let newExercise = Exercise(context: CoreDataStack.shared.mainContext)
+    newExercise.id = UUID()
+    newExercise.name = name
+    newExercise.category = category
+    newExercise.countSets = countSets
+    newExercise.order = order
+    newExercise.notes = notes
+    newExercise.exerciseSplit = exerciseSplit
+    newExercise.exerciseSets = exerciseSets
+
+    try? CoreDataStack.shared.mainContext.save()
+
+    return newExercise
+  }
+
 }
 
 // MARK: Generated accessors for exerciseSets
@@ -55,10 +78,8 @@ public extension Exercise {
   @NSManaged func removeFromExerciseSets(_ value: TrainingSet)
 
   @objc(addExerciseSets:)
-  @NSManaged func addToExerciseSets(_ values: NSSet)
+  @NSManaged func addToExerciseSets(_ values: Set<TrainingSet>)
 
   @objc(removeExerciseSets:)
-  @NSManaged func removeFromExerciseSets(_ values: NSSet)
+  @NSManaged func removeFromExerciseSets(_ values: Set<TrainingSet>)
 }
-
-// swiftlint:enable function_parameter_count

@@ -3,7 +3,7 @@
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 
-import NukeUI
+//import NukeUI
 import SwiftUI
 
 public struct NavigationLinkWithImageAndText: View {
@@ -21,15 +21,15 @@ public struct NavigationLinkWithImageAndText: View {
     NavigationLink(destination: destination) {
       HStack {
         Text("").padding(.leading, -20)
-        LazyImage(url: imageURL) { state in
-          if let image = state.image {
-            image
-              .resizable()
-              .scaledToFit()
-              .frame(width: 40, height: 40)
-              .cornerRadius(40)
-          }
-        }
+//        LazyImage(url: imageURL) { state in
+//          if let image = state.image {
+//            image
+//              .resizable()
+//              .scaledToFit()
+//              .frame(width: 40, height: 40)
+//              .cornerRadius(40)
+//          }
+//        }
         .padding(.leading, -10)
         Text(text)
       }

@@ -6,8 +6,6 @@
 import Styleguide
 import SwiftUI
 
-// TODO: Implement Swiping Gesture
-
 struct CoursesView: View {
   @ObservedObject private var viewModel: CoursesViewModel = .init()
   @State private var selectedDayIndex = 0

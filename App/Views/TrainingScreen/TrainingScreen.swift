@@ -10,6 +10,7 @@ import UIComponents
 struct TrainingScreen: View {
   @Environment(\.dismiss) var dismiss
   @ObservedObject private var timerViewModel = TimerViewModel()
+  @ObservedObject private var trainingViewModel = TrainingViewModel()
 
   let split: Split
 
@@ -18,15 +19,39 @@ struct TrainingScreen: View {
   @State private var showSwapExerciseSheet = false
   @State private var showExerciseBottomSheet = false
   @State private var showTimer = false
-
   @State private var showAlert = false
-  @State private var alertCase: TrainingScreenAlerts = .saveTraining
+  @State private var alertCase: TrainingScreenAlerts = .notDecimalInput
+
+  init(split: Split) {
+    self.split = split
+
+    for splitExercise in split.splitExercises {
+      let exerciseCount = splitExercise.exerciseSets.count
+      let targetCount = Int(splitExercise.countSets)
+
+      // init or remove more sets if they have been changed
+      switch exerciseCount {
+      case targetCount:
+        continue
+      case _ where exerciseCount < targetCount:
+        for index in exerciseCount ..< targetCount {
+          trainingViewModel.addTrainingSet(exercise: splitExercise)
+        }
+      case _ where exerciseCount > targetCount:
+        for index in targetCount ..< exerciseCount {
+          trainingViewModel.deleteSet(exercise: splitExercise, indexSet: IndexSet(integer: index))
+        }
+      default:
+        break
+      }
+    }
+  }
 
   var body: some View {
     List {
       Section {
-        TextField("Notizen", text: $trainingNotes)
-        TextField("Körpergewicht", text: $bodyWeight)
+        TextField("Notizen", text: $trainingViewModel.notes)
+        TextField("Körpergewicht", text: $trainingViewModel.bodyWeight)
           .keyboardType(.decimalPad)
       }
 
@@ -40,11 +65,20 @@ struct TrainingScreen: View {
               .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
               .onTapGesture { showExerciseBottomSheet = true }
           }
-          ForEach(exercise.exerciseSets, id: \.self) { currentSet in
-            createExerciseCell(currentSet: currentSet)
+
+          ForEach(Array(exercise.exerciseSets.sorted { $0.order < $1.order }), id: \.self) { trainingSet in
+            createExerciseCell(currentSet: trainingSet)
           }
-          Text("Hinzufügen")
-            .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
+          .onDelete { indexSet in
+            trainingViewModel.deleteSet(exercise: exercise, indexSet: indexSet)
+          }
+
+          Button {
+            trainingViewModel.addTrainingSet(exercise: exercise)
+          } label: {
+            Text("Hinzufügen")
+              .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
+          }
         }
         .sheet(isPresented: $showExerciseBottomSheet) {
           TrainingBottomSheetView(split: split, exercise: exercise)
@@ -61,7 +95,10 @@ struct TrainingScreen: View {
       Section {
         HStack {
           Spacer()
-          SaveButton(title: "Training abschließen") { alertCase = .saveTraining ; showAlert = true }
+          SaveButton(title: "Training abschließen") {
+            alertCase = .saveTraining(dismiss, trainingViewModel)
+            showAlert = true
+          }
           Spacer()
         }
       }
@@ -70,15 +107,7 @@ struct TrainingScreen: View {
     .navigationTitle(split.name)
     .navigationBarBackButtonHidden()
     .toolbar { createToolbar() }
-    .alert(isPresented: $showAlert) {
-      Alert(
-        title: Text(alertCase.getAlertTitle),
-        message: Text(alertCase.getAlertMessage),
-        primaryButton: .cancel(Text("Abbrechen")),
-        secondaryButton: .default(
-          Text("OK"),
-          action: { alertCase.action() }))
-    }
+    .alert(isPresented: $showAlert) { alertCase.createAlert }
     .sheet(isPresented: $showSwapExerciseSheet) { SwapExerciseView(split: split) }
     .sheet(isPresented: $showTimer) { TimerView(model: timerViewModel) }
   }
@@ -86,7 +115,7 @@ struct TrainingScreen: View {
   @ToolbarContentBuilder
   private func createToolbar() -> some ToolbarContent {
     ToolbarItem(placement: .topBarLeading) {
-      Button { showAlert = true; alertCase = .exitTraining }
+      Button { showAlert = true; alertCase = .exitTraining(dismiss) }
         label: { Image(systemName: "rectangle.portrait.and.arrow.right") }
     }
 
@@ -113,7 +142,7 @@ struct TrainingScreen: View {
         })
 
         #warning("TODO: Implement func to save as Trainingplan")
-        Button(action: { alertCase = .saveAsTrainingplan ; showAlert = true }, label: {
+        Button(action: { alertCase = .saveAsTrainingplan; showAlert = true }, label: {
           HStack {
             Text("Als Trainingsplan speichern")
             Spacer()
@@ -126,7 +155,7 @@ struct TrainingScreen: View {
 
   private func createExerciseCell(currentSet: TrainingSet) -> some View {
     HStack {
-      Image(systemName: "\(1).circle")
+      Image(systemName: "\(currentSet.order + 1).circle")
       VStack(alignment: .leading) {
         Text("Gewicht")
           .foregroundStyle(.gray).font(.system(size: 14))

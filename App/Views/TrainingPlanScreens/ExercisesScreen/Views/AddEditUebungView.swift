@@ -101,7 +101,7 @@ struct AddEditUebungView: View {
 extension AddEditUebungView {
   private func validateAndSave() {
     if !exerciseName.isEmpty {
-      ExercisesViewModel.shared.createUebungForSplit(
+      ExercisesViewModel.shared.createExerciseForSplit(
         name: exerciseName,
         category: exerciseCategory,
         countSets: exerciseSets,

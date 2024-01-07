@@ -1,5 +1,5 @@
 //
-// Created by Maximillian Stabe on 27.12.23.
+// Created by Maximillian Stabe on 06.01.24.
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 //
@@ -13,35 +13,41 @@ public class TrainingSet: NSManagedObject {
     return NSFetchRequest<TrainingSet>(entityName: "TrainingSet")
   }
 
-  @NSManaged public var id: UUID
-  @NSManaged public var weight: String
-  @NSManaged public var reps: String
-  @NSManaged public var isWarmup: Bool
-  @NSManaged public var isDropset: Bool
-  @NSManaged public var category: String
   @NSManaged public var calories: String
-  @NSManaged public var minutes: String
-  @NSManaged public var seconds: String
-  @NSManaged public var notes: String
+  @NSManaged public var category: String
+  @NSManaged public var date: Date
   @NSManaged public var distanceKM: String
-  @NSManaged public var setExercise: Exercise
+  @NSManaged public var id: UUID
+  @NSManaged public var isDropset: Bool
+  @NSManaged public var isWarmup: Bool
+  @NSManaged public var minutes: String
+  @NSManaged public var notes: String
+  @NSManaged public var order: Int16
+  @NSManaged public var reps: String
+  @NSManaged public var seconds: String
+  @NSManaged public var weight: String
   @NSManaged public var setDiaryEntry: DiaryEntry?
+  @NSManaged public var setExercise: Exercise
+  @NSManaged public var diaryExercise: DiaryExercise
 
-  class func createTrainingSet(exercise: Exercise) -> TrainingSet {
+  class func createTrainingSet(exercise: Exercise, order: Int) -> TrainingSet {
     let trainingSet = TrainingSet(context: CoreDataStack.shared.mainContext)
-    trainingSet.id = UUID()
-    trainingSet.weight = ""
-    trainingSet.reps = ""
-    trainingSet.isWarmup = false
-    trainingSet.isDropset = false
-    trainingSet.category = exercise.category
     trainingSet.calories = ""
-    trainingSet.minutes = ""
-    trainingSet.seconds = ""
-    trainingSet.notes = ""
+    trainingSet.category = exercise.category
+    trainingSet.date = .now
     trainingSet.distanceKM = ""
-    trainingSet.setExercise = exercise
+    trainingSet.id = UUID()
+    trainingSet.isDropset = false
+    trainingSet.isWarmup = false
+    trainingSet.minutes = ""
+    trainingSet.notes = ""
+    trainingSet.order = Int16(order)
+    trainingSet.reps = ""
+    trainingSet.seconds = ""
+    trainingSet.weight = ""
     trainingSet.setDiaryEntry = nil
+    trainingSet.setExercise = exercise
+    //TODO: diaryExercise missing
 
     return trainingSet
   }
