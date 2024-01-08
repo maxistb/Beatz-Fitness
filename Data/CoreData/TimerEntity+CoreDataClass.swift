@@ -1,5 +1,5 @@
 //
-// Created by Maximillian Stabe on 27.12.23.
+// Created by Maximillian Stabe on 08.01.24.
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 //
@@ -24,10 +24,10 @@ public class TimerEntity: NSManagedObject {
 }
 
 extension Int {
-    var asTimestamp: String {
-        let minute = self / 60 % 60
-        let second = self % 60
+  var asTimestamp: String {
+    let minute = self / 60 % 60
+    let second = self % 60
 
-        return String(format: "%02i:%02i", minute, second)
-    }
+    return String(format: "%02i:%02i", minute, second)
+  }
 }

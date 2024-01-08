@@ -14,19 +14,11 @@ struct TrainingScreen: View {
 
   let split: Split
 
-  @State private var trainingNotes = ""
-  @State private var bodyWeight = ""
-  @State private var showSwapExerciseSheet = false
-  @State private var showExerciseBottomSheet = false
-  @State private var showTimer = false
-  @State private var showAlert = false
-  @State private var alertCase: TrainingScreenAlerts = .notDecimalInput
-
   init(split: Split) {
     self.split = split
 
-    for splitExercise in split.splitExercises {
-      let exerciseCount = splitExercise.exerciseSets.count
+    for splitExercise in split.exercises {
+      let exerciseCount = splitExercise.trainingSets.count
       let targetCount = Int(splitExercise.countSets)
 
       // init or remove more sets if they have been changed
@@ -34,7 +26,7 @@ struct TrainingScreen: View {
       case targetCount:
         continue
       case _ where exerciseCount < targetCount:
-        for index in exerciseCount ..< targetCount {
+        for _ in exerciseCount ..< targetCount {
           trainingViewModel.addTrainingSet(exercise: splitExercise)
         }
       case _ where exerciseCount > targetCount:
@@ -55,7 +47,7 @@ struct TrainingScreen: View {
           .keyboardType(.decimalPad)
       }
 
-      ForEach(split.splitExercises.sorted { $0.order < $1.order }, id: \.self) { exercise in
+      ForEach(split.exerciseArray, id: \.self) { exercise in
         Section {
           HStack {
             Text(exercise.name)
@@ -63,10 +55,10 @@ struct TrainingScreen: View {
             Spacer()
             Image(systemName: "square.and.pencil")
               .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
-              .onTapGesture { showExerciseBottomSheet = true }
+              .onTapGesture { trainingViewModel.showExerciseBottomSheet = true }
           }
 
-          ForEach(Array(exercise.exerciseSets.sorted { $0.order < $1.order }), id: \.self) { trainingSet in
+          ForEach(exercise.exerciseTrainingSetArray, id: \.self) { trainingSet in
             createExerciseCell(currentSet: trainingSet)
           }
           .onDelete { indexSet in
@@ -80,7 +72,7 @@ struct TrainingScreen: View {
               .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
           }
         }
-        .sheet(isPresented: $showExerciseBottomSheet) {
+        .sheet(isPresented: $trainingViewModel.showExerciseBottomSheet) {
           TrainingBottomSheetView(split: split, exercise: exercise)
             .presentationDetents([.medium])
             .presentationDragIndicator(.visible)
@@ -96,8 +88,8 @@ struct TrainingScreen: View {
         HStack {
           Spacer()
           SaveButton(title: "Training abschließen") {
-            alertCase = .saveTraining(dismiss, trainingViewModel)
-            showAlert = true
+            trainingViewModel.alertCase = .saveTraining(dismiss, trainingViewModel)
+            trainingViewModel.showAlert = true
           }
           Spacer()
         }
@@ -107,16 +99,22 @@ struct TrainingScreen: View {
     .navigationTitle(split.name)
     .navigationBarBackButtonHidden()
     .toolbar { createToolbar() }
-    .alert(isPresented: $showAlert) { alertCase.createAlert }
-    .sheet(isPresented: $showSwapExerciseSheet) { SwapExerciseView(split: split) }
-    .sheet(isPresented: $showTimer) { TimerView(model: timerViewModel) }
+    .alert(isPresented: $trainingViewModel.showAlert) { trainingViewModel.alertCase.createAlert }
+    .sheet(isPresented: $trainingViewModel.showSwapExerciseSheet) { SwapExerciseView(split: split) }
+    .sheet(isPresented: $trainingViewModel.showTimer) { TimerView(model: timerViewModel) }
+    .onChange(of: trainingViewModel.forceViewUpdate) { _ in }
   }
 
   @ToolbarContentBuilder
   private func createToolbar() -> some ToolbarContent {
     ToolbarItem(placement: .topBarLeading) {
-      Button { showAlert = true; alertCase = .exitTraining(dismiss) }
-        label: { Image(systemName: "rectangle.portrait.and.arrow.right") }
+      Button {
+        trainingViewModel.showAlert = true
+        trainingViewModel.alertCase = .exitTraining(dismiss)
+      }
+      label: {
+        Image(systemName: "rectangle.portrait.and.arrow.right")
+      }
     }
 
     ToolbarItem(placement: .navigationBarTrailing) {
@@ -126,14 +124,18 @@ struct TrainingScreen: View {
     }
 
     ToolbarItem(placement: .navigationBarTrailing) {
-      Button(action: { showTimer = true }, label: {
+      Button(action: {
+        trainingViewModel.showTimer = true
+      }, label: {
         Image(systemName: "timer")
       })
     }
 
     ToolbarItem(placement: .navigationBarTrailing) {
       Menu("\(Image(systemName: "ellipsis.circle"))", content: {
-        Button(action: { showSwapExerciseSheet = true }, label: {
+        Button(action: {
+          trainingViewModel.showSwapExerciseSheet = true
+        }, label: {
           HStack {
             Text("Übungen verschieben")
             Spacer()
@@ -142,7 +144,10 @@ struct TrainingScreen: View {
         })
 
         #warning("TODO: Implement func to save as Trainingplan")
-        Button(action: { alertCase = .saveAsTrainingplan; showAlert = true }, label: {
+        Button(action: {
+          trainingViewModel.alertCase = .saveAsTrainingplan
+          trainingViewModel.showAlert = true
+        }, label: {
           HStack {
             Text("Als Trainingsplan speichern")
             Spacer()
@@ -160,7 +165,7 @@ struct TrainingScreen: View {
         Text("Gewicht")
           .foregroundStyle(.gray).font(.system(size: 14))
         TextField("", text: Binding(
-          get: { currentSet.weight },
+          get: { currentSet.weight ?? "" },
           set: { newValue in currentSet.weight = newValue }))
       }
       .keyboardType(.decimalPad)
@@ -168,7 +173,7 @@ struct TrainingScreen: View {
         Text("Wdh.")
           .foregroundStyle(.gray).font(.system(size: 14))
         TextField("", text: Binding(
-          get: { currentSet.reps },
+          get: { currentSet.reps ?? "" },
           set: { newValue in currentSet.reps = newValue }))
           .keyboardType(.decimalPad)
       }

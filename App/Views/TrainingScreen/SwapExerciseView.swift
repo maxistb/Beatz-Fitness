@@ -12,7 +12,7 @@ struct SwapExerciseView: View {
   var body: some View {
     NavigationStack {
       List {
-        ForEach(Array(split.splitExercises), id: \.id) { exercise in
+        ForEach(Array(split.exercises), id: \.id) { exercise in
           Text(exercise.name)
         }
         .onMove { source, destination in

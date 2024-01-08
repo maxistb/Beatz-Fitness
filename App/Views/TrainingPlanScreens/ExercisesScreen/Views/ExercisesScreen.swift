@@ -21,16 +21,16 @@ struct ExercisesScreen: View {
       }
 
       Section("Übungen") {
-        ForEach(split.splitExercises.sorted { $0.order < $1.order }, id: \.self) { exercise in
+        ForEach(split.exerciseArray, id: \.self) { exercise in
           NavigationLink { AddEditUebungView(split: split, exercise: exercise) }
             label: { createExerciseLabel(exercise: exercise) }
         }
         .onDelete { indexSet in
-          ExercisesViewModel.shared.deleteExercise(exercises: split.splitExercises, indicesToDelete: indexSet)
+          ExercisesViewModel.shared.deleteExercise(exercises: split.exercises, indicesToDelete: indexSet)
         }
         .onMove { indices, newOffset in
           ExercisesViewModel.shared.moveExercise(
-            exercises: split.splitExercises,
+            exercises: split.exercises,
             oldIndices: indices,
             newIndex: newOffset)
         }
