@@ -17,7 +17,7 @@ struct BottomTabView: View {
         }
         .toolbarBackground(.visible, for: .tabBar)
 
-      TrainingDiaryScreen()
+      DiaryScreen()
         .tabItem {
           Image(systemName: "book")
           Text(L10n.trainingbook)

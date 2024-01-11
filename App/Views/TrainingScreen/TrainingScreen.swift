@@ -10,33 +10,15 @@ import UIComponents
 struct TrainingScreen: View {
   @Environment(\.dismiss) var dismiss
   @ObservedObject private var timerViewModel = TimerViewModel()
-  @ObservedObject private var trainingViewModel = TrainingViewModel()
+  @ObservedObject private var trainingViewModel: TrainingViewModel
 
   let split: Split
 
   init(split: Split) {
     self.split = split
+    self.trainingViewModel = TrainingViewModel(split: split)
 
-    for splitExercise in split.exercises {
-      let exerciseCount = splitExercise.trainingSets.count
-      let targetCount = Int(splitExercise.countSets)
-
-      // init or remove more sets if they have been changed
-      switch exerciseCount {
-      case targetCount:
-        continue
-      case _ where exerciseCount < targetCount:
-        for _ in exerciseCount ..< targetCount {
-          trainingViewModel.addTrainingSet(exercise: splitExercise)
-        }
-      case _ where exerciseCount > targetCount:
-        for index in targetCount ..< exerciseCount {
-          trainingViewModel.deleteSet(exercise: splitExercise, indexSet: IndexSet(integer: index))
-        }
-      default:
-        break
-      }
-    }
+    trainingViewModel.initializeTrainingSets(split: split)
   }
 
   var body: some View {
@@ -47,7 +29,7 @@ struct TrainingScreen: View {
           .keyboardType(.decimalPad)
       }
 
-      ForEach(split.exerciseArray, id: \.self) { exercise in
+      ForEach(trainingViewModel.exerciseArray, id: \.self) { exercise in
         Section {
           HStack {
             Text(exercise.name)
@@ -90,6 +72,7 @@ struct TrainingScreen: View {
           SaveButton(title: "Training abschließen") {
             trainingViewModel.alertCase = .saveTraining(dismiss, trainingViewModel)
             trainingViewModel.showAlert = true
+            trainingViewModel.saveTraining(split: split)
           }
           Spacer()
         }

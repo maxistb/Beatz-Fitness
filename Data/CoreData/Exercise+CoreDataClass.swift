@@ -21,7 +21,7 @@ public class Exercise: NSManagedObject {
   @NSManaged public var order: Int16
   @NSManaged public var trainingSets: Set<TrainingSet>
   @NSManaged public var split: Split
-  @NSManaged public var training: Training
+  @NSManaged public var training: Training?
 
   public var exerciseTrainingSetArray: [TrainingSet] {
     return trainingSets.sorted {
@@ -45,6 +45,7 @@ public class Exercise: NSManagedObject {
     newExercise.order = Int16(order)
     newExercise.notes = notes
     newExercise.split = split
+    newExercise.training = nil
 
     try? CoreDataStack.shared.mainContext.save()
   }

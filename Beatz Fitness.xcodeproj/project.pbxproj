@@ -40,6 +40,8 @@
 		7A9598482B3A0409004C3A4E /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 7A9598472B3A0409004C3A4E /* Styleguide */; };
 		7A9BEA482B40A44600BDE3F9 /* TrainingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BEA472B40A44600BDE3F9 /* TrainingScreen.swift */; };
 		7A9BEA4A2B40B54000BDE3F9 /* TrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9BEA492B40B54000BDE3F9 /* TrainingViewModel.swift */; };
+		7AB362AD2B506A8F009E5086 /* DiaryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB362AC2B506A8F009E5086 /* DiaryScreen.swift */; };
+		7AB362AF2B507867009E5086 /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB362AE2B507867009E5086 /* DiaryCell.swift */; };
 		7AB8496E2B4011E200E25707 /* ExerciseCategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8496D2B4011E200E25707 /* ExerciseCategoryEnum.swift */; };
 		7AB849712B401ADD00E25707 /* BeatzExercisesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB849702B401ADD00E25707 /* BeatzExercisesModel.swift */; };
 		7AB849732B405A1000E25707 /* BeatzExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB849722B405A1000E25707 /* BeatzExercisesView.swift */; };
@@ -125,6 +127,8 @@
 		7A8681732B3F5D84003946C2 /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
 		7A9BEA472B40A44600BDE3F9 /* TrainingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingScreen.swift; sourceTree = "<group>"; };
 		7A9BEA492B40B54000BDE3F9 /* TrainingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewModel.swift; sourceTree = "<group>"; };
+		7AB362AC2B506A8F009E5086 /* DiaryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryScreen.swift; sourceTree = "<group>"; };
+		7AB362AE2B507867009E5086 /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
 		7AB8496D2B4011E200E25707 /* ExerciseCategoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCategoryEnum.swift; sourceTree = "<group>"; };
 		7AB849702B401ADD00E25707 /* BeatzExercisesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatzExercisesModel.swift; sourceTree = "<group>"; };
 		7AB849722B405A1000E25707 /* BeatzExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatzExercisesView.swift; sourceTree = "<group>"; };
@@ -341,6 +345,15 @@
 			path = TrainingScreen;
 			sourceTree = "<group>";
 		};
+		7AB362AB2B506A84009E5086 /* DiaryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7AB362AC2B506A8F009E5086 /* DiaryScreen.swift */,
+				7AB362AE2B507867009E5086 /* DiaryCell.swift */,
+			);
+			path = DiaryScreen;
+			sourceTree = "<group>";
+		};
 		7AB849742B40626B00E25707 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +386,7 @@
 		7AB94A962B3865990043083F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7AB362AB2B506A84009E5086 /* DiaryScreen */,
 				7A5571832B3C0E2600E61CE0 /* TabView.swift */,
 				7AE280CA2B45B1C100DF3DC4 /* BeatzHomeScreen */,
 				7A9BEA462B40A43500BDE3F9 /* TrainingScreen */,
@@ -625,10 +639,12 @@
 				7AEB018D2B435624003197FC /* CircularProgressView.swift in Sources */,
 				7AEB018C2B435624003197FC /* TimePickerView.swift in Sources */,
 				7AE280DB2B45C02C00DF3DC4 /* TrainerView.swift in Sources */,
+				7AB362AD2B506A8F009E5086 /* DiaryScreen.swift in Sources */,
 				7AEB01702B42EB2C003197FC /* TrainingBottomSheetView.swift in Sources */,
 				7AE280CC2B45B1D000DF3DC4 /* BeatzHomeScreen.swift in Sources */,
 				7A5571882B3C156C00E61CE0 /* TrainingDiaryScreen.swift in Sources */,
 				7A3188DF2B3849E60044761B /* Beatz_Fitness.swift in Sources */,
+				7AB362AF2B507867009E5086 /* DiaryCell.swift in Sources */,
 				7AEB018A2B435624003197FC /* EditTimerView.swift in Sources */,
 				7A7081052B4808B40095C664 /* CoursesViewModel.swift in Sources */,
 			);

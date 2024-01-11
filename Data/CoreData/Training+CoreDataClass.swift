@@ -15,7 +15,6 @@ public class Training: NSManagedObject {
 
   @NSManaged public var bodyWeight: String
   @NSManaged public var date: Date
-  @NSManaged public var duration: String?
   @NSManaged public var endTraining: Date?
   @NSManaged public var id: UUID
   @NSManaged public var name: String
@@ -23,18 +22,24 @@ public class Training: NSManagedObject {
   @NSManaged public var exercises: Set<Exercise>
   @NSManaged public var split: Split
 
+  public var exerciseArray: [Exercise] {
+    exercises.sorted { $0.order < $1.order }
+  }
+
   class func createTraining(
     split: Split
-  ) {
-    var training = Training(context: CoreDataStack.shared.mainContext)
+  ) -> Training {
+    let training = Training(context: CoreDataStack.shared.mainContext)
     training.bodyWeight = ""
     training.date = .now
-    training.duration = nil
     training.endTraining = nil
     training.id = UUID()
     training.name = split.name
     training.notes = ""
     training.exercises = split.exercises
+    training.split = split
+
+    return training
   }
 }
 
