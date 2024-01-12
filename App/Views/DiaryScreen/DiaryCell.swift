@@ -11,7 +11,7 @@ struct DiaryCell: View {
 
   var body: some View {
     NavigationLink {
-      TrainingDiaryScreen()
+      TrainingScreen(split: training.split, training: training)
     } label: {
       HStack(alignment: .top) {
         DatumWidget(dayName: training.date.dayOfWeek(), dayNumber: training.date.dayNumberString())

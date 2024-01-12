@@ -11,6 +11,19 @@ struct ExercisesScreen: View {
   @State private var showMachinesBeatzSheet = false
 
   let split: Split
+  @FetchRequest var exercises: FetchedResults<Exercise>
+
+  init(split: Split) {
+    self.split = split
+
+    _exercises = FetchRequest(
+      entity: Exercise.entity(),
+      sortDescriptors: [
+        NSSortDescriptor(keyPath: \Exercise.order, ascending: true)
+      ],
+      predicate: NSPredicate(format: "split == %@", split)
+    )
+  }
 
   var body: some View {
     Form {
@@ -21,7 +34,7 @@ struct ExercisesScreen: View {
       }
 
       Section("Übungen") {
-        ForEach(split.exerciseArray, id: \.self) { exercise in
+        ForEach(exercises, id: \.self) { exercise in
           NavigationLink { AddEditUebungView(split: split, exercise: exercise) }
             label: { createExerciseLabel(exercise: exercise) }
         }
@@ -32,7 +45,8 @@ struct ExercisesScreen: View {
           ExercisesViewModel.shared.moveExercise(
             exercises: split.exercises,
             oldIndices: indices,
-            newIndex: newOffset)
+            newIndex: newOffset
+          )
         }
       }
     }

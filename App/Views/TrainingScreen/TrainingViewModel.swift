@@ -14,8 +14,8 @@ class TrainingViewModel: ObservableObject {
   @Published var showAlert: Bool
   @Published var alertCase: TrainingScreenAlerts = .notDecimalInput
   @Published var forceViewUpdate: Bool
-  @Published var exercises: Set<Exercise>
   @Published var copyExercises: Set<Exercise> = []
+  @Published var currentSplit: Split
   private let startingTime: Date
 
   var copyExerciseArray: [Exercise] {
@@ -23,6 +23,7 @@ class TrainingViewModel: ObservableObject {
   }
 
   init(split: Split) {
+    self.currentSplit = split
     self.bodyWeight = ""
     self.notes = ""
     self.showSwapExerciseSheet = false
@@ -32,12 +33,12 @@ class TrainingViewModel: ObservableObject {
     self.alertCase = .notDecimalInput
     self.forceViewUpdate = false
     self.startingTime = .now
-    self.exercises = split.exercises
-    createExerciseCopy()
+    self.copyExercises = createExerciseCopy()
   }
 
-  private func createExerciseCopy() {
-    for exercise in exercises {
+  private func createExerciseCopy() -> Set<Exercise> {
+    var copying: Set<Exercise> = []
+    for exercise in currentSplit.exercises {
       let exerciseCopy = Exercise.createTrainingExercise(
         name: exercise.name,
         category: exercise.category,
@@ -45,8 +46,10 @@ class TrainingViewModel: ObservableObject {
         notes: exercise.notes,
         order: Int(exercise.order)
       )
-      copyExercises.insert(exerciseCopy)
+      copying.insert(exerciseCopy)
     }
+
+    return copying
   }
 
   private func saveExercisesForTraining(training: Training) {
@@ -59,23 +62,25 @@ class TrainingViewModel: ObservableObject {
 // MARK: - Public Functions
 
 extension TrainingViewModel {
-  func deleteSet(exercise: Exercise, indexSet: IndexSet) {
+  func deleteSet(exercise: Exercise, indexSet: IndexSet, isInitial: Bool = false) {
     withAnimation {
       exercise.trainingSets.removeFirst()
       for (index, exerciseSet) in exercise.exerciseTrainingSetArray.enumerated() {
         exerciseSet.order = Int16(index)
       }
 
+      if !isInitial { exercise.countSets -= 1 }
       forceViewUpdate.toggle()
     }
     try? CoreDataStack.shared.mainContext.save()
   }
 
-  func addTrainingSet(exercise: Exercise) {
+  func addTrainingSet(exercise: Exercise, isInitial: Bool = false) {
     withAnimation {
       let newOrder = Int(exercise.trainingSets.count)
       exercise.addToTrainingSets(TrainingSet.createTrainingSet(exercise: exercise, order: newOrder))
 
+      if !isInitial { exercise.countSets += 1 }
       forceViewUpdate.toggle()
     }
 
@@ -104,11 +109,11 @@ extension TrainingViewModel {
         continue
       case _ where exerciseCount < targetCount:
         for _ in exerciseCount ..< targetCount {
-          addTrainingSet(exercise: splitExercise)
+          addTrainingSet(exercise: splitExercise, isInitial: true)
         }
       case _ where exerciseCount > targetCount:
         for index in targetCount ..< exerciseCount {
-          deleteSet(exercise: splitExercise, indexSet: IndexSet(integer: index))
+          deleteSet(exercise: splitExercise, indexSet: IndexSet(integer: index), isInitial: true)
         }
       default:
         break

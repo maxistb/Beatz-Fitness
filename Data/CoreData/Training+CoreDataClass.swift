@@ -26,6 +26,12 @@ public class Training: NSManagedObject {
     exercises.sorted { $0.order < $1.order }
   }
 
+  public var duration: String {
+    let formattedBeginTraining = date.formatted(date: .omitted, time: .shortened)
+    let formattedEndTraining = endTraining?.formatted(date: .omitted, time: .shortened)
+    return "Dauer: \(formattedBeginTraining) - \(formattedEndTraining ?? "Error") Uhr"
+  }
+
   class func createTraining(
     split: Split
   ) -> Training {

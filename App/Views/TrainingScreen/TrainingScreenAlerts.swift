@@ -6,7 +6,7 @@
 import SwiftUI
 
 enum TrainingScreenAlerts {
-  case saveTraining(DismissAction, TrainingViewModel)
+  case saveTraining(DismissAction, TrainingViewModel, Split)
   case exitTraining(DismissAction)
   case saveAsTrainingplan
   case notDecimalInput
@@ -72,7 +72,8 @@ enum TrainingScreenAlerts {
 
   private var action: () -> Void {
     switch self {
-    case .saveTraining(let dismissAction, let viewModel):
+    case .saveTraining(let dismissAction, let viewModel, let split):
+        viewModel.saveTraining(split: split)
         return dismissAction.callAsFunction
     case .exitTraining(let dismissAction):
       return dismissAction.callAsFunction

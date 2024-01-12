@@ -13,66 +13,42 @@ struct TrainingScreen: View {
   @ObservedObject private var trainingViewModel: TrainingViewModel
 
   let split: Split
+  let training: Training?
+  private let isTrainingView: Bool
 
-  init(split: Split) {
+  init(split: Split, training: Training? = nil) {
     self.split = split
     self.trainingViewModel = TrainingViewModel(split: split)
-
+    self.training = training
+    self.isTrainingView = training != nil
     trainingViewModel.initializeTrainingSets(split: split)
   }
 
   var body: some View {
     List {
-      Section {
-        TextField("Notizen", text: $trainingViewModel.notes)
-        TextField("Körpergewicht", text: $trainingViewModel.bodyWeight)
-          .keyboardType(.decimalPad)
+      // Top-Bereich mit Datum, Dauer, Notizen und Körpergewicht
+      createTop()
+
+      // Übungen und zugehörige Sets
+      if let training = training {
+        createExercisesContent(training.exerciseArray)
+      } else {
+        createExercisesContent(trainingViewModel.copyExerciseArray)
       }
 
-      ForEach(trainingViewModel.copyExerciseArray, id: \.self) { exercise in
-        Section {
-          HStack {
-            Text(exercise.name)
-              .font(.headline)
-            Spacer()
-            Image(systemName: "square.and.pencil")
-              .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
-              .onTapGesture { trainingViewModel.showExerciseBottomSheet = true }
-          }
-
-          ForEach(exercise.exerciseTrainingSetArray, id: \.self) { trainingSet in
-            createExerciseCell(currentSet: trainingSet)
-          }
-          .onDelete { indexSet in
-            trainingViewModel.deleteSet(exercise: exercise, indexSet: indexSet)
-          }
-
-          Button {
-            trainingViewModel.addTrainingSet(exercise: exercise)
-          } label: {
-            Text("Hinzufügen")
-              .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
-          }
-        }
-        .sheet(isPresented: $trainingViewModel.showExerciseBottomSheet) {
-          TrainingBottomSheetView(split: split, exercise: exercise)
-            .presentationDetents([.medium])
-            .presentationDragIndicator(.visible)
-        }
-      }
-
+      // Abschnitt für das Hinzufügen einer Übung
       Section {
         Text("Übung hinzufügen")
           .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
       }
 
+      // Abschnitt für den Abschluss des Trainings mit dem "Training abschließen"-Button
       Section {
         HStack {
           Spacer()
           SaveButton(title: "Training abschließen") {
-            trainingViewModel.alertCase = .saveTraining(dismiss, trainingViewModel)
+            trainingViewModel.alertCase = .saveTraining(dismiss, trainingViewModel, split)
             trainingViewModel.showAlert = true
-            trainingViewModel.saveTraining(split: split)
           }
           Spacer()
         }
@@ -87,7 +63,47 @@ struct TrainingScreen: View {
     .sheet(isPresented: $trainingViewModel.showTimer) { TimerView(model: timerViewModel) }
     .onChange(of: trainingViewModel.forceViewUpdate) { _ in }
   }
+}
 
+extension TrainingScreen {
+  private func createTop() -> some View {
+    Section {
+      if let training = training {
+        Text(training.date.formatted())
+        Text(training.duration)
+      }
+      TextField("Notizen", text: $trainingViewModel.notes)
+      TextField("Körpergewicht", text: $trainingViewModel.bodyWeight)
+        .keyboardType(.decimalPad)
+    }
+  }
+
+  private func createExercisesContent(_ exercises: [Exercise]) -> some View {
+    ForEach(exercises, id: \.self) { exercise in
+      Section {
+        createExerciseHeader(exercise: exercise)
+
+        ForEach(exercise.exerciseTrainingSetArray, id: \.self) { trainingSet in
+          createExerciseCell(currentSet: trainingSet)
+        }
+        .onDelete { indexSet in
+          trainingViewModel.deleteSet(exercise: exercise, indexSet: indexSet)
+        }
+
+        createAddSetButton(exercise: exercise)
+      }
+      .sheet(isPresented: $trainingViewModel.showExerciseBottomSheet) {
+        TrainingBottomSheetView(split: split, exercise: exercise)
+          .presentationDetents([.medium])
+          .presentationDragIndicator(.visible)
+      }
+    }
+  }
+}
+
+// MARK: - UIComponent Functions
+
+extension TrainingScreen {
   @ToolbarContentBuilder
   private func createToolbar() -> some ToolbarContent {
     ToolbarItem(placement: .topBarLeading) {
@@ -148,7 +164,7 @@ struct TrainingScreen: View {
         Text("Gewicht")
           .foregroundStyle(.gray).font(.system(size: 14))
         TextField("", text: Binding(
-          get: { currentSet.weight ?? "" },
+          get: { currentSet.weight ?? "Error" },
           set: { newValue in currentSet.weight = newValue }))
       }
       .keyboardType(.decimalPad)
@@ -172,6 +188,26 @@ struct TrainingScreen: View {
       Spacer()
       Image(systemName: "ellipsis")
         .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
+    }
+  }
+
+  private func createAddSetButton(exercise: Exercise) -> some View {
+    Button {
+      trainingViewModel.addTrainingSet(exercise: exercise)
+    } label: {
+      Text("Hinzufügen")
+        .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
+    }
+  }
+
+  private func createExerciseHeader(exercise: Exercise) -> some View {
+    HStack {
+      Text(exercise.name)
+        .font(.headline)
+      Spacer()
+      Image(systemName: "square.and.pencil")
+        .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
+        .onTapGesture { trainingViewModel.showExerciseBottomSheet = true }
     }
   }
 }
