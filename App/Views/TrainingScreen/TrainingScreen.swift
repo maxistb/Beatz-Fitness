@@ -43,7 +43,7 @@ struct TrainingScreen: View {
     .navigationBarBackButtonHidden(isTrainingView)
     .toolbar { createToolbar() }
     .alert(isPresented: $trainingViewModel.showAlert) { trainingViewModel.alertCase.createAlert }
-    .sheet(isPresented: $trainingViewModel.showSwapExerciseSheet) { SwapExerciseView(split: split) }
+    .sheet(isPresented: $trainingViewModel.showSwapExerciseSheet) { SwapExerciseView(exercises: trainingViewModel.copyExercises) }
     .sheet(isPresented: $trainingViewModel.showTimer) { TimerView(model: timerViewModel) }
     .onChange(of: trainingViewModel.forceViewUpdate) { _ in }
   }
@@ -77,7 +77,7 @@ extension TrainingScreen {
         createAddSetButton(exercise: exercise)
       }
       .sheet(isPresented: $trainingViewModel.showExerciseBottomSheet) {
-        TrainingBottomSheetView(split: split, exercise: exercise)
+        TrainingBottomSheetView(split: split, exercise: exercise, exercises: trainingViewModel.copyExercises)
           .presentationDetents([.medium])
           .presentationDragIndicator(.visible)
       }

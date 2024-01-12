@@ -12,6 +12,7 @@ struct TrainingBottomSheetView: View {
   @Environment(\.dismiss) private var dismiss
   let split: Split
   let exercise: Exercise
+  let exercises: Set<Exercise>
 
   @State private var showReplaceExerciseView = false
   @State private var showSwapExerciseView = false
@@ -36,7 +37,7 @@ struct TrainingBottomSheetView: View {
         }
       }
       .sheet(isPresented: $showReplaceExerciseView) { BeatzExercisesView(split: split, action: {}) }
-      .sheet(isPresented: $showSwapExerciseView) { SwapExerciseView(split: split) }
+      .sheet(isPresented: $showSwapExerciseView) { SwapExerciseView(exercises: exercises) }
       .sheet(isPresented: $showEditExerciseView) { AddEditUebungView(split: split, exercise: exercise) }
     }
   }

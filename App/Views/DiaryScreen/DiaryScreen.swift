@@ -31,7 +31,7 @@ struct DiaryScreen: View {
           }
         }
       }
-      .navigationTitle("Tagebuch")
+      .navigationTitle("📖 Tagebuch")
     }
   }
 }

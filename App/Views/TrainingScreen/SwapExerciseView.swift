@@ -7,12 +7,18 @@ import SwiftUI
 
 struct SwapExerciseView: View {
   @Environment(\.dismiss) private var dismiss
-  let split: Split
+  let exercises: Set<Exercise>
+  @State private var exerciseArray: [Exercise]
+
+  init(exercises: Set<Exercise>) {
+    self.exercises = exercises
+    self._exerciseArray = State(initialValue: exercises.sorted { $0.order < $1.order })
+  }
 
   var body: some View {
     NavigationStack {
       List {
-        ForEach(Array(split.exercises), id: \.id) { exercise in
+        ForEach(exerciseArray, id: \.self) { exercise in
           Text(exercise.name)
         }
         .onMove { source, destination in
@@ -30,6 +36,10 @@ struct SwapExerciseView: View {
   }
 
   private func moveExercise(source: IndexSet, destination: Int) {
-//    split.splitExercises.move(fromOffsets: source, toOffset: destination)
+    exerciseArray.move(fromOffsets: source, toOffset: destination)
+
+    for (index, exercise) in exerciseArray.enumerated() {
+      exercise.order = Int16(index)
+    }
   }
 }
