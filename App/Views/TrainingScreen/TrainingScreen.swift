@@ -20,43 +20,27 @@ struct TrainingScreen: View {
     self.split = split
     self.trainingViewModel = TrainingViewModel(split: split)
     self.training = training
-    self.isTrainingView = training != nil
+    self.isTrainingView = training == nil
     trainingViewModel.initializeTrainingSets(split: split)
   }
 
   var body: some View {
     List {
-      // Top-Bereich mit Datum, Dauer, Notizen und Körpergewicht
-      createTop()
+      createTopSection()
 
-      // Übungen und zugehörige Sets
       if let training = training {
         createExercisesContent(training.exerciseArray)
       } else {
         createExercisesContent(trainingViewModel.copyExerciseArray)
       }
 
-      // Abschnitt für das Hinzufügen einer Übung
-      Section {
-        Text("Übung hinzufügen")
-          .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
+      if isTrainingView {
+        createAddExerciseSection()
+        createSaveTrainingSection()
       }
-
-      // Abschnitt für den Abschluss des Trainings mit dem "Training abschließen"-Button
-      Section {
-        HStack {
-          Spacer()
-          SaveButton(title: "Training abschließen") {
-            trainingViewModel.alertCase = .saveTraining(dismiss, trainingViewModel, split)
-            trainingViewModel.showAlert = true
-          }
-          Spacer()
-        }
-      }
-      .listRowBackground(Color.clear)
     }
     .navigationTitle(split.name)
-    .navigationBarBackButtonHidden()
+    .navigationBarBackButtonHidden(isTrainingView)
     .toolbar { createToolbar() }
     .alert(isPresented: $trainingViewModel.showAlert) { trainingViewModel.alertCase.createAlert }
     .sheet(isPresented: $trainingViewModel.showSwapExerciseSheet) { SwapExerciseView(split: split) }
@@ -66,7 +50,7 @@ struct TrainingScreen: View {
 }
 
 extension TrainingScreen {
-  private func createTop() -> some View {
+  private func createTopSection() -> some View {
     Section {
       if let training = training {
         Text(training.date.formatted())
@@ -99,61 +83,84 @@ extension TrainingScreen {
       }
     }
   }
+
+  private func createAddExerciseSection() -> some View {
+    Section {
+      Text("Übung Hinzufügen")
+        .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
+    }
+  }
+
+  private func createSaveTrainingSection() -> some View {
+    Section {
+      HStack {
+        Spacer()
+        SaveButton(title: "Training Abschließen") {
+          trainingViewModel.alertCase = .saveTraining(dismiss, trainingViewModel, split)
+          trainingViewModel.showAlert = true
+        }
+        Spacer()
+      }
+      .listRowBackground(Color.clear)
+    }
+  }
 }
 
-// MARK: - UIComponent Functions
+// MARK: - UI Component Functions
 
 extension TrainingScreen {
   @ToolbarContentBuilder
   private func createToolbar() -> some ToolbarContent {
-    ToolbarItem(placement: .topBarLeading) {
-      Button {
-        trainingViewModel.showAlert = true
-        trainingViewModel.alertCase = .exitTraining(dismiss)
-      }
-      label: {
-        Image(systemName: "rectangle.portrait.and.arrow.right")
-      }
-    }
-
-    ToolbarItem(placement: .navigationBarTrailing) {
-      Text(timerViewModel.secondsToCompletion.asTimestamp)
-        .foregroundStyle(.primary)
-        .font(.headline)
-    }
-
-    ToolbarItem(placement: .navigationBarTrailing) {
-      Button(action: {
-        trainingViewModel.showTimer = true
-      }, label: {
-        Image(systemName: "timer")
-      })
-    }
-
-    ToolbarItem(placement: .navigationBarTrailing) {
-      Menu("\(Image(systemName: "ellipsis.circle"))", content: {
-        Button(action: {
-          trainingViewModel.showSwapExerciseSheet = true
-        }, label: {
-          HStack {
-            Text("Übungen verschieben")
-            Spacer()
-            Image(systemName: "rectangle.2.swap")
-          }
-        })
-
-        #warning("TODO: Implement func to save as Trainingplan")
-        Button(action: {
-          trainingViewModel.alertCase = .saveAsTrainingplan
+    if isTrainingView {
+      ToolbarItem(placement: .topBarLeading) {
+        Button {
           trainingViewModel.showAlert = true
+          trainingViewModel.alertCase = .exitTraining(dismiss)
+        }
+        label: {
+          Image(systemName: "rectangle.portrait.and.arrow.right")
+        }
+      }
+
+      ToolbarItem(placement: .navigationBarTrailing) {
+        Text(timerViewModel.secondsToCompletion.asTimestamp)
+          .foregroundStyle(.primary)
+          .font(.headline)
+      }
+
+      ToolbarItem(placement: .navigationBarTrailing) {
+        Button(action: {
+          trainingViewModel.showTimer = true
         }, label: {
-          HStack {
-            Text("Als Trainingsplan speichern")
-            Spacer()
-            Image(systemName: "square.and.arrow.down")
-          }
+          Image(systemName: "timer")
         })
-      })
+      }
+
+      ToolbarItem(placement: .navigationBarTrailing) {
+        Menu("\(Image(systemName: "ellipsis.circle"))") {
+          Button(action: {
+            trainingViewModel.showSwapExerciseSheet = true
+          }) {
+            HStack {
+              Text("Übung Verschieben")
+              Spacer()
+              Image(systemName: "rectangle.2.swap")
+            }
+          }
+
+          #warning("TODO: Implement func to save as Trainingplan")
+          Button(action: {
+            trainingViewModel.alertCase = .saveAsTrainingplan
+            trainingViewModel.showAlert = true
+          }) {
+            HStack {
+              Text("Als Trainingsplan Speichern")
+              Spacer()
+              Image(systemName: "square.and.arrow.down")
+            }
+          }
+        }
+      }
     }
   }
 
@@ -166,6 +173,7 @@ extension TrainingScreen {
         TextField("", text: Binding(
           get: { currentSet.weight ?? "Error" },
           set: { newValue in currentSet.weight = newValue }))
+          .onSubmit { try? CoreDataStack.shared.mainContext.save() }
       }
       .keyboardType(.decimalPad)
       VStack(alignment: .leading) {
@@ -175,6 +183,7 @@ extension TrainingScreen {
           get: { currentSet.reps ?? "" },
           set: { newValue in currentSet.reps = newValue }))
           .keyboardType(.decimalPad)
+          .onSubmit { try? CoreDataStack.shared.mainContext.save() }
       }
       VStack(alignment: .leading) {
         Text("Notizen")
@@ -182,12 +191,15 @@ extension TrainingScreen {
         TextField("", text: Binding(
           get: { currentSet.notes },
           set: { newValue in currentSet.notes = newValue }))
+          .onSubmit { try? CoreDataStack.shared.mainContext.save() }
       }
       .padding(.leading, -20)
 
-      Spacer()
-      Image(systemName: "ellipsis")
-        .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
+      if isTrainingView {
+        Spacer()
+        Image(systemName: "ellipsis")
+          .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
+      }
     }
   }
 
@@ -195,7 +207,7 @@ extension TrainingScreen {
     Button {
       trainingViewModel.addTrainingSet(exercise: exercise)
     } label: {
-      Text("Hinzufügen")
+      Text("Satz Hinzufügen")
         .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
     }
   }
@@ -205,9 +217,11 @@ extension TrainingScreen {
       Text(exercise.name)
         .font(.headline)
       Spacer()
-      Image(systemName: "square.and.pencil")
-        .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
-        .onTapGesture { trainingViewModel.showExerciseBottomSheet = true }
+      if isTrainingView {
+        Image(systemName: "square.and.pencil")
+          .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
+          .onTapGesture { trainingViewModel.showExerciseBottomSheet = true }
+      }
     }
   }
 }
