@@ -11,13 +11,13 @@ import SwiftUI
 public struct DatumWidget: View {
   @Environment(\.colorScheme) var colorScheme
   private let dayName: String
-  private let dayNumber: Int
+  private let dayNumber: String
 
   private var isLightMode: Bool {
     return colorScheme == .light
   }
 
-  public init(dayName: String, dayNumber: Int) {
+  public init(dayName: String, dayNumber: String) {
     self.dayName = dayName
     self.dayNumber = dayNumber
   }
@@ -59,7 +59,7 @@ public struct DatumWidget: View {
   }
 
   private var dayOfMonthText: some View {
-    Text("\(dayNumber)")
+    Text(dayNumber)
       .fontWeight(isLightMode ? .medium : .heavy)
       .foregroundStyle(isLightMode ? .black : .white)
       .bold()

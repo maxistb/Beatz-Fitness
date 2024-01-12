@@ -36,7 +36,7 @@ public class Training: NSManagedObject {
     training.id = UUID()
     training.name = split.name
     training.notes = ""
-    training.exercises = split.exercises
+    training.exercises = []
     training.split = split
 
     return training

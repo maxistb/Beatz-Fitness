@@ -14,7 +14,7 @@ struct DiaryCell: View {
       TrainingDiaryScreen()
     } label: {
       HStack(alignment: .top) {
-        DatumWidget(dayName: "Do", dayNumber: 11)
+        DatumWidget(dayName: training.date.dayOfWeek(), dayNumber: training.date.dayNumberString())
           .padding(.leading, -5)
           .padding(.trailing, 5)
           .padding(.top, -3)

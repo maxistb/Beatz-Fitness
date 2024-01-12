@@ -15,10 +15,11 @@ class TrainingViewModel: ObservableObject {
   @Published var alertCase: TrainingScreenAlerts = .notDecimalInput
   @Published var forceViewUpdate: Bool
   @Published var exercises: Set<Exercise>
+  @Published var copyExercises: Set<Exercise> = []
   private let startingTime: Date
 
-  var exerciseArray: [Exercise] {
-    exercises.sorted { $0.order < $1.order }
+  var copyExerciseArray: [Exercise] {
+    copyExercises.sorted { $0.order < $1.order }
   }
 
   init(split: Split) {
@@ -32,8 +33,32 @@ class TrainingViewModel: ObservableObject {
     self.forceViewUpdate = false
     self.startingTime = .now
     self.exercises = split.exercises
+    createExerciseCopy()
   }
 
+  private func createExerciseCopy() {
+    for exercise in exercises {
+      let exerciseCopy = Exercise.createTrainingExercise(
+        name: exercise.name,
+        category: exercise.category,
+        countSets: Int(exercise.countSets),
+        notes: exercise.notes,
+        order: Int(exercise.order)
+      )
+      copyExercises.insert(exerciseCopy)
+    }
+  }
+
+  private func saveExercisesForTraining(training: Training) {
+    for exercise in copyExercises {
+      exercise.training = training
+    }
+  }
+}
+
+// MARK: - Public Functions
+
+extension TrainingViewModel {
   func deleteSet(exercise: Exercise, indexSet: IndexSet) {
     withAnimation {
       exercise.trainingSets.removeFirst()
@@ -63,12 +88,13 @@ class TrainingViewModel: ObservableObject {
     training.date = startingTime
     training.endTraining = .now
     training.notes = notes
-    training.exercises = exercises
+    saveExercisesForTraining(training: training)
+
     try? CoreDataStack.shared.mainContext.save()
   }
 
   func initializeTrainingSets(split: Split) {
-    for splitExercise in split.exercises {
+    for splitExercise in copyExerciseArray {
       let exerciseCount = splitExercise.trainingSets.count
       let targetCount = Int(splitExercise.countSets)
 

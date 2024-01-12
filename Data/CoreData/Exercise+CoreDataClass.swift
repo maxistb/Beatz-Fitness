@@ -20,7 +20,7 @@ public class Exercise: NSManagedObject {
   @NSManaged public var notes: String
   @NSManaged public var order: Int16
   @NSManaged public var trainingSets: Set<TrainingSet>
-  @NSManaged public var split: Split
+  @NSManaged public var split: Split?
   @NSManaged public var training: Training?
 
   public var exerciseTrainingSetArray: [TrainingSet] {
@@ -48,6 +48,27 @@ public class Exercise: NSManagedObject {
     newExercise.training = nil
 
     try? CoreDataStack.shared.mainContext.save()
+  }
+
+  class func createTrainingExercise(
+    name: String,
+    category: String,
+    countSets: Int,
+    notes: String,
+    order: Int
+  ) -> Exercise {
+    let newExercise = Exercise(context: CoreDataStack.shared.mainContext)
+    newExercise.id = UUID()
+    newExercise.name = name
+    newExercise.category = category
+    newExercise.countSets = Int16(countSets)
+    newExercise.order = Int16(order)
+    newExercise.notes = notes
+    newExercise.split = nil
+
+    try? CoreDataStack.shared.mainContext.save()
+
+    return newExercise
   }
 }
 

@@ -29,7 +29,7 @@ struct TrainingScreen: View {
           .keyboardType(.decimalPad)
       }
 
-      ForEach(trainingViewModel.exerciseArray, id: \.self) { exercise in
+      ForEach(trainingViewModel.copyExerciseArray, id: \.self) { exercise in
         Section {
           HStack {
             Text(exercise.name)
