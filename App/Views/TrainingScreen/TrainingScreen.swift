@@ -15,12 +15,15 @@ struct TrainingScreen: View {
   let split: Split
   let training: Training?
   private let isTrainingView: Bool
+  @State private var currentClickedExercise: Exercise?
 
   init(split: Split, training: Training? = nil) {
     self.split = split
     self.trainingViewModel = TrainingViewModel(split: split)
     self.training = training
     self.isTrainingView = training == nil
+    self.currentClickedExercise = trainingViewModel.copyExerciseArray.first
+
     trainingViewModel.initializeTrainingSets(split: split)
   }
 
@@ -76,18 +79,22 @@ extension TrainingScreen {
 
         createAddSetButton(exercise: exercise)
       }
-      .sheet(isPresented: $trainingViewModel.showExerciseBottomSheet) {
-        TrainingBottomSheetView(split: split, exercise: exercise, exercises: trainingViewModel.copyExercises)
-          .presentationDetents([.medium])
-          .presentationDragIndicator(.visible)
-      }
+    }
+    .sheet(isPresented: $trainingViewModel.showExerciseBottomSheet) {
+      TrainingBottomSheetView(split: split, exercise: currentClickedExercise, exercises: $trainingViewModel.copyExercises)
+        .presentationDetents([.medium])
+        .presentationDragIndicator(.visible)
     }
   }
 
   private func createAddExerciseSection() -> some View {
     Section {
-      Text("Übung Hinzufügen")
-        .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
+      NavigationLink {
+        BeatzExercisesView(split: split)
+      } label: {
+        Text("Übung Hinzufügen")
+          .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
+      }
     }
   }
 
@@ -220,7 +227,10 @@ extension TrainingScreen {
       if isTrainingView {
         Image(systemName: "square.and.pencil")
           .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
-          .onTapGesture { trainingViewModel.showExerciseBottomSheet = true }
+          .onTapGesture {
+            currentClickedExercise = exercise
+            trainingViewModel.showExerciseBottomSheet = true
+          }
       }
     }
   }

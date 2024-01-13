@@ -6,13 +6,11 @@
 import Styleguide
 import SwiftUI
 
-#warning("TODO: Implement Functions")
-
 struct TrainingBottomSheetView: View {
   @Environment(\.dismiss) private var dismiss
   let split: Split
-  let exercise: Exercise
-  let exercises: Set<Exercise>
+  let exercise: Exercise?
+  var exercises: Binding<Set<Exercise>>?
 
   @State private var showReplaceExerciseView = false
   @State private var showSwapExerciseView = false
@@ -23,12 +21,12 @@ struct TrainingBottomSheetView: View {
       List {
         Section {
           createListElement(label: "Ersetzen", imageName: "arrow.left.arrow.right") { showReplaceExerciseView = true }
-          createListElement(label: "Löschen", imageName: "delete.left") { }
+          createListElement(label: "Löschen", imageName: "delete.left") { deleteExercise() }
           createListElement(label: "Verschieben", imageName: "rectangle.2.swap") { showSwapExerciseView = true }
           createListElement(label: "Übung bearbeiten", imageName: "square.and.pencil") { showEditExerciseView = true }
         }
       }
-      .navigationTitle(exercise.name)
+      .navigationTitle(exercise?.name ?? "")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .topBarTrailing) {
@@ -36,9 +34,17 @@ struct TrainingBottomSheetView: View {
             label: { Image(systemName: "xmark.circle") }
         }
       }
-      .sheet(isPresented: $showReplaceExerciseView) { BeatzExercisesView(split: split, action: {}) }
-      .sheet(isPresented: $showSwapExerciseView) { SwapExerciseView(exercises: exercises) }
-      .sheet(isPresented: $showEditExerciseView) { AddEditUebungView(split: split, exercise: exercise) }
+      .sheet(isPresented: $showReplaceExerciseView) {
+        BeatzExercisesView(split: split, exercises: exercises) {
+          deleteExercise()
+        }
+      }
+      .sheet(isPresented: $showSwapExerciseView) { SwapExerciseView(exercises: exercises?.wrappedValue) }
+      .sheet(isPresented: $showEditExerciseView) {
+        if let exercise = exercise {
+          AddEditExerciseView(appearance: .editExercise(exercise))
+        }
+      }
     }
   }
 
@@ -51,5 +57,14 @@ struct TrainingBottomSheetView: View {
     }
     .contentShape(Rectangle())
     .onTapGesture { action() }
+  }
+
+  private func deleteExercise() {
+    if let exercise = exercise {
+      if let exercises = exercises {
+        exercises.wrappedValue.remove(exercise)
+        dismiss()
+      }
+    }
   }
 }

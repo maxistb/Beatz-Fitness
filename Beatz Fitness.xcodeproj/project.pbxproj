@@ -28,7 +28,7 @@
 		7A5C506E2B3D895A00A4D551 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A5C506D2B3D895A00A4D551 /* Launch Screen.storyboard */; };
 		7A5C50702B3D8A1200A4D551 /* Beatz-Fitness-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A5C506F2B3D8A1200A4D551 /* Beatz-Fitness-Info.plist */; };
 		7A5C50722B3D8BB100A4D551 /* ExercisesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C50712B3D8BB100A4D551 /* ExercisesScreen.swift */; };
-		7A5C50742B3D94C200A4D551 /* AddEditUebungView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C50732B3D94C200A4D551 /* AddEditUebungView.swift */; };
+		7A5C50742B3D94C200A4D551 /* AddEditExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C50732B3D94C200A4D551 /* AddEditExerciseView.swift */; };
 		7A5C50762B3D970E00A4D551 /* ExercisesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C50752B3D970E00A4D551 /* ExercisesViewModel.swift */; };
 		7A7080FE2B47F5E00095C664 /* Courses.json in Resources */ = {isa = PBXBuildFile; fileRef = 7A7080FD2B47F5E00095C664 /* Courses.json */; };
 		7A7081002B47F6040095C664 /* CoursesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7080FF2B47F6040095C664 /* CoursesModel.swift */; };
@@ -114,7 +114,7 @@
 		7A5C506D2B3D895A00A4D551 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		7A5C506F2B3D8A1200A4D551 /* Beatz-Fitness-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beatz-Fitness-Info.plist"; sourceTree = "<group>"; };
 		7A5C50712B3D8BB100A4D551 /* ExercisesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesScreen.swift; sourceTree = "<group>"; };
-		7A5C50732B3D94C200A4D551 /* AddEditUebungView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditUebungView.swift; sourceTree = "<group>"; };
+		7A5C50732B3D94C200A4D551 /* AddEditExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditExerciseView.swift; sourceTree = "<group>"; };
 		7A5C50752B3D970E00A4D551 /* ExercisesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewModel.swift; sourceTree = "<group>"; };
 		7A5F48102B3AB755006375C0 /* .swiftformat */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; tabWidth = 1; };
 		7A5F48122B3AB87C006375C0 /* Project-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Base.xcconfig"; sourceTree = "<group>"; };
@@ -377,7 +377,7 @@
 		7AB849752B40627A00E25707 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7A5C50732B3D94C200A4D551 /* AddEditUebungView.swift */,
+				7A5C50732B3D94C200A4D551 /* AddEditExerciseView.swift */,
 				7AB849722B405A1000E25707 /* BeatzExercisesView.swift */,
 				7A8681732B3F5D84003946C2 /* CategorySelectionView.swift */,
 				7A5C50712B3D8BB100A4D551 /* ExercisesScreen.swift */,
@@ -635,7 +635,7 @@
 				7AE280DF2B45CAFA00DF3DC4 /* CreditsView.swift in Sources */,
 				7AE4EA0D2B4C8F7A00A2D4AA /* TrainingSet+CoreDataClass.swift in Sources */,
 				7A5571862B3C129C00E61CE0 /* SplitDetailScreen.swift in Sources */,
-				7A5C50742B3D94C200A4D551 /* AddEditUebungView.swift in Sources */,
+				7A5C50742B3D94C200A4D551 /* AddEditExerciseView.swift in Sources */,
 				7A3C9B462B5153D200DA3670 /* DateExtension.swift in Sources */,
 				7AEB018F2B43573B003197FC /* TimerViewModel.swift in Sources */,
 				7AEB01892B435624003197FC /* AddTimerView.swift in Sources */,

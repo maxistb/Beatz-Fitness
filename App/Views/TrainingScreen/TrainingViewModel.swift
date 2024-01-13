@@ -6,14 +6,14 @@
 import SwiftUI
 
 class TrainingViewModel: ObservableObject {
-  @Published var bodyWeight: String
-  @Published var notes: String
-  @Published var showSwapExerciseSheet: Bool
-  @Published var showExerciseBottomSheet: Bool
-  @Published var showTimer: Bool
-  @Published var showAlert: Bool
+  @Published var bodyWeight: String = ""
+  @Published var notes: String = ""
+  @Published var showSwapExerciseSheet: Bool = false
+  @Published var showExerciseBottomSheet: Bool = false
+  @Published var showTimer: Bool = false
+  @Published var showAlert: Bool = false
   @Published var alertCase: TrainingScreenAlerts = .notDecimalInput
-  @Published var forceViewUpdate: Bool
+  @Published var forceViewUpdate: Bool = false
   @Published var copyExercises: Set<Exercise> = []
   @Published var currentSplit: Split
   private let startingTime: Date
@@ -24,20 +24,12 @@ class TrainingViewModel: ObservableObject {
 
   init(split: Split) {
     self.currentSplit = split
-    self.bodyWeight = ""
-    self.notes = ""
-    self.showSwapExerciseSheet = false
-    self.showExerciseBottomSheet = false
-    self.showTimer = false
-    self.showAlert = false
-    self.alertCase = .notDecimalInput
-    self.forceViewUpdate = false
-    self.startingTime = .now
-    self.copyExercises = createExerciseCopy()
+    self.startingTime = Date.now
+    self.copyExercises = createExerciseCopy(from: split.exercises)
   }
 
-  private func createExerciseCopy() -> Set<Exercise> {
-    var copying: Set<Exercise> = []
+  private func createExerciseCopy(from exercises: Set<Exercise>) -> Set<Exercise> {
+    var localCopy: Set<Exercise> = []
     for exercise in currentSplit.exercises {
       let exerciseCopy = Exercise.createTrainingExercise(
         name: exercise.name,
@@ -46,13 +38,13 @@ class TrainingViewModel: ObservableObject {
         notes: exercise.notes,
         order: Int(exercise.order)
       )
-      copying.insert(exerciseCopy)
+      localCopy.insert(exerciseCopy)
     }
 
-    return copying
+    return localCopy
   }
 
-  private func saveExercisesForTraining(training: Training) {
+  private func saveExercisesForTraining(_ training: Training) {
     for exercise in copyExercises {
       exercise.training = training
     }
@@ -63,16 +55,18 @@ class TrainingViewModel: ObservableObject {
 
 extension TrainingViewModel {
   func deleteSet(exercise: Exercise, indexSet: IndexSet, isInitial: Bool = false) {
-    withAnimation {
-      exercise.trainingSets.removeFirst()
-      for (index, exerciseSet) in exercise.exerciseTrainingSetArray.enumerated() {
-        exerciseSet.order = Int16(index)
-      }
+    if !exercise.trainingSets.isEmpty {
+      withAnimation {
+        exercise.trainingSets.removeFirst()
+        exercise.exerciseTrainingSetArray.enumerated().forEach { index, exerciseSet in
+          exerciseSet.order = Int16(index)
+        }
 
-      if !isInitial { exercise.countSets -= 1 }
-      forceViewUpdate.toggle()
+        if !isInitial { exercise.countSets -= 1 }
+        forceViewUpdate.toggle()
+      }
+      try? CoreDataStack.shared.mainContext.save()
     }
-    try? CoreDataStack.shared.mainContext.save()
   }
 
   func addTrainingSet(exercise: Exercise, isInitial: Bool = false) {
@@ -83,7 +77,6 @@ extension TrainingViewModel {
       if !isInitial { exercise.countSets += 1 }
       forceViewUpdate.toggle()
     }
-
     try? CoreDataStack.shared.mainContext.save()
   }
 
@@ -91,9 +84,9 @@ extension TrainingViewModel {
     let training = Training.createTraining(split: split)
     training.bodyWeight = bodyWeight
     training.date = startingTime
-    training.endTraining = .now
+    training.endTraining = Date.now
     training.notes = notes
-    saveExercisesForTraining(training: training)
+    saveExercisesForTraining(training)
 
     try? CoreDataStack.shared.mainContext.save()
   }
@@ -103,7 +96,7 @@ extension TrainingViewModel {
       let exerciseCount = splitExercise.trainingSets.count
       let targetCount = Int(splitExercise.countSets)
 
-      // init or remove more sets if they have been changed
+      // Initiate or remove sets if they have been changed
       switch exerciseCount {
       case targetCount:
         continue

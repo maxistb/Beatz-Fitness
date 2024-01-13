@@ -10,11 +10,13 @@ struct BeatzExercisesView: View {
   @ObservedObject private var viewModel = MachinesViewModel()
   let split: Split
   let action: (() -> Void)?
+  var exercises: Binding<Set<Exercise>>?
   private let isSelectMachinesView: Bool
 
-  init(split: Split, action: (() -> Void)? = nil) {
+  init(split: Split, exercises: Binding<Set<Exercise>>? = nil, action: (() -> Void)? = nil) {
     self.split = split
     self.action = action
+    self.exercises = exercises
     if self.action != nil {
       self.isSelectMachinesView = false
     } else {
@@ -32,7 +34,9 @@ struct BeatzExercisesView: View {
               machines: machines.filter { $0.muscleGroup == muscleGroup },
               header: muscleGroup.getName(),
               split: split,
-              isSelectMachinesView: isSelectMachinesView, action: action))
+              isSelectMachinesView: isSelectMachinesView,
+              action: action,
+              exercises: exercises))
         }
       }
       .navigationTitle(isSelectMachinesView ? "Übungen" : "Übung ersetzen")
@@ -44,7 +48,7 @@ struct BeatzExercisesView: View {
   @ToolbarContentBuilder
   private func createToolbar() -> some ToolbarContent {
     ToolbarItem(placement: .topBarLeading) {
-      NavigationLink("Eigene Übung", destination: AddEditUebungView(split: split))
+      NavigationLink("Eigene Übung", destination: AddEditExerciseView(appearance: .addExercise(split)))
     }
   }
 }
@@ -57,6 +61,7 @@ private struct SelectBeatzExercisesView: View {
   let split: Split
   let isSelectMachinesView: Bool
   let action: (() -> Void)?
+  var exercises: Binding<Set<Exercise>>?
 
   var body: some View {
     List {
@@ -64,6 +69,7 @@ private struct SelectBeatzExercisesView: View {
         ForEach(machines, id: \.hashValue) { machine in
           ExerciseRow(
             selectedMachines: $selectedMachines,
+            exercises: exercises,
             machine: machine,
             isSelectMachinesView: isSelectMachinesView,
             action: action)
@@ -102,6 +108,7 @@ private struct ExerciseRow: View {
 
   @State private var isSelected: Bool = false
   @Binding var selectedMachines: Set<Machine>
+  var exercises: Binding<Set<Exercise>>?
 
   let machine: Machine
   let isSelectMachinesView: Bool
@@ -116,7 +123,26 @@ private struct ExerciseRow: View {
     }
     .padding(.top, 5)
     .contentShape(Rectangle())
-    .onTapGesture { (action ?? selectMachine)() }
+    .onTapGesture {
+      if let action = action {
+        action()
+        let newExercise = Exercise.createTrainingExercise(
+          name: machine.displayName,
+          category: machine.category.rawValue,
+          countSets: 3, notes: "",
+          order: 3)
+        exercises?.wrappedValue.insert(newExercise)
+
+        for order in 0 ..< newExercise.countSets {
+         _ = TrainingSet.createTrainingSet(exercise: newExercise, order: Int(order))
+        }
+
+        dismiss()
+
+      } else {
+        selectMachine()
+      }
+    }
   }
 
   private var trailingIcon: AnyView {
