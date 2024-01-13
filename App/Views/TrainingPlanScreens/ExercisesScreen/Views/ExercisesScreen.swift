@@ -53,7 +53,7 @@ struct ExercisesScreen: View {
     .navigationTitle(split.name)
     .toolbar { createToolbar() }
     .sheet(isPresented: $showAddUebungSheet) { AddEditExerciseView(appearance: .addExercise(split)) }
-    .sheet(isPresented: $showMachinesBeatzSheet) { BeatzExercisesView(split: split) }
+    .sheet(isPresented: $showMachinesBeatzSheet) { BeatzExercisesView(appearance: .addExercises(split)) }
   }
 
   @ToolbarContentBuilder

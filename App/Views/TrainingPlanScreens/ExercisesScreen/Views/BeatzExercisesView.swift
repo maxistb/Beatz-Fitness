@@ -6,22 +6,26 @@
 import NukeUI
 import SwiftUI
 
+enum BeatzExerciseAppearance {
+  case addExercises(Split)
+  case replaceExercise(Binding<Set<Exercise>>, Exercise)
+
+  var navigationTitle: String {
+    switch self {
+    case .addExercises(let split):
+      "Übungen Hinzufügen"
+    case .replaceExercise(let binding, let exercise):
+      "Übung Ersetzen"
+    }
+  }
+}
+
 struct BeatzExercisesView: View {
   @ObservedObject private var viewModel = MachinesViewModel()
-  let split: Split
-  let action: (() -> Void)?
-  var exercises: Binding<Set<Exercise>>?
-  private let isSelectMachinesView: Bool
+  @State private var appearance: BeatzExerciseAppearance
 
-  init(split: Split, exercises: Binding<Set<Exercise>>? = nil, action: (() -> Void)? = nil) {
-    self.split = split
-    self.action = action
-    self.exercises = exercises
-    if self.action != nil {
-      self.isSelectMachinesView = false
-    } else {
-      self.isSelectMachinesView = true
-    }
+  init(appearance: BeatzExerciseAppearance) {
+    _appearance = State(initialValue: appearance)
   }
 
   var body: some View {
@@ -33,13 +37,12 @@ struct BeatzExercisesView: View {
             destination: SelectBeatzExercisesView(
               machines: machines.filter { $0.muscleGroup == muscleGroup },
               header: muscleGroup.getName(),
-              split: split,
-              isSelectMachinesView: isSelectMachinesView,
-              action: action,
-              exercises: exercises))
+              appearance: appearance
+            )
+          )
         }
       }
-      .navigationTitle(isSelectMachinesView ? "Übungen" : "Übung ersetzen")
+      .navigationTitle(appearance.navigationTitle)
       .toolbar { createToolbar() }
       .task { viewModel.machines = try? await viewModel.getMachines() }
     }
@@ -48,7 +51,12 @@ struct BeatzExercisesView: View {
   @ToolbarContentBuilder
   private func createToolbar() -> some ToolbarContent {
     ToolbarItem(placement: .topBarLeading) {
-      NavigationLink("Eigene Übung", destination: AddEditExerciseView(appearance: .addExercise(split)))
+      switch appearance {
+      case .addExercises(let split):
+        NavigationLink("Eigene Übung", destination: AddEditExerciseView(appearance: .addExercise(split)))
+      case .replaceExercise(let binding, let exercise):
+        NavigationLink("Eigene Übung", destination: AddEditExerciseView(appearance: .replaceExercise(binding, exercise)))
+      }
     }
   }
 }
@@ -58,10 +66,7 @@ private struct SelectBeatzExercisesView: View {
   @State private var selectedMachines: Set<Machine> = []
   let machines: [Machine]
   let header: String
-  let split: Split
-  let isSelectMachinesView: Bool
-  let action: (() -> Void)?
-  var exercises: Binding<Set<Exercise>>?
+  let appearance: BeatzExerciseAppearance
 
   var body: some View {
     List {
@@ -69,10 +74,9 @@ private struct SelectBeatzExercisesView: View {
         ForEach(machines, id: \.hashValue) { machine in
           ExerciseRow(
             selectedMachines: $selectedMachines,
-            exercises: exercises,
-            machine: machine,
-            isSelectMachinesView: isSelectMachinesView,
-            action: action)
+            appearance: appearance,
+            machine: machine
+          )
         }
       }
     }
@@ -80,7 +84,23 @@ private struct SelectBeatzExercisesView: View {
     .toolbar { createToolbar() }
   }
 
-  private func addExercisesToSplit() {
+  @ToolbarContentBuilder
+  private func createToolbar() -> some ToolbarContent {
+    switch appearance {
+    case .addExercises(let split):
+      ToolbarItem(placement: .topBarTrailing) {
+        Button {
+          addExercisesToSplit(split: split)
+          dismiss()
+        }
+        label: { Text("Hinzufügen") }
+      }
+    case .replaceExercise(let binding, let exercise):
+      ToolbarItem {}
+    }
+  }
+
+  private func addExercisesToSplit(split: Split) {
     for machine in selectedMachines {
       ExercisesViewModel.shared
         .createExerciseForSplit(
@@ -88,31 +108,18 @@ private struct SelectBeatzExercisesView: View {
           category: machine.category.rawValue,
           countSets: 3,
           notes: "",
-          split: split)
-    }
-  }
-
-  @ToolbarContentBuilder
-  private func createToolbar() -> some ToolbarContent {
-    if isSelectMachinesView {
-      ToolbarItem(placement: .topBarTrailing) {
-        Button { addExercisesToSplit(); dismiss() }
-          label: { Text("Hinzufügen") }
-      }
+          split: split
+        )
     }
   }
 }
 
 private struct ExerciseRow: View {
   @Environment(\.dismiss) private var dismiss
-
   @State private var isSelected: Bool = false
   @Binding var selectedMachines: Set<Machine>
-  var exercises: Binding<Set<Exercise>>?
-
+  let appearance: BeatzExerciseAppearance
   let machine: Machine
-  let isSelectMachinesView: Bool
-  let action: (() -> Void)?
 
   var body: some View {
     HStack {
@@ -124,33 +131,23 @@ private struct ExerciseRow: View {
     .padding(.top, 5)
     .contentShape(Rectangle())
     .onTapGesture {
-      if let action = action {
-        action()
-        let newExercise = Exercise.createTrainingExercise(
-          name: machine.displayName,
-          category: machine.category.rawValue,
-          countSets: 3, notes: "",
-          order: 3)
-        exercises?.wrappedValue.insert(newExercise)
-
-        for order in 0 ..< newExercise.countSets {
-         _ = TrainingSet.createTrainingSet(exercise: newExercise, order: Int(order))
-        }
-
-        dismiss()
-
-      } else {
+      switch appearance {
+      case .addExercises(let split):
         selectMachine()
+      case .replaceExercise(let exercises, let exercise):
+        replaceExercise(exercises: exercises, exercise: exercise)
       }
     }
   }
 
   private var trailingIcon: AnyView {
-    if isSelectMachinesView {
+    switch appearance {
+    case .addExercises(let split):
       AnyView(Toggle("", isOn: $isSelected)
         .toggleStyle(BoxToggleStyle()))
-    } else {
-      AnyView(Image(systemName: "chevron.right").foregroundStyle(.gray))
+    case .replaceExercise(let binding, let exercise):
+      AnyView(Image(systemName: "chevron.right")
+        .foregroundStyle(.gray))
     }
   }
 
@@ -183,6 +180,25 @@ private struct ExerciseRow: View {
     } else {
       selectedMachines.remove(machine)
     }
+  }
+
+  private func replaceExercise(exercises: Binding<Set<Exercise>>, exercise: Exercise) {
+    let newExercise = Exercise.createTrainingExercise(
+      name: machine.displayName,
+      category: machine.category.rawValue,
+      countSets: Int(exercise.countSets),
+      notes: "",
+      order: Int(exercise.order)
+    )
+    exercises.wrappedValue.remove(exercise)
+    exercises.wrappedValue.insert(newExercise)
+
+    for order in 0 ..< newExercise.countSets {
+      _ = TrainingSet.createTrainingSet(exercise: newExercise, order: Int(order))
+    }
+
+    try? CoreDataStack.shared.mainContext.save()
+    dismiss()
   }
 }
 

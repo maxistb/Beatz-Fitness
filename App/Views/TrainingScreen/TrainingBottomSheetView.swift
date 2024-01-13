@@ -35,8 +35,10 @@ struct TrainingBottomSheetView: View {
         }
       }
       .sheet(isPresented: $showReplaceExerciseView) {
-        BeatzExercisesView(split: split, exercises: exercises) {
-          deleteExercise()
+        if let exercise = exercise {
+          if let exercises = exercises {
+            BeatzExercisesView(appearance: .replaceExercise(exercises, exercise))
+          }
         }
       }
       .sheet(isPresented: $showSwapExerciseView) { SwapExerciseView(exercises: exercises?.wrappedValue) }

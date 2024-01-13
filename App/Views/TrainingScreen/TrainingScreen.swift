@@ -90,7 +90,7 @@ extension TrainingScreen {
   private func createAddExerciseSection() -> some View {
     Section {
       NavigationLink {
-        BeatzExercisesView(split: split)
+        BeatzExercisesView(appearance: .addExercises(split))
       } label: {
         Text("Übung Hinzufügen")
           .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
