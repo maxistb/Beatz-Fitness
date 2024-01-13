@@ -72,7 +72,7 @@ enum TrainingScreenAlerts {
 
   private var action: () -> Void {
     switch self {
-    case .saveTraining(let dismissAction, let viewModel, let split):
+    case .saveTraining(let dismissAction, let viewModel, _):
         viewModel.saveTraining()
         return dismissAction.callAsFunction
     case .exitTraining(let dismissAction):

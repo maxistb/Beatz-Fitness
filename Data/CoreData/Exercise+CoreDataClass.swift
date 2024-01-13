@@ -2,7 +2,7 @@
 // Created by Maximillian Stabe on 08.01.24.
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
-//
+// swiftlint:disable function_parameter_count
 
 import CoreData
 import Foundation
@@ -87,3 +87,5 @@ public extension Exercise {
   @objc(removeTrainingSets:)
   @NSManaged func removeFromTrainingSets(_ values: NSSet)
 }
+
+// swiftlint:enable function_parameter_count
