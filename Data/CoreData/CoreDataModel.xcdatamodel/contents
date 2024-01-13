@@ -16,7 +16,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Exercise" inverseName="split" inverseEntity="Exercise"/>
+        <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Exercise" inverseName="split" inverseEntity="Exercise"/>
         <relationship name="lastTraining" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Training" inverseName="split" inverseEntity="Training"/>
     </entity>
     <entity name="TimerEntity" representedClassName="TimerEntity" syncable="YES">
@@ -30,7 +30,7 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
-        <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Exercise" inverseName="training" inverseEntity="Exercise"/>
+        <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise" inverseName="training" inverseEntity="Exercise"/>
         <relationship name="split" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Split" inverseName="lastTraining" inverseEntity="Split"/>
     </entity>
     <entity name="TrainingSet" representedClassName="TrainingSet" syncable="YES">
@@ -48,6 +48,5 @@
         <attribute name="seconds" optional="YES" attributeType="String"/>
         <attribute name="weight" optional="YES" attributeType="String"/>
         <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="trainingSets" inverseEntity="Exercise"/>
-        <relationship name="training" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Training"/>
     </entity>
 </model>

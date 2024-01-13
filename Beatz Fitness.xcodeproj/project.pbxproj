@@ -462,13 +462,13 @@
 			buildConfigurationList = 7A3188F02B3849E70044761B /* Build configuration list for PBXNativeTarget "Beatz Fitness" */;
 			buildPhases = (
 				3E321B0BAB23B44649FD0613 /* [CP] Check Pods Manifest.lock */,
-				7A3188D72B3849E60044761B /* Sources */,
 				7A3188D82B3849E60044761B /* Frameworks */,
+				7AC0ADD82B47EC6000AB196F /* SwiftGen */,
+				7A5F48142B3AB9DE006375C0 /* SwiftLint */,
+				7A3188D72B3849E60044761B /* Sources */,
 				7A3188D92B3849E60044761B /* Resources */,
 				7A3189052B38604C0044761B /* Embed Frameworks */,
 				7A427FEC2B3A08E30064BA95 /* Embed ExtensionKit Extensions */,
-				7A5F48142B3AB9DE006375C0 /* SwiftLint */,
-				7AC0ADD82B47EC6000AB196F /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -821,6 +821,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -862,6 +863,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

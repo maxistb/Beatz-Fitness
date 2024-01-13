@@ -46,7 +46,6 @@ public class TrainingSet: NSManagedObject {
     trainingSet.weight = ""
     trainingSet.training = nil
     trainingSet.exercise = exercise
-    //TODO: diaryExercise missing
 
     return trainingSet
   }

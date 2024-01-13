@@ -6,16 +6,20 @@
 import SwiftUI
 
 class TrainingViewModel: ObservableObject {
-  @Published var bodyWeight: String = ""
-  @Published var notes: String = ""
   @Published var showSwapExerciseSheet: Bool = false
   @Published var showExerciseBottomSheet: Bool = false
   @Published var showTimer: Bool = false
   @Published var showAlert: Bool = false
-  @Published var alertCase: TrainingScreenAlerts = .notDecimalInput
+  @Published var showAddExerciseSheet: Bool = false
   @Published var forceViewUpdate: Bool = false
+
+  @Published var bodyWeight: String = ""
+  @Published var notes: String = ""
+
   @Published var copyExercises: Set<Exercise> = []
-  @Published var currentSplit: Split
+  @Published var split: Split
+
+  @Published var alertCase: TrainingScreenAlerts = .notDecimalInput
   private let startingTime: Date
 
   var copyExerciseArray: [Exercise] {
@@ -23,14 +27,14 @@ class TrainingViewModel: ObservableObject {
   }
 
   init(split: Split) {
-    self.currentSplit = split
+    self.split = split
     self.startingTime = Date.now
     self.copyExercises = createExerciseCopy(from: split.exercises)
   }
 
   private func createExerciseCopy(from exercises: Set<Exercise>) -> Set<Exercise> {
     var localCopy: Set<Exercise> = []
-    for exercise in currentSplit.exercises {
+    for exercise in split.exercises {
       let exerciseCopy = Exercise.createTrainingExercise(
         name: exercise.name,
         category: exercise.category,
@@ -80,18 +84,19 @@ extension TrainingViewModel {
     try? CoreDataStack.shared.mainContext.save()
   }
 
-  func saveTraining(split: Split) {
+  func saveTraining() {
     let training = Training.createTraining(split: split)
     training.bodyWeight = bodyWeight
     training.date = startingTime
     training.endTraining = Date.now
     training.notes = notes
+    split.lastTraining = training
     saveExercisesForTraining(training)
 
     try? CoreDataStack.shared.mainContext.save()
   }
 
-  func initializeTrainingSets(split: Split) {
+  func initializeTrainingSets() {
     for splitExercise in copyExerciseArray {
       let exerciseCount = splitExercise.trainingSets.count
       let targetCount = Int(splitExercise.countSets)
@@ -112,5 +117,22 @@ extension TrainingViewModel {
         break
       }
     }
+  }
+
+  func saveAsTrainingPlan() {
+    split.exercises.removeAll()
+
+    for exercise in copyExercises {
+      Exercise.createExercise(
+        name: exercise.name,
+        category: exercise.category,
+        countSets: Int(exercise.countSets),
+        notes: exercise.notes,
+        order: Int(exercise.order),
+        split: split
+      )
+    }
+
+    try? CoreDataStack.shared.mainContext.save()
   }
 }

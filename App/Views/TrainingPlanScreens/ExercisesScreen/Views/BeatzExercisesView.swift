@@ -8,13 +8,14 @@ import SwiftUI
 
 enum BeatzExerciseAppearance {
   case addExercises(Split)
+  case addTrainingExercises(Binding<Set<Exercise>>)
   case replaceExercise(Binding<Set<Exercise>>, Exercise)
 
   var navigationTitle: String {
     switch self {
-    case .addExercises(let split):
+    case .addExercises, .addTrainingExercises:
       "Übungen Hinzufügen"
-    case .replaceExercise(let binding, let exercise):
+    case .replaceExercise:
       "Übung Ersetzen"
     }
   }
@@ -54,8 +55,12 @@ struct BeatzExercisesView: View {
       switch appearance {
       case .addExercises(let split):
         NavigationLink("Eigene Übung", destination: AddEditExerciseView(appearance: .addExercise(split)))
+      case .addTrainingExercises(let exercises):
+        NavigationLink("Eigene Übung", destination: AddEditExerciseView(appearance: .addTrainingExercise(exercises)))
       case .replaceExercise(let binding, let exercise):
-        NavigationLink("Eigene Übung", destination: AddEditExerciseView(appearance: .replaceExercise(binding, exercise)))
+        NavigationLink("Eigene Übung") {
+          AddEditExerciseView(appearance: .replaceExercise(binding, exercise))
+        }
       }
     }
   }
@@ -95,7 +100,7 @@ private struct SelectBeatzExercisesView: View {
         }
         label: { Text("Hinzufügen") }
       }
-    case .replaceExercise(let binding, let exercise):
+    case .replaceExercise, .addTrainingExercises:
       ToolbarItem {}
     }
   }
@@ -132,20 +137,22 @@ private struct ExerciseRow: View {
     .contentShape(Rectangle())
     .onTapGesture {
       switch appearance {
-      case .addExercises(let split):
+      case .addExercises:
         selectMachine()
       case .replaceExercise(let exercises, let exercise):
         replaceExercise(exercises: exercises, exercise: exercise)
+      case .addTrainingExercises(let exercises):
+        addExercises(exercises: exercises)
       }
     }
   }
 
   private var trailingIcon: AnyView {
     switch appearance {
-    case .addExercises(let split):
+    case .addExercises:
       AnyView(Toggle("", isOn: $isSelected)
         .toggleStyle(BoxToggleStyle()))
-    case .replaceExercise(let binding, let exercise):
+    case .replaceExercise, .addTrainingExercises:
       AnyView(Image(systemName: "chevron.right")
         .foregroundStyle(.gray))
     }
@@ -191,6 +198,24 @@ private struct ExerciseRow: View {
       order: Int(exercise.order)
     )
     exercises.wrappedValue.remove(exercise)
+    exercises.wrappedValue.insert(newExercise)
+
+    for order in 0 ..< newExercise.countSets {
+      _ = TrainingSet.createTrainingSet(exercise: newExercise, order: Int(order))
+    }
+
+    try? CoreDataStack.shared.mainContext.save()
+    dismiss()
+  }
+
+  private func addExercises(exercises: Binding<Set<Exercise>>) {
+    let newExercise = Exercise.createTrainingExercise(
+      name: machine.displayName,
+      category: machine.category.rawValue,
+      countSets: 3,
+      notes: "",
+      order: exercises.wrappedValue.count
+    )
     exercises.wrappedValue.insert(newExercise)
 
     for order in 0 ..< newExercise.countSets {

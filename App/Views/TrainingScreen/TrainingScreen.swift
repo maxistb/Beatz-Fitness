@@ -12,19 +12,17 @@ struct TrainingScreen: View {
   @ObservedObject private var timerViewModel = TimerViewModel()
   @ObservedObject private var trainingViewModel: TrainingViewModel
 
-  let split: Split
   let training: Training?
   private let isTrainingView: Bool
   @State private var currentClickedExercise: Exercise?
 
   init(split: Split, training: Training? = nil) {
-    self.split = split
     self.trainingViewModel = TrainingViewModel(split: split)
     self.training = training
     self.isTrainingView = training == nil
     self.currentClickedExercise = trainingViewModel.copyExerciseArray.first
 
-    trainingViewModel.initializeTrainingSets(split: split)
+    trainingViewModel.initializeTrainingSets()
   }
 
   var body: some View {
@@ -42,12 +40,17 @@ struct TrainingScreen: View {
         createSaveTrainingSection()
       }
     }
-    .navigationTitle(split.name)
+    .navigationTitle(trainingViewModel.split.name)
     .navigationBarBackButtonHidden(isTrainingView)
     .toolbar { createToolbar() }
     .alert(isPresented: $trainingViewModel.showAlert) { trainingViewModel.alertCase.createAlert }
-    .sheet(isPresented: $trainingViewModel.showSwapExerciseSheet) { SwapExerciseView(exercises: trainingViewModel.copyExercises) }
+    .sheet(isPresented: $trainingViewModel.showSwapExerciseSheet) {
+      SwapExerciseView(exercises: trainingViewModel.copyExercises)
+    }
     .sheet(isPresented: $trainingViewModel.showTimer) { TimerView(model: timerViewModel) }
+    .sheet(isPresented: $trainingViewModel.showAddExerciseSheet) {
+      BeatzExercisesView(appearance: .addTrainingExercises($trainingViewModel.copyExercises))
+    }
     .onChange(of: trainingViewModel.forceViewUpdate) { _ in }
   }
 }
@@ -81,7 +84,10 @@ extension TrainingScreen {
       }
     }
     .sheet(isPresented: $trainingViewModel.showExerciseBottomSheet) {
-      TrainingBottomSheetView(split: split, exercise: currentClickedExercise, exercises: $trainingViewModel.copyExercises)
+      TrainingBottomSheetView(
+        split: trainingViewModel.split,
+        exercise: currentClickedExercise,
+        exercises: $trainingViewModel.copyExercises)
         .presentationDetents([.medium])
         .presentationDragIndicator(.visible)
     }
@@ -89,12 +95,7 @@ extension TrainingScreen {
 
   private func createAddExerciseSection() -> some View {
     Section {
-      NavigationLink {
-        BeatzExercisesView(appearance: .addExercises(split))
-      } label: {
-        Text("Übung Hinzufügen")
-          .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
-      }
+      Button("Übung Hinzufügen") { trainingViewModel.showAddExerciseSheet = true }
     }
   }
 
@@ -103,7 +104,7 @@ extension TrainingScreen {
       HStack {
         Spacer()
         SaveButton(title: "Training Abschließen") {
-          trainingViewModel.alertCase = .saveTraining(dismiss, trainingViewModel, split)
+          trainingViewModel.alertCase = .saveTraining(dismiss, trainingViewModel, trainingViewModel.split)
           trainingViewModel.showAlert = true
         }
         Spacer()
@@ -145,9 +146,9 @@ extension TrainingScreen {
 
       ToolbarItem(placement: .navigationBarTrailing) {
         Menu("\(Image(systemName: "ellipsis.circle"))") {
-          Button(action: {
+          Button {
             trainingViewModel.showSwapExerciseSheet = true
-          }) {
+          } label: {
             HStack {
               Text("Übung Verschieben")
               Spacer()
@@ -155,11 +156,10 @@ extension TrainingScreen {
             }
           }
 
-          #warning("TODO: Implement func to save as Trainingplan")
-          Button(action: {
-            trainingViewModel.alertCase = .saveAsTrainingplan
+          Button {
+            trainingViewModel.alertCase = .saveAsTrainingplan(trainingViewModel)
             trainingViewModel.showAlert = true
-          }) {
+          } label: {
             HStack {
               Text("Als Trainingsplan Speichern")
               Spacer()

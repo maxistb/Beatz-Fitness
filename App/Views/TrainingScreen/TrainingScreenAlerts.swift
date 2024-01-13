@@ -8,7 +8,7 @@ import SwiftUI
 enum TrainingScreenAlerts {
   case saveTraining(DismissAction, TrainingViewModel, Split)
   case exitTraining(DismissAction)
-  case saveAsTrainingplan
+  case saveAsTrainingplan(TrainingViewModel)
   case notDecimalInput
 
   var createAlert: Alert {
@@ -20,7 +20,7 @@ enum TrainingScreenAlerts {
         dismissButton: .default(
           Text("OK"),
           action: { self.action() }))
-    case .exitTraining(let dismissAction):
+    case .exitTraining:
       Alert(
         title: Text(self.getAlertTitle),
         message: Text(self.getAlertMessage),
@@ -73,12 +73,12 @@ enum TrainingScreenAlerts {
   private var action: () -> Void {
     switch self {
     case .saveTraining(let dismissAction, let viewModel, let split):
-        viewModel.saveTraining(split: split)
+        viewModel.saveTraining()
         return dismissAction.callAsFunction
     case .exitTraining(let dismissAction):
       return dismissAction.callAsFunction
-    case .saveAsTrainingplan:
-      return {}
+    case .saveAsTrainingplan(let viewModel):
+      return viewModel.saveAsTrainingPlan
     case .notDecimalInput:
       return {}
     }

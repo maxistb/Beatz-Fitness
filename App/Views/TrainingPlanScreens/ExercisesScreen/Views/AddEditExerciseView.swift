@@ -120,6 +120,19 @@ extension AddEditExerciseView {
       try? CoreDataStack.shared.mainContext.save()
       dismiss()
 
+    case .addTrainingExercise(let exercises):
+      let newExercise = Exercise.createTrainingExercise(
+        name: exerciseName,
+        category: exerciseCategory,
+        countSets: exerciseSets,
+        notes: exerciseNotes,
+        order: exercises.wrappedValue.count
+      )
+      exercises.wrappedValue.insert(newExercise)
+
+      try? CoreDataStack.shared.mainContext.save()
+      dismiss()
+
     case .editExercise(let exercise):
       exercise.name = exerciseName
       exercise.notes = exerciseNotes
@@ -169,13 +182,14 @@ extension AddEditExerciseView {
   enum Appearance {
     case replaceExercise(Binding<Set<Exercise>>, Exercise)
     case addExercise(Split)
+    case addTrainingExercise(Binding<Set<Exercise>>)
     case editExercise(Exercise)
 
     var navigationTitle: String {
       switch self {
       case .replaceExercise:
         "Übung ersetzen"
-      case .addExercise:
+      case .addExercise, .addTrainingExercise:
         "Übung hinzufügen"
       case .editExercise:
         "Übung bearbeiten"
@@ -186,7 +200,7 @@ extension AddEditExerciseView {
       switch self {
       case .replaceExercise:
         "Ersetzen"
-      case .addExercise:
+      case .addExercise, .addTrainingExercise:
         "Hinzufügen"
       case .editExercise:
         "Speichern"

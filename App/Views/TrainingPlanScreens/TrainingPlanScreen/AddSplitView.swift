@@ -7,8 +7,6 @@ import Styleguide
 import SwiftUI
 import UIComponents
 
-#warning("Wann wird hier splitLastDiaryEntry angepasst?")
-
 struct AddSplitView: View {
   @Environment(\.dismiss) var dismiss
   @State private var splitName = ""
