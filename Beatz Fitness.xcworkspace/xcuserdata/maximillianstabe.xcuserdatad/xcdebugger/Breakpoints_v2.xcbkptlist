@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "D8DFE838-75FB-4537-B1DA-86BC7A52B20A"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F08EC2D0-37E9-4C8E-901D-628FDEA67DB7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Data/CoreData/ExerciseModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "createExercise(name:category:countSets:notes:order:exerciseSplit:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F08EC2D0-37E9-4C8E-901D-628FDEA67DB7 - fc09b10ba5a33ee6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Beatz_Fitness.Exercise.createExercise(name: Swift.String, category: Swift.String, countSets: Swift.Int, notes: Swift.String, order: Swift.Int, exerciseSplit: Beatz_Fitness.Split) -&gt; ()"
+                  moduleName = "Beatz Fitness"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maximillianstabe/Desktop/Beatz%20Fitness/Data/CoreData/ExerciseModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  uuid = "F08EC2D0-37E9-4C8E-901D-628FDEA67DB7 - fc09b10ba5a33da8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Beatz_Fitness.Exercise.createExercise(name: Swift.String, category: Swift.String, countSets: Swift.Int, notes: Swift.String, order: Swift.Int, exerciseSplit: Beatz_Fitness.Split) -&gt; ()"
+                  moduleName = "Beatz Fitness"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maximillianstabe/Desktop/Beatz%20Fitness/Data/CoreData/ExerciseModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "344">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D17D12D5-7DB0-4B30-AB6F-12F9E0827B0B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "App/Views/TrainingPlanScreens/ExercisesScreen/ViewModel/ExercisesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "moveExercise(exercises:oldIndices:newIndex:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
