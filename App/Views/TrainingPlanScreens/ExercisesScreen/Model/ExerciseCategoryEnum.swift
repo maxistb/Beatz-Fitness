@@ -92,7 +92,7 @@ extension ExerciseCategory {
           currentSet: currentSet,
           isTrainingView: isTrainingView,
           labels: ["Gewicht", "Wdh.", "Notizen"],
-          placeholders: [currentSet.weight, "", ""],
+          placeholders: [currentSet.weightPlaceholder, currentSet.repsPlaceholder, currentSet.notesPlaceholder],
           bindings: [
             Binding(get: { currentSet.weight },
                     set: { currentSet.weight = $0 }),
@@ -110,7 +110,7 @@ extension ExerciseCategory {
           currentSet: currentSet,
           isTrainingView: isTrainingView,
           labels: ["Min.", "Sek.", "Notizen"],
-          placeholders: ["", "", ""], bindings: [
+          placeholders: [currentSet.minutesPlaceholder, currentSet.secondsPlaceholder, currentSet.notesPlaceholder], bindings: [
             Binding(get: { currentSet.minutes },
                     set: { currentSet.minutes = $0 }),
             Binding(get: { currentSet.seconds },
@@ -127,7 +127,7 @@ extension ExerciseCategory {
           currentSet: currentSet,
           isTrainingView: isTrainingView,
           labels: ["+Gewicht", "Wdh.", "Notizen"],
-          placeholders: ["", "", ""],
+          placeholders: [currentSet.weightPlaceholder, currentSet.repsPlaceholder, currentSet.notesPlaceholder],
           bindings: [
             Binding(get: { currentSet.weight },
                     set: { currentSet.weight = $0 }),
@@ -145,7 +145,7 @@ extension ExerciseCategory {
           currentSet: currentSet,
           isTrainingView: isTrainingView,
           labels: ["Wdh.", "Notizen"],
-          placeholders: ["", ""],
+          placeholders: [currentSet.repsPlaceholder, currentSet.notesPlaceholder],
           bindings: [
             Binding(get: { currentSet.reps },
                     set: { currentSet.reps = $0 }),
@@ -163,14 +163,14 @@ extension ExerciseCategory {
             VStack(alignment: .leading) {
               CommonSetTextField(
                 label: "Min",
-                placeholder: "",
+                placeholder: currentSet.minutesPlaceholder,
                 text: Binding(
                   get: { currentSet.minutes },
                   set: { currentSet.minutes = $0 }),
                 keyboardType: .decimalPad)
               CommonSetTextField(
                 label: "Strecke",
-                placeholder: "",
+                placeholder: currentSet.distanceKMPlaceholder,
                 text: Binding(
                   get: { currentSet.distanceKM },
                   set: { currentSet.distanceKM = $0 }),
@@ -180,14 +180,14 @@ extension ExerciseCategory {
             VStack(alignment: .leading) {
               CommonSetTextField(
                 label: "Sek.",
-                placeholder: "",
+                placeholder: currentSet.secondsPlaceholder,
                 text: Binding(
                   get: { currentSet.seconds },
                   set: { currentSet.seconds = $0 }),
                 keyboardType: .decimalPad)
               CommonSetTextField(
                 label: "kcal",
-                placeholder: "",
+                placeholder: currentSet.caloriesPlaceholder,
                 text: Binding(
                   get: { currentSet.calories },
                   set: { currentSet.calories = $0 }),
@@ -195,7 +195,7 @@ extension ExerciseCategory {
             }
             CommonSetTextField(
               label: "Notizen",
-              placeholder: "",
+              placeholder: currentSet.notesPlaceholder,
               text: Binding(
                 get: { currentSet.notes },
                 set: { currentSet.notes = $0 }),

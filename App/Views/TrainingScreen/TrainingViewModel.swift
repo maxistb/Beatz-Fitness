@@ -18,6 +18,7 @@ class TrainingViewModel: ObservableObject {
 
   @Published var copyExercises: Set<Exercise> = []
   @Published var split: Split
+  @Published var training: Training?
 
   @Published var alertCase: TrainingScreenAlerts = .notDecimalInput
   private let startingTime: Date
@@ -26,8 +27,9 @@ class TrainingViewModel: ObservableObject {
     copyExercises.sorted { $0.order < $1.order }
   }
 
-  init(split: Split) {
+  init(split: Split, training: Training?) {
     self.split = split
+    self.training = training
     self.startingTime = Date.now
     self.copyExercises = createExerciseCopy(from: split.exercises)
   }
@@ -53,6 +55,28 @@ class TrainingViewModel: ObservableObject {
       exercise.training = training
     }
   }
+
+  func adjustExercise() {
+    var iterationsNumber = 0
+    guard let lastTraining = split.lastTraining else { return }
+
+    for exercise in copyExercises {
+      if let trainingExercise = lastTraining.exercises.first(where: { $0.name == exercise.name }) {
+
+        for exerciseSet in exercise.trainingSets {
+          if let trainingSet = trainingExercise.trainingSets.first(where: { $0.order == exerciseSet.order }) {
+            exerciseSet.caloriesPlaceholder = trainingSet.calories
+            exerciseSet.repsPlaceholder = trainingSet.reps
+            exerciseSet.notesPlaceholder = trainingSet.notes
+            exerciseSet.minutesPlaceholder = trainingSet.minutes
+            exerciseSet.secondsPlaceholder = trainingSet.seconds
+            exerciseSet.distanceKMPlaceholder = trainingSet.distanceKM
+            exerciseSet.weightPlaceholder = trainingSet.weight
+          }
+        }
+      }
+    }
+  }
 }
 
 // MARK: - Public Functions
@@ -76,7 +100,8 @@ extension TrainingViewModel {
   func addTrainingSet(exercise: Exercise, isInitial: Bool = false) {
     withAnimation {
       let newOrder = Int(exercise.trainingSets.count)
-      exercise.addToTrainingSets(TrainingSet.createTrainingSet(exercise: exercise, order: newOrder))
+      let newTrainingSet = TrainingSet.createTrainingSet(exercise: exercise, order: newOrder)
+      exercise.addToTrainingSets(newTrainingSet)
 
       if !isInitial { exercise.countSets += 1 }
       forceViewUpdate.toggle()

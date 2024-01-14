@@ -14,35 +14,49 @@ public class TrainingSet: NSManagedObject {
   }
 
   @NSManaged public var calories: String
+  @NSManaged public var caloriesPlaceholder: String
   @NSManaged public var category: String
   @NSManaged public var date: Date
   @NSManaged public var distanceKM: String
+  @NSManaged public var distanceKMPlaceholder: String
   @NSManaged public var id: UUID
   @NSManaged public var isDropset: Bool
   @NSManaged public var isWarmup: Bool
   @NSManaged public var minutes: String
+  @NSManaged public var minutesPlaceholder: String
   @NSManaged public var notes: String
+  @NSManaged public var notesPlaceholder: String
   @NSManaged public var order: Int16
   @NSManaged public var reps: String
+  @NSManaged public var repsPlaceholder: String
   @NSManaged public var seconds: String
+  @NSManaged public var secondsPlaceholder: String
   @NSManaged public var weight: String
+  @NSManaged public var weightPlaceholder: String
   @NSManaged public var exercise: Exercise
 
   class func createTrainingSet(exercise: Exercise, order: Int) -> TrainingSet {
     let trainingSet = TrainingSet(context: CoreDataStack.shared.mainContext)
     trainingSet.calories = ""
+    trainingSet.caloriesPlaceholder = ""
     trainingSet.category = exercise.category
     trainingSet.date = .now
     trainingSet.distanceKM = ""
+    trainingSet.distanceKMPlaceholder = ""
     trainingSet.id = UUID()
     trainingSet.isDropset = false
     trainingSet.isWarmup = false
     trainingSet.minutes = ""
+    trainingSet.minutesPlaceholder = ""
     trainingSet.notes = ""
+    trainingSet.notesPlaceholder = ""
     trainingSet.order = Int16(order)
     trainingSet.reps = ""
+    trainingSet.repsPlaceholder = ""
     trainingSet.seconds = ""
+    trainingSet.secondsPlaceholder = ""
     trainingSet.weight = ""
+    trainingSet.weightPlaceholder = ""
     trainingSet.exercise = exercise
 
     return trainingSet

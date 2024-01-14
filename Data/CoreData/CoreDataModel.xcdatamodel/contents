@@ -35,18 +35,25 @@
     </entity>
     <entity name="TrainingSet" representedClassName="TrainingSet" syncable="YES">
         <attribute name="calories" optional="YES" attributeType="String"/>
+        <attribute name="caloriesPlaceholder" optional="YES" attributeType="String"/>
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="distanceKM" optional="YES" attributeType="String"/>
+        <attribute name="distanceKMPlaceholder" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isDropset" optional="YES" attributeType="Boolean" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="isWarmup" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="minutes" optional="YES" attributeType="String"/>
+        <attribute name="minutesPlaceholder" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="notesPlaceholder" optional="YES" attributeType="String"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="reps" optional="YES" attributeType="String"/>
+        <attribute name="repsPlaceholder" optional="YES" attributeType="String"/>
         <attribute name="seconds" optional="YES" attributeType="String"/>
+        <attribute name="secondsPlaceholder" optional="YES" attributeType="String"/>
         <attribute name="weight" optional="YES" attributeType="String"/>
+        <attribute name="weightPlaceholder" optional="YES" attributeType="String"/>
         <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="trainingSets" inverseEntity="Exercise"/>
     </entity>
 </model>

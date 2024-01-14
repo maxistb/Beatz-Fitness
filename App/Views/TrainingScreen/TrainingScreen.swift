@@ -12,26 +12,25 @@ struct TrainingScreen: View {
   @ObservedObject private var timerViewModel = TimerViewModel()
   @ObservedObject private var trainingViewModel: TrainingViewModel
 
-  let training: Training?
-  private let isTrainingView: Bool
   @State private var currentClickedExercise: Exercise?
+  private let isTrainingView: Bool
   private var navBarTitle: String {
-    training?.name ?? trainingViewModel.split.name
+    trainingViewModel.training?.name ?? trainingViewModel.split.name
   }
 
   init(split: Split, training: Training? = nil) {
-    self.trainingViewModel = TrainingViewModel(split: split)
-    self.training = training
+    self.trainingViewModel = TrainingViewModel(split: split, training: training)
     self.isTrainingView = training == nil
     self.currentClickedExercise = trainingViewModel.copyExerciseArray.first
 
     trainingViewModel.initializeTrainingSets()
+    trainingViewModel.adjustExercise()
   }
 
   var body: some View {
     List {
       createTopSection()
-      if let training = training {
+      if let training = trainingViewModel.training {
         createExercisesContent(exercises: training.exerciseArray)
       } else {
         createExercisesContent(exercises: trainingViewModel.copyExerciseArray)
@@ -52,13 +51,14 @@ struct TrainingScreen: View {
         showCurrentView: $trainingViewModel.showAddExerciseSheet)
     }
     .onChange(of: trainingViewModel.forceViewUpdate) { _ in }
+    .onAppear {  }
   }
 }
 
 extension TrainingScreen {
   private func createTopSection() -> some View {
     Section {
-      if let training = training {
+      if let training = trainingViewModel.training {
         Text(training.date.formatted())
         Text(training.duration)
       }

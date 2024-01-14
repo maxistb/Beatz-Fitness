@@ -309,55 +309,40 @@
             filePath = "App/Views/TrainingScreen/TrainingViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "saveAsTrainingPlan()"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "initializeTrainingSets()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "935174DE-8C9C-45DD-B13A-BC303A4F204B - 8178defe338b4b9c"
+                  uuid = "935174DE-8C9C-45DD-B13A-BC303A4F204B - 360e6e79e512b1a5"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Beatz_Fitness.TrainingViewModel.saveAsTrainingPlan() -&gt; ()"
+                  symbolName = "Beatz_Fitness.TrainingViewModel.initializeTrainingSets() -&gt; ()"
                   moduleName = "Beatz Fitness"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/maximillianstabe/Desktop/Beatz%20Fitness/App/Views/TrainingScreen/TrainingViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "88">
+                  startingLineNumber = "141"
+                  endingLineNumber = "141"
+                  offsetFromSymbolStart = "904">
                </Location>
                <Location
-                  uuid = "935174DE-8C9C-45DD-B13A-BC303A4F204B - 8178defe338b4b9c"
+                  uuid = "935174DE-8C9C-45DD-B13A-BC303A4F204B - 360e6e79e512b1ca"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Beatz_Fitness.TrainingViewModel.saveAsTrainingPlan() -&gt; ()"
+                  symbolName = "Beatz_Fitness.TrainingViewModel.initializeTrainingSets() -&gt; ()"
                   moduleName = "Beatz Fitness"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/maximillianstabe/Desktop/Beatz%20Fitness/App/Views/TrainingScreen/TrainingViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "935174DE-8C9C-45DD-B13A-BC303A4F204B - 8178defe338b4b9c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Beatz_Fitness.TrainingViewModel.saveAsTrainingPlan() -&gt; ()"
-                  moduleName = "Beatz Fitness"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maximillianstabe/Desktop/Beatz%20Fitness/App/Views/TrainingScreen/TrainingViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "104">
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "1332">
                </Location>
             </Locations>
          </BreakpointContent>
