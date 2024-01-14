@@ -82,9 +82,6 @@ extension TrainingScreen {
 
         addSetButton(for: exercise)
       }
-      .onTapGesture {
-        currentClickedExercise = exercise
-      }
     }
     .sheet(isPresented: $trainingViewModel.showExerciseBottomSheet) {
       TrainingBottomSheetView(
