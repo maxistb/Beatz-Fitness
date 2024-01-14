@@ -37,14 +37,22 @@ struct TrainingBottomSheetView: View {
       .sheet(isPresented: $showReplaceExerciseView) {
         if let exercise = exercise {
           if let exercises = exercises {
-            BeatzExercisesView(appearance: .replaceExercise(exercises, exercise))
+            BeatzExercisesView(
+              appearance: .replaceExercise(exercises, exercise),
+              showCurrentView: $showReplaceExerciseView
+            )
+            .onDisappear { dismiss() }
           }
         }
       }
-      .sheet(isPresented: $showSwapExerciseView) { SwapExerciseView(exercises: exercises?.wrappedValue) }
+      .sheet(isPresented: $showSwapExerciseView) {
+        SwapExerciseView(exercises: exercises?.wrappedValue)
+          .onDisappear { dismiss() }
+      }
       .sheet(isPresented: $showEditExerciseView) {
         if let exercise = exercise {
-          AddEditExerciseView(appearance: .editExercise(exercise))
+          AddEditExerciseView(appearance: .editExercise(exercise), showCurrentView: $showEditExerciseView)
+            .onDisappear { dismiss() }
         }
       }
     }

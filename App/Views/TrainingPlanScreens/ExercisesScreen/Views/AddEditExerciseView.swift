@@ -17,16 +17,18 @@ struct AddEditExerciseView: View {
   @State private var showEmptyNameAlert = false
   @State private var category: ExerciseCategory = .weightlifting
   @State private var appearance: Appearance
+  @Binding var showCurrentView: Bool
 
-  init(appearance: Appearance) {
-    _appearance = State(initialValue: appearance)
+  init(appearance: Appearance, showCurrentView: Binding<Bool>) {
+    self._appearance = State(initialValue: appearance)
+    self._showCurrentView = showCurrentView
 
     switch appearance {
     case .editExercise(let exercise):
-      _exerciseName = State(initialValue: exercise.name)
-      _exerciseNotes = State(initialValue: exercise.notes)
-      _exerciseSets = State(initialValue: Int(exercise.countSets))
-      _exerciseCategory = State(initialValue: exercise.category)
+      self._exerciseName = State(initialValue: exercise.name)
+      self._exerciseNotes = State(initialValue: exercise.notes)
+      self._exerciseSets = State(initialValue: Int(exercise.countSets))
+      self._exerciseCategory = State(initialValue: exercise.category)
 
     default:
       return
@@ -92,7 +94,7 @@ struct AddEditExerciseView: View {
     Section {
       HStack {
         Spacer()
-        SaveButton(title: appearance.buttonTitle) { action() }
+        SaveButton(title: appearance.buttonTitle) { action(); showCurrentView = false }
         Spacer()
       }
     }
@@ -130,6 +132,10 @@ extension AddEditExerciseView {
       )
       exercises.wrappedValue.insert(newExercise)
 
+      for order in 0 ..< newExercise.countSets {
+        _ = TrainingSet.createTrainingSet(exercise: newExercise, order: Int(order))
+      }
+
       try? CoreDataStack.shared.mainContext.save()
       dismiss()
 
@@ -152,6 +158,10 @@ extension AddEditExerciseView {
       )
       exercises.wrappedValue.remove(exercise)
       exercises.wrappedValue.insert(newExercise)
+
+      for order in 0 ..< newExercise.countSets {
+        _ = TrainingSet.createTrainingSet(exercise: newExercise, order: Int(order))
+      }
 
       try? CoreDataStack.shared.mainContext.save()
       dismiss()

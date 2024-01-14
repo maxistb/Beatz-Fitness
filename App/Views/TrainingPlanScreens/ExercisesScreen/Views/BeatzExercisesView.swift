@@ -24,9 +24,11 @@ enum BeatzExerciseAppearance {
 struct BeatzExercisesView: View {
   @ObservedObject private var viewModel = MachinesViewModel()
   @State private var appearance: BeatzExerciseAppearance
+  @Binding var showCurrentView: Bool
 
-  init(appearance: BeatzExerciseAppearance) {
-    _appearance = State(initialValue: appearance)
+  init(appearance: BeatzExerciseAppearance, showCurrentView: Binding<Bool>) {
+    self._appearance = State(initialValue: appearance)
+    self._showCurrentView = showCurrentView
   }
 
   var body: some View {
@@ -36,6 +38,7 @@ struct BeatzExercisesView: View {
           NavigationLink(
             muscleGroup.getName(),
             destination: SelectBeatzExercisesView(
+              showCurrentView: $showCurrentView,
               machines: machines.filter { $0.muscleGroup == muscleGroup },
               header: muscleGroup.getName(),
               appearance: appearance
@@ -54,12 +57,16 @@ struct BeatzExercisesView: View {
     ToolbarItem(placement: .topBarLeading) {
       switch appearance {
       case .addExercises(let split):
-        NavigationLink("Eigene Übung", destination: AddEditExerciseView(appearance: .addExercise(split)))
+        NavigationLink("Eigene Übung") {
+          AddEditExerciseView(appearance: .addExercise(split), showCurrentView: $showCurrentView)
+        }
       case .addTrainingExercises(let exercises):
-        NavigationLink("Eigene Übung", destination: AddEditExerciseView(appearance: .addTrainingExercise(exercises)))
+        NavigationLink("Eigene Übung") {
+          AddEditExerciseView(appearance: .addTrainingExercise(exercises), showCurrentView: $showCurrentView)
+        }
       case .replaceExercise(let binding, let exercise):
         NavigationLink("Eigene Übung") {
-          AddEditExerciseView(appearance: .replaceExercise(binding, exercise))
+          AddEditExerciseView(appearance: .replaceExercise(binding, exercise), showCurrentView: $showCurrentView)
         }
       }
     }
@@ -67,8 +74,9 @@ struct BeatzExercisesView: View {
 }
 
 private struct SelectBeatzExercisesView: View {
-  @Environment(\.dismiss) var dismiss
   @State private var selectedMachines: Set<Machine> = []
+  @Binding var showCurrentView: Bool
+
   let machines: [Machine]
   let header: String
   let appearance: BeatzExerciseAppearance
@@ -79,6 +87,7 @@ private struct SelectBeatzExercisesView: View {
         ForEach(machines, id: \.hashValue) { machine in
           ExerciseRow(
             selectedMachines: $selectedMachines,
+            showCurrentView: $showCurrentView,
             appearance: appearance,
             machine: machine
           )
@@ -96,7 +105,7 @@ private struct SelectBeatzExercisesView: View {
       ToolbarItem(placement: .topBarTrailing) {
         Button {
           addExercisesToSplit(split: split)
-          dismiss()
+          showCurrentView = false
         }
         label: { Text("Hinzufügen") }
       }
@@ -120,9 +129,9 @@ private struct SelectBeatzExercisesView: View {
 }
 
 private struct ExerciseRow: View {
-  @Environment(\.dismiss) private var dismiss
   @State private var isSelected: Bool = false
   @Binding var selectedMachines: Set<Machine>
+  @Binding var showCurrentView: Bool
   let appearance: BeatzExerciseAppearance
   let machine: Machine
 
@@ -141,8 +150,10 @@ private struct ExerciseRow: View {
         selectMachine()
       case .replaceExercise(let exercises, let exercise):
         replaceExercise(exercises: exercises, exercise: exercise)
+        showCurrentView = false
       case .addTrainingExercises(let exercises):
         addExercises(exercises: exercises)
+        showCurrentView = false
       }
     }
   }
@@ -205,7 +216,6 @@ private struct ExerciseRow: View {
     }
 
     try? CoreDataStack.shared.mainContext.save()
-    dismiss()
   }
 
   private func addExercises(exercises: Binding<Set<Exercise>>) {
@@ -223,7 +233,6 @@ private struct ExerciseRow: View {
     }
 
     try? CoreDataStack.shared.mainContext.save()
-    dismiss()
   }
 }
 

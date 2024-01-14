@@ -35,7 +35,7 @@ struct ExercisesScreen: View {
 
       Section("Übungen") {
         ForEach(exercises, id: \.self) { exercise in
-          NavigationLink { AddEditExerciseView(appearance: .editExercise(exercise)) }
+          NavigationLink { AddEditExerciseView(appearance: .editExercise(exercise), showCurrentView: .constant(false)) }
             label: { createExerciseLabel(exercise: exercise) }
         }
         .onDelete { indexSet in
@@ -52,8 +52,15 @@ struct ExercisesScreen: View {
     }
     .navigationTitle(split.name)
     .toolbar { createToolbar() }
-    .sheet(isPresented: $showAddUebungSheet) { AddEditExerciseView(appearance: .addExercise(split)) }
-    .sheet(isPresented: $showMachinesBeatzSheet) { BeatzExercisesView(appearance: .addExercises(split)) }
+    .sheet(isPresented: $showAddUebungSheet) {
+      AddEditExerciseView(appearance: .addExercise(split), showCurrentView: $showAddUebungSheet)
+    }
+    .sheet(isPresented: $showMachinesBeatzSheet) {
+      BeatzExercisesView(
+        appearance: .addExercises(split),
+        showCurrentView: $showMachinesBeatzSheet
+      )
+    }
   }
 
   @ToolbarContentBuilder

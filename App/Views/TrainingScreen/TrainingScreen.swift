@@ -47,7 +47,9 @@ struct TrainingScreen: View {
     }
     .sheet(isPresented: $trainingViewModel.showTimer) { TimerView(model: timerViewModel) }
     .sheet(isPresented: $trainingViewModel.showAddExerciseSheet) {
-      BeatzExercisesView(appearance: .addTrainingExercises($trainingViewModel.copyExercises))
+      BeatzExercisesView(
+        appearance: .addTrainingExercises($trainingViewModel.copyExercises),
+        showCurrentView: $trainingViewModel.showAddExerciseSheet)
     }
     .onChange(of: trainingViewModel.forceViewUpdate) { _ in }
   }
@@ -87,7 +89,8 @@ extension TrainingScreen {
       TrainingBottomSheetView(
         split: trainingViewModel.split,
         exercise: currentClickedExercise,
-        exercises: $trainingViewModel.copyExercises)
+        exercises: $trainingViewModel.copyExercises
+      )
         .presentationDetents([.medium])
         .presentationDragIndicator(.visible)
     }
