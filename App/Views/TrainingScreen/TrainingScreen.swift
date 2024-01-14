@@ -15,6 +15,9 @@ struct TrainingScreen: View {
   let training: Training?
   private let isTrainingView: Bool
   @State private var currentClickedExercise: Exercise?
+  private var navBarTitle: String {
+    training?.name ?? trainingViewModel.split.name
+  }
 
   init(split: Split, training: Training? = nil) {
     self.trainingViewModel = TrainingViewModel(split: split)
@@ -28,19 +31,14 @@ struct TrainingScreen: View {
   var body: some View {
     List {
       createTopSection()
-
       if let training = training {
-        createExercisesContent(training.exerciseArray)
+        createExercisesContent(exercises: training.exerciseArray)
       } else {
-        createExercisesContent(trainingViewModel.copyExerciseArray)
+        createExercisesContent(exercises: trainingViewModel.copyExerciseArray)
       }
-
-      if isTrainingView {
-        createAddExerciseSection()
-        createSaveTrainingSection()
-      }
+      trainingBottomSections()
     }
-    .navigationTitle(trainingViewModel.split.name)
+    .navigationTitle(navBarTitle)
     .navigationBarBackButtonHidden(isTrainingView)
     .toolbar { createToolbar() }
     .alert(isPresented: $trainingViewModel.showAlert) { trainingViewModel.alertCase.createAlert }
@@ -68,19 +66,24 @@ extension TrainingScreen {
     }
   }
 
-  private func createExercisesContent(_ exercises: [Exercise]) -> some View {
+  private func createExercisesContent(exercises: [Exercise]) -> some View {
     ForEach(exercises, id: \.self) { exercise in
       Section {
-        createExerciseHeader(exercise: exercise)
+        header(for: exercise)
 
         ForEach(exercise.exerciseTrainingSetArray, id: \.self) { trainingSet in
-          createExerciseCell(currentSet: trainingSet)
+          let cellType = trainingViewModel.getExerciseCategoryForString(exerciseCategory: exercise.category)
+
+          cellType.createExerciseCell(currentSet: trainingSet, isTrainingView: isTrainingView)
         }
         .onDelete { indexSet in
           trainingViewModel.deleteSet(exercise: exercise, indexSet: indexSet)
         }
 
-        createAddSetButton(exercise: exercise)
+        addSetButton(for: exercise)
+      }
+      .onTapGesture {
+        currentClickedExercise = exercise
       }
     }
     .sheet(isPresented: $trainingViewModel.showExerciseBottomSheet) {
@@ -93,13 +96,24 @@ extension TrainingScreen {
     }
   }
 
-  private func createAddExerciseSection() -> some View {
-    Section {
-      Button("Übung Hinzufügen") { trainingViewModel.showAddExerciseSheet = true }
+  private func trainingBottomSections() -> some View {
+    Group {
+      if isTrainingView {
+        addExerciseText()
+        saveTrainingButton()
+      }
     }
   }
 
-  private func createSaveTrainingSection() -> some View {
+  private func addExerciseText() -> some View {
+    Section {
+      Button("Übung Hinzufügen") {
+        trainingViewModel.showAddExerciseSheet = true
+      }
+    }
+  }
+
+  private func saveTrainingButton() -> some View {
     Section {
       HStack {
         Spacer()
@@ -120,97 +134,75 @@ extension TrainingScreen {
   @ToolbarContentBuilder
   private func createToolbar() -> some ToolbarContent {
     if isTrainingView {
-      ToolbarItem(placement: .topBarLeading) {
-        Button {
-          trainingViewModel.showAlert = true
-          trainingViewModel.alertCase = .exitTraining(dismiss)
-        }
-        label: {
-          Image(systemName: "rectangle.portrait.and.arrow.right")
-        }
-      }
+      leadingToolbarItems()
+      trailingToolbarItems()
+      setEllipsisMenu()
+    }
+  }
 
-      ToolbarItem(placement: .navigationBarTrailing) {
-        Text(timerViewModel.secondsToCompletion.asTimestamp)
-          .foregroundStyle(.primary)
-          .font(.headline)
-      }
-
-      ToolbarItem(placement: .navigationBarTrailing) {
-        Button(action: {
-          trainingViewModel.showTimer = true
-        }, label: {
-          Image(systemName: "timer")
-        })
-      }
-
-      ToolbarItem(placement: .navigationBarTrailing) {
-        Menu("\(Image(systemName: "ellipsis.circle"))") {
-          Button {
-            trainingViewModel.showSwapExerciseSheet = true
-          } label: {
-            HStack {
-              Text("Übung Verschieben")
-              Spacer()
-              Image(systemName: "rectangle.2.swap")
-            }
-          }
-
-          Button {
-            trainingViewModel.alertCase = .saveAsTrainingplan(trainingViewModel)
-            trainingViewModel.showAlert = true
-          } label: {
-            HStack {
-              Text("Als Trainingsplan Speichern")
-              Spacer()
-              Image(systemName: "square.and.arrow.down")
-            }
-          }
-        }
+  private func leadingToolbarItems() -> some ToolbarContent {
+    ToolbarItem(placement: .topBarLeading) {
+      Button {
+        trainingViewModel.showAlert = true
+        trainingViewModel.alertCase = .exitTraining(dismiss)
+      } label: {
+        Image(systemName: "rectangle.portrait.and.arrow.right")
       }
     }
   }
 
-  private func createExerciseCell(currentSet: TrainingSet) -> some View {
-    HStack {
-      Image(systemName: "\(currentSet.order + 1).circle")
-      VStack(alignment: .leading) {
-        Text("Gewicht")
-          .foregroundStyle(.gray).font(.system(size: 14))
-        TextField("", text: Binding(
-          get: { currentSet.weight ?? "Error" },
-          set: { newValue in currentSet.weight = newValue }))
-          .onSubmit { try? CoreDataStack.shared.mainContext.save() }
-      }
-      .keyboardType(.decimalPad)
-      VStack(alignment: .leading) {
-        Text("Wdh.")
-          .foregroundStyle(.gray).font(.system(size: 14))
-        TextField("", text: Binding(
-          get: { currentSet.reps ?? "" },
-          set: { newValue in currentSet.reps = newValue }))
-          .keyboardType(.decimalPad)
-          .onSubmit { try? CoreDataStack.shared.mainContext.save() }
-      }
-      VStack(alignment: .leading) {
-        Text("Notizen")
-          .foregroundStyle(.gray).font(.system(size: 14))
-        TextField("", text: Binding(
-          get: { currentSet.notes },
-          set: { newValue in currentSet.notes = newValue }))
-          .onSubmit { try? CoreDataStack.shared.mainContext.save() }
-      }
-      .padding(.leading, -20)
+  @ToolbarContentBuilder
+  private func trailingToolbarItems() -> some ToolbarContent {
+    ToolbarItem(placement: .navigationBarTrailing) {
+      Text(timerViewModel.secondsToCompletion.asTimestamp)
+        .foregroundStyle(.primary)
+        .font(.headline)
+    }
 
-      if isTrainingView {
+    ToolbarItem(placement: .navigationBarTrailing) {
+      Button {
+        trainingViewModel.showTimer = true
+      } label: {
+        Image(systemName: "timer")
+      }
+    }
+  }
+
+  private func setEllipsisMenu() -> some ToolbarContent {
+    ToolbarItem(placement: .navigationBarTrailing) {
+      Menu("\(Image(systemName: "ellipsis.circle"))") {
+        swapExercisesMenuItem()
+        saveAsTrainingPlanMenuItem()
+      }
+    }
+  }
+
+  private func swapExercisesMenuItem() -> some View {
+    Button {
+      trainingViewModel.showSwapExerciseSheet = true
+    } label: {
+      HStack {
+        Text("Übung Verschieben")
         Spacer()
-        Image(systemName: "ellipsis")
-          .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
+        Image(systemName: "rectangle.2.swap")
       }
     }
   }
 
-  private func createAddSetButton(exercise: Exercise) -> some View {
+  private func saveAsTrainingPlanMenuItem() -> some View {
+    Button {
+      trainingViewModel.alertCase = .saveAsTrainingplan(trainingViewModel)
+      trainingViewModel.showAlert = true
+    } label: {
+      HStack {
+        Text("Als Trainingsplan Speichern")
+        Spacer()
+        Image(systemName: "square.and.arrow.down")
+      }
+    }
+  }
+
+  private func addSetButton(for exercise: Exercise) -> some View {
     Button {
       trainingViewModel.addTrainingSet(exercise: exercise)
     } label: {
@@ -219,7 +211,7 @@ extension TrainingScreen {
     }
   }
 
-  private func createExerciseHeader(exercise: Exercise) -> some View {
+  private func header(for exercise: Exercise) -> some View {
     HStack {
       Text(exercise.name)
         .font(.headline)

@@ -135,4 +135,23 @@ extension TrainingViewModel {
 
     try? CoreDataStack.shared.mainContext.save()
   }
+
+  func getExerciseCategoryForString(exerciseCategory: String) -> ExerciseCategory {
+    switch exerciseCategory {
+    case "staticexercise":
+      return .staticexercise
+    case "bodyweight":
+      return .bodyweight
+    case "supported":
+      return .supported
+    case "repsonly":
+      return .repsonly
+    case "time":
+      return .time
+    case "cardio":
+      return .cardio
+    default:
+      return .weightlifting
+    }
+  }
 }

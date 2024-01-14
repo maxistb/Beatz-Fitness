@@ -35,7 +35,7 @@ struct ExercisesScreen: View {
 
       Section("Übungen") {
         ForEach(exercises, id: \.self) { exercise in
-          NavigationLink { AddEditExerciseView(appearance: .addExercise(split)) }
+          NavigationLink { AddEditExerciseView(appearance: .editExercise(exercise)) }
             label: { createExerciseLabel(exercise: exercise) }
         }
         .onDelete { indexSet in

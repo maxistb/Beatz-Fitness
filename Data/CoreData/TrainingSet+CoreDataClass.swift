@@ -13,20 +13,19 @@ public class TrainingSet: NSManagedObject {
     return NSFetchRequest<TrainingSet>(entityName: "TrainingSet")
   }
 
-  @NSManaged public var calories: String?
-  @NSManaged public var category: String?
-  @NSManaged public var date: Date?
-  @NSManaged public var distanceKM: String?
+  @NSManaged public var calories: String
+  @NSManaged public var category: String
+  @NSManaged public var date: Date
+  @NSManaged public var distanceKM: String
   @NSManaged public var id: UUID
   @NSManaged public var isDropset: Bool
   @NSManaged public var isWarmup: Bool
-  @NSManaged public var minutes: String?
+  @NSManaged public var minutes: String
   @NSManaged public var notes: String
   @NSManaged public var order: Int16
-  @NSManaged public var reps: String?
-  @NSManaged public var seconds: String?
-  @NSManaged public var weight: String?
-  @NSManaged public var training: Training?
+  @NSManaged public var reps: String
+  @NSManaged public var seconds: String
+  @NSManaged public var weight: String
   @NSManaged public var exercise: Exercise
 
   class func createTrainingSet(exercise: Exercise, order: Int) -> TrainingSet {
@@ -44,7 +43,6 @@ public class TrainingSet: NSManagedObject {
     trainingSet.reps = ""
     trainingSet.seconds = ""
     trainingSet.weight = ""
-    trainingSet.training = nil
     trainingSet.exercise = exercise
 
     return trainingSet

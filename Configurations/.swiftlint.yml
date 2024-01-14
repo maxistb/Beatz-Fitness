@@ -32,6 +32,7 @@ excluded:
   - Configurations
   - Packages
   - Pods
+  - Packages/Styleguide/Sources/Styleguide/Generated
 
 disabled_rules:
   - nesting

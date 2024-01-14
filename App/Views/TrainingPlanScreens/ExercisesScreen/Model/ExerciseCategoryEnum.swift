@@ -2,8 +2,11 @@
 // Created by Maximillian Stabe on 30.12.23.
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
+// swiftlint:disable function_body_length
 
 import Foundation
+import Styleguide
+import SwiftUI
 
 enum ExerciseCategory: String {
   case weightlifting
@@ -79,3 +82,134 @@ enum ExerciseCategory: String {
     [.cardio]
   }
 }
+
+extension ExerciseCategory {
+  func createExerciseCell(currentSet: TrainingSet, isTrainingView: Bool) -> AnyView {
+    switch self {
+    case .weightlifting, .bodyweight:
+      return AnyView(
+        ExerciseSetRow(
+          currentSet: currentSet,
+          isTrainingView: isTrainingView,
+          labels: ["Gewicht", "Wdh.", "Notizen"],
+          placeholders: [currentSet.weight, "", ""],
+          bindings: [
+            Binding(get: { currentSet.weight },
+                    set: { currentSet.weight = $0 }),
+            Binding(get: { currentSet.reps },
+                    set: { currentSet.reps = $0 }),
+            Binding(get: { currentSet.notes },
+                    set: { currentSet.notes = $0 })
+          ],
+          keyboardType: .decimalPad)
+      )
+
+    case .staticexercise, .time:
+      return AnyView(
+        ExerciseSetRow(
+          currentSet: currentSet,
+          isTrainingView: isTrainingView,
+          labels: ["Min.", "Sek.", "Notizen"],
+          placeholders: ["", "", ""], bindings: [
+            Binding(get: { currentSet.minutes },
+                    set: { currentSet.minutes = $0 }),
+            Binding(get: { currentSet.seconds },
+                    set: { currentSet.seconds = $0 }),
+            Binding(get: { currentSet.notes },
+                    set: { currentSet.notes = $0 })
+          ],
+          keyboardType: .decimalPad)
+      )
+
+    case .supported:
+      return AnyView(
+        ExerciseSetRow(
+          currentSet: currentSet,
+          isTrainingView: isTrainingView,
+          labels: ["+Gewicht", "Wdh.", "Notizen"],
+          placeholders: ["", "", ""],
+          bindings: [
+            Binding(get: { currentSet.weight },
+                    set: { currentSet.weight = $0 }),
+            Binding(get: { currentSet.reps },
+                    set: { currentSet.reps = $0 }),
+            Binding(get: { currentSet.notes },
+                    set: { currentSet.notes = $0 })
+          ],
+          keyboardType: .decimalPad)
+      )
+
+    case .repsonly:
+      return AnyView(
+        ExerciseSetRow(
+          currentSet: currentSet,
+          isTrainingView: isTrainingView,
+          labels: ["Wdh.", "Notizen"],
+          placeholders: ["", ""],
+          bindings: [
+            Binding(get: { currentSet.reps },
+                    set: { currentSet.reps = $0 }),
+            Binding(get: { currentSet.notes },
+                    set: { currentSet.notes = $0 })
+          ],
+          keyboardType: .decimalPad))
+
+    case .cardio:
+      return AnyView(
+        HStack {
+          Image(systemName: "\(currentSet.order + 1).circle")
+            .padding(.trailing, 20)
+          HStack(alignment: .top) {
+            VStack(alignment: .leading) {
+              CommonSetTextField(
+                label: "Min",
+                placeholder: "",
+                text: Binding(
+                  get: { currentSet.minutes },
+                  set: { currentSet.minutes = $0 }),
+                keyboardType: .decimalPad)
+              CommonSetTextField(
+                label: "Strecke",
+                placeholder: "",
+                text: Binding(
+                  get: { currentSet.distanceKM },
+                  set: { currentSet.distanceKM = $0 }),
+                keyboardType: .decimalPad)
+            }
+            .keyboardType(.decimalPad)
+            VStack(alignment: .leading) {
+              CommonSetTextField(
+                label: "Sek.",
+                placeholder: "",
+                text: Binding(
+                  get: { currentSet.seconds },
+                  set: { currentSet.seconds = $0 }),
+                keyboardType: .decimalPad)
+              CommonSetTextField(
+                label: "kcal",
+                placeholder: "",
+                text: Binding(
+                  get: { currentSet.calories },
+                  set: { currentSet.calories = $0 }),
+                keyboardType: .decimalPad)
+            }
+            CommonSetTextField(
+              label: "Notizen",
+              placeholder: "",
+              text: Binding(
+                get: { currentSet.notes },
+                set: { currentSet.notes = $0 }),
+              keyboardType: .default)
+              .padding(.leading, -20)
+          }
+          if isTrainingView {
+            Spacer()
+            Image(systemName: "ellipsis")
+              .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
+          }
+        })
+    }
+  }
+}
+
+// swiftlint:enable function_body_length

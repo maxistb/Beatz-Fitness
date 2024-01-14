@@ -45,6 +45,8 @@ public class Training: NSManagedObject {
     training.exercises = []
     training.split = split
 
+    try? CoreDataStack.shared.mainContext.save()
+
     return training
   }
 }
