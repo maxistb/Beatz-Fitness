@@ -31,12 +31,6 @@
 		7A5C50722B3D8BB100A4D551 /* ExercisesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C50712B3D8BB100A4D551 /* ExercisesScreen.swift */; };
 		7A5C50742B3D94C200A4D551 /* AddEditExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C50732B3D94C200A4D551 /* AddEditExerciseView.swift */; };
 		7A5C50762B3D970E00A4D551 /* ExercisesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5C50752B3D970E00A4D551 /* ExercisesViewModel.swift */; };
-		7A7080FE2B47F5E00095C664 /* Courses.json in Resources */ = {isa = PBXBuildFile; fileRef = 7A7080FD2B47F5E00095C664 /* Courses.json */; };
-		7A7081002B47F6040095C664 /* CoursesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7080FF2B47F6040095C664 /* CoursesModel.swift */; };
-		7A7081022B47F7CC0095C664 /* CoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7081012B47F7CC0095C664 /* CoursesView.swift */; };
-		7A7081052B4808B40095C664 /* CoursesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7081042B4808B40095C664 /* CoursesViewModel.swift */; };
-		7A7081072B4808BC0095C664 /* CreditsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7081062B4808BC0095C664 /* CreditsViewModel.swift */; };
-		7A7081092B4808C30095C664 /* TrainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7081082B4808C30095C664 /* TrainerViewModel.swift */; };
 		7A7B763F2B3B221E007BDAFE /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 7A7B763E2B3B221E007BDAFE /* Styleguide */; };
 		7A8681742B3F5D84003946C2 /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8681732B3F5D84003946C2 /* CategorySelectionView.swift */; };
 		7A9598482B3A0409004C3A4E /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 7A9598472B3A0409004C3A4E /* Styleguide */; };
@@ -48,14 +42,6 @@
 		7AB849712B401ADD00E25707 /* BeatzExercisesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB849702B401ADD00E25707 /* BeatzExercisesModel.swift */; };
 		7AB849732B405A1000E25707 /* BeatzExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB849722B405A1000E25707 /* BeatzExercisesView.swift */; };
 		7AE280C92B45B0A600DF3DC4 /* TrainingScreenAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE280C82B45B0A600DF3DC4 /* TrainingScreenAlerts.swift */; };
-		7AE280CC2B45B1D000DF3DC4 /* BeatzHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE280CB2B45B1D000DF3DC4 /* BeatzHomeScreen.swift */; };
-		7AE280D62B45B8CA00DF3DC4 /* TrainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE280D52B45B8CA00DF3DC4 /* TrainerModel.swift */; };
-		7AE280D82B45BE5000DF3DC4 /* Trainers.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AE280D72B45BE5000DF3DC4 /* Trainers.json */; };
-		7AE280DB2B45C02C00DF3DC4 /* TrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE280DA2B45C02C00DF3DC4 /* TrainerView.swift */; };
-		7AE280DD2B45CA0F00DF3DC4 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE280DC2B45CA0F00DF3DC4 /* LocationView.swift */; };
-		7AE280DF2B45CAFA00DF3DC4 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE280DE2B45CAFA00DF3DC4 /* CreditsView.swift */; };
-		7AE280E12B47512600DF3DC4 /* Credits.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AE280E02B47512600DF3DC4 /* Credits.json */; };
-		7AE280E32B47530900DF3DC4 /* CreditsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE280E22B47530900DF3DC4 /* CreditsModel.swift */; };
 		7AE4ABC62B4851FA0015F41E /* Machines.json in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4ABC52B4851FA0015F41E /* Machines.json */; };
 		7AE4ABCA2B4865430015F41E /* MachinesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4ABC92B4865430015F41E /* MachinesViewModel.swift */; };
 		7AE4EA0A2B4C8F7A00A2D4AA /* Training+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4EA062B4C8F7900A2D4AA /* Training+CoreDataClass.swift */; };
@@ -72,6 +58,7 @@
 		7AEB018C2B435624003197FC /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB01862B435624003197FC /* TimePickerView.swift */; };
 		7AEB018D2B435624003197FC /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB01872B435624003197FC /* CircularProgressView.swift */; };
 		7AEB018F2B43573B003197FC /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB018E2B43573B003197FC /* TimerViewModel.swift */; };
+		7AF2463F2B5578B100BAA1D7 /* BeatzHome in Frameworks */ = {isa = PBXBuildFile; productRef = 7AF2463E2B5578B100BAA1D7 /* BeatzHome */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -102,8 +89,8 @@
 		7A3188DB2B3849E60044761B /* Beatz Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Beatz Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A3188DE2B3849E60044761B /* Beatz_Fitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beatz_Fitness.swift; sourceTree = "<group>"; };
 		7A3188E02B3849E60044761B /* TrainingPlanScreen.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = TrainingPlanScreen.swift; sourceTree = "<group>"; tabWidth = 1; };
-		7A3188F42B384BA60044761B /* UIComponents */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UIComponents; sourceTree = "<group>"; };
-		7A3188F82B3854A30044761B /* Styleguide */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Styleguide; sourceTree = "<group>"; };
+		7A3188F42B384BA60044761B /* UIComponents */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UIComponents; path = Packages/UIComponents; sourceTree = "<group>"; };
+		7A3188F82B3854A30044761B /* Styleguide */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Styleguide; path = Packages/Styleguide; sourceTree = "<group>"; };
 		7A371B6E2B54268400162AF0 /* ExerciseSetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSetRow.swift; sourceTree = "<group>"; };
 		7A371B702B551C6000162AF0 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		7A3C9B452B5153D200DA3670 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -123,12 +110,6 @@
 		7A5F48122B3AB87C006375C0 /* Project-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Base.xcconfig"; sourceTree = "<group>"; };
 		7A5F48132B3AB8F1006375C0 /* Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug.xcconfig"; sourceTree = "<group>"; };
 		7A5F48152B3ABAC1006375C0 /* .swiftlint.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; tabWidth = 1; };
-		7A7080FD2B47F5E00095C664 /* Courses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Courses.json; sourceTree = "<group>"; };
-		7A7080FF2B47F6040095C664 /* CoursesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesModel.swift; sourceTree = "<group>"; };
-		7A7081012B47F7CC0095C664 /* CoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesView.swift; sourceTree = "<group>"; };
-		7A7081042B4808B40095C664 /* CoursesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewModel.swift; sourceTree = "<group>"; };
-		7A7081062B4808BC0095C664 /* CreditsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewModel.swift; sourceTree = "<group>"; };
-		7A7081082B4808C30095C664 /* TrainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerViewModel.swift; sourceTree = "<group>"; };
 		7A8681732B3F5D84003946C2 /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
 		7A9BEA472B40A44600BDE3F9 /* TrainingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingScreen.swift; sourceTree = "<group>"; };
 		7A9BEA492B40B54000BDE3F9 /* TrainingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewModel.swift; sourceTree = "<group>"; };
@@ -138,14 +119,6 @@
 		7AB849702B401ADD00E25707 /* BeatzExercisesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatzExercisesModel.swift; sourceTree = "<group>"; };
 		7AB849722B405A1000E25707 /* BeatzExercisesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatzExercisesView.swift; sourceTree = "<group>"; };
 		7AE280C82B45B0A600DF3DC4 /* TrainingScreenAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingScreenAlerts.swift; sourceTree = "<group>"; };
-		7AE280CB2B45B1D000DF3DC4 /* BeatzHomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatzHomeScreen.swift; sourceTree = "<group>"; };
-		7AE280D52B45B8CA00DF3DC4 /* TrainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerModel.swift; sourceTree = "<group>"; };
-		7AE280D72B45BE5000DF3DC4 /* Trainers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Trainers.json; sourceTree = "<group>"; };
-		7AE280DA2B45C02C00DF3DC4 /* TrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerView.swift; sourceTree = "<group>"; };
-		7AE280DC2B45CA0F00DF3DC4 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
-		7AE280DE2B45CAFA00DF3DC4 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
-		7AE280E02B47512600DF3DC4 /* Credits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Credits.json; sourceTree = "<group>"; };
-		7AE280E22B47530900DF3DC4 /* CreditsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsModel.swift; sourceTree = "<group>"; };
 		7AE4ABC52B4851FA0015F41E /* Machines.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Machines.json; sourceTree = "<group>"; };
 		7AE4ABC92B4865430015F41E /* MachinesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachinesViewModel.swift; sourceTree = "<group>"; };
 		7AE4EA052B4C8F7900A2D4AA /* Exercise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Exercise+CoreDataClass.swift"; path = "/Users/maximillianstabe/Desktop/Beatz Fitness/Data/CoreData/Exercise+CoreDataClass.swift"; sourceTree = "<absolute>"; };
@@ -162,6 +135,7 @@
 		7AEB01862B435624003197FC /* TimePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		7AEB01872B435624003197FC /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		7AEB018E2B43573B003197FC /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		7AF2463D2B5576CA00BAA1D7 /* BeatzHome */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BeatzHome; sourceTree = "<group>"; };
 		8B1468AC5C2803D917F6C27A /* Pods-Beatz Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beatz Fitness.debug.xcconfig"; path = "Target Support Files/Pods-Beatz Fitness/Pods-Beatz Fitness.debug.xcconfig"; sourceTree = "<group>"; };
 		90D8B8E2A0F26415F388C6D3 /* Pods-Beatz Fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beatz Fitness.release.xcconfig"; path = "Target Support Files/Pods-Beatz Fitness/Pods-Beatz Fitness.release.xcconfig"; sourceTree = "<group>"; };
 		94D96A35215996C2FDB748A6 /* Pods_Beatz_Fitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beatz_Fitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +148,7 @@
 			files = (
 				7A3188F72B384CA40044761B /* UIComponents in Frameworks */,
 				7A7B763F2B3B221E007BDAFE /* Styleguide in Frameworks */,
+				7AF2463F2B5578B100BAA1D7 /* BeatzHome in Frameworks */,
 				7A5571A82B3C384200E61CE0 /* NukeExtensions in Frameworks */,
 				7A9598482B3A0409004C3A4E /* Styleguide in Frameworks */,
 				7A5571A62B3C384200E61CE0 /* Nuke in Frameworks */,
@@ -204,8 +179,10 @@
 				7A5571AD2B3C3B9600E61CE0 /* Data */,
 				7A3C9B442B5153C100DA3670 /* Extensions */,
 				7A3188F92B3856100044761B /* Frameworks */,
-				7A3188F32B384AEF0044761B /* Packages */,
 				360A0AD8BD8D8D3FEC04EE2F /* Pods */,
+				7AF2463D2B5576CA00BAA1D7 /* BeatzHome */,
+				7A3188F42B384BA60044761B /* UIComponents */,
+				7A3188F82B3854A30044761B /* Styleguide */,
 				7A3188DC2B3849E60044761B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -225,15 +202,6 @@
 				7AB94A962B3865990043083F /* Views */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		7A3188F32B384AEF0044761B /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				7A3188F82B3854A30044761B /* Styleguide */,
-				7A3188F42B384BA60044761B /* UIComponents */,
-			);
-			path = Packages;
 			sourceTree = "<group>";
 		};
 		7A3188F92B3856100044761B /* Frameworks */ = {
@@ -317,37 +285,6 @@
 			path = Configurations;
 			sourceTree = "<group>";
 		};
-		7A7080FB2B47F4C00095C664 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				7A7080FF2B47F6040095C664 /* CoursesModel.swift */,
-				7AE280E22B47530900DF3DC4 /* CreditsModel.swift */,
-				7AE280D52B45B8CA00DF3DC4 /* TrainerModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7A7080FC2B47F4CB0095C664 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				7A7081012B47F7CC0095C664 /* CoursesView.swift */,
-				7AE280DE2B45CAFA00DF3DC4 /* CreditsView.swift */,
-				7AE280DC2B45CA0F00DF3DC4 /* LocationView.swift */,
-				7AE280DA2B45C02C00DF3DC4 /* TrainerView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		7A7081032B4808A50095C664 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				7A7081042B4808B40095C664 /* CoursesViewModel.swift */,
-				7A7081062B4808BC0095C664 /* CreditsViewModel.swift */,
-				7A7081082B4808C30095C664 /* TrainerViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		7A9BEA462B40A43500BDE3F9 /* TrainingScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,7 +341,6 @@
 			children = (
 				7A5571832B3C0E2600E61CE0 /* TabView.swift */,
 				7AB362AB2B506A84009E5086 /* DiaryScreen */,
-				7AE280CA2B45B1C100DF3DC4 /* BeatzHomeScreen */,
 				7A9BEA462B40A43500BDE3F9 /* TrainingScreen */,
 				7AEB01812B43561A003197FC /* TimerScreen */,
 				7A5571B12B3C57CA00E61CE0 /* TrainingPlanScreens */,
@@ -423,23 +359,9 @@
 			path = Initialization;
 			sourceTree = "<group>";
 		};
-		7AE280CA2B45B1C100DF3DC4 /* BeatzHomeScreen */ = {
-			isa = PBXGroup;
-			children = (
-				7AE280CB2B45B1D000DF3DC4 /* BeatzHomeScreen.swift */,
-				7A7080FC2B47F4CB0095C664 /* Views */,
-				7A7080FB2B47F4C00095C664 /* Model */,
-				7A7081032B4808A50095C664 /* ViewModel */,
-			);
-			path = BeatzHomeScreen;
-			sourceTree = "<group>";
-		};
 		7AE280D92B45BFD300DF3DC4 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				7A7080FD2B47F5E00095C664 /* Courses.json */,
-				7AE280E02B47512600DF3DC4 /* Credits.json */,
-				7AE280D72B45BE5000DF3DC4 /* Trainers.json */,
 				7AE4ABC52B4851FA0015F41E /* Machines.json */,
 			);
 			path = JSON;
@@ -488,6 +410,7 @@
 				7A5571A72B3C384200E61CE0 /* NukeExtensions */,
 				7A5571A92B3C384200E61CE0 /* NukeUI */,
 				7A5571AB2B3C384200E61CE0 /* NukeVideo */,
+				7AF2463E2B5578B100BAA1D7 /* BeatzHome */,
 			);
 			productName = "Beatz Fitness";
 			productReference = 7A3188DB2B3849E60044761B /* Beatz Fitness.app */;
@@ -537,9 +460,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AE280D82B45BE5000DF3DC4 /* Trainers.json in Resources */,
-				7A7080FE2B47F5E00095C664 /* Courses.json in Resources */,
-				7AE280E12B47512600DF3DC4 /* Credits.json in Resources */,
 				7AE4ABC62B4851FA0015F41E /* Machines.json in Resources */,
 				7A5C506E2B3D895A00A4D551 /* Launch Screen.storyboard in Resources */,
 			);
@@ -602,31 +522,23 @@
 				7A8681742B3F5D84003946C2 /* CategorySelectionView.swift in Sources */,
 				7A9BEA4A2B40B54000BDE3F9 /* TrainingViewModel.swift in Sources */,
 				7A3188E12B3849E60044761B /* TrainingPlanScreen.swift in Sources */,
-				7A7081002B47F6040095C664 /* CoursesModel.swift in Sources */,
-				7AE280D62B45B8CA00DF3DC4 /* TrainerModel.swift in Sources */,
 				7A9BEA482B40A44600BDE3F9 /* TrainingScreen.swift in Sources */,
 				7AB849712B401ADD00E25707 /* BeatzExercisesModel.swift in Sources */,
 				7A55718D2B3C1C2F00E61CE0 /* CoreDataModel.xcdatamodel in Sources */,
 				7A5C50762B3D970E00A4D551 /* ExercisesViewModel.swift in Sources */,
 				7AE4EA0B2B4C8F7A00A2D4AA /* Split+CoreDataClass.swift in Sources */,
-				7A7081072B4808BC0095C664 /* CreditsViewModel.swift in Sources */,
-				7AE280E32B47530900DF3DC4 /* CreditsModel.swift in Sources */,
 				7AEB016E2B42E1C1003197FC /* SwapExerciseView.swift in Sources */,
-				7AE280DD2B45CA0F00DF3DC4 /* LocationView.swift in Sources */,
 				7A5571B52B3C5DDF00E61CE0 /* CoreDataStack.swift in Sources */,
 				7AEB01882B435624003197FC /* ContentView.swift in Sources */,
 				7A5C50722B3D8BB100A4D551 /* ExercisesScreen.swift in Sources */,
 				7AE4ABCA2B4865430015F41E /* MachinesViewModel.swift in Sources */,
-				7AE280DF2B45CAFA00DF3DC4 /* CreditsView.swift in Sources */,
 				7AE4EA0D2B4C8F7A00A2D4AA /* TrainingSet+CoreDataClass.swift in Sources */,
 				7A5571862B3C129C00E61CE0 /* SplitDetailScreen.swift in Sources */,
 				7A5C50742B3D94C200A4D551 /* AddEditExerciseView.swift in Sources */,
 				7A3C9B462B5153D200DA3670 /* DateExtension.swift in Sources */,
 				7AEB018F2B43573B003197FC /* TimerViewModel.swift in Sources */,
 				7AEB01892B435624003197FC /* AddTimerView.swift in Sources */,
-				7A7081092B4808C30095C664 /* TrainerViewModel.swift in Sources */,
 				7AE4EA0A2B4C8F7A00A2D4AA /* Training+CoreDataClass.swift in Sources */,
-				7A7081022B47F7CC0095C664 /* CoursesView.swift in Sources */,
 				7A5571B72B3C605D00E61CE0 /* SplitViewModel.swift in Sources */,
 				7A371B712B551C6000162AF0 /* StringExtension.swift in Sources */,
 				7AE4EA0C2B4C8F7A00A2D4AA /* Exercise+CoreDataClass.swift in Sources */,
@@ -637,15 +549,12 @@
 				7AE4EA0E2B4C8F7A00A2D4AA /* TimerEntity+CoreDataClass.swift in Sources */,
 				7AEB018D2B435624003197FC /* CircularProgressView.swift in Sources */,
 				7AEB018C2B435624003197FC /* TimePickerView.swift in Sources */,
-				7AE280DB2B45C02C00DF3DC4 /* TrainerView.swift in Sources */,
 				7AB362AD2B506A8F009E5086 /* DiaryScreen.swift in Sources */,
 				7AEB01702B42EB2C003197FC /* TrainingBottomSheetView.swift in Sources */,
-				7AE280CC2B45B1D000DF3DC4 /* BeatzHomeScreen.swift in Sources */,
 				7A5571882B3C156C00E61CE0 /* TrainingDiaryScreen.swift in Sources */,
 				7A3188DF2B3849E60044761B /* Beatz_Fitness.swift in Sources */,
 				7AB362AF2B507867009E5086 /* DiaryCell.swift in Sources */,
 				7AEB018A2B435624003197FC /* EditTimerView.swift in Sources */,
-				7A7081052B4808B40095C664 /* CoursesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -938,6 +847,10 @@
 		7A9598472B3A0409004C3A4E /* Styleguide */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Styleguide;
+		};
+		7AF2463E2B5578B100BAA1D7 /* BeatzHome */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BeatzHome;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

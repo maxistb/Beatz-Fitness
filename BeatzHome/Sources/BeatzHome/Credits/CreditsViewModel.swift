@@ -8,7 +8,7 @@ import Foundation
 class CreditPersonViewModel: ObservableObject {
   @Published var creditPersons: CreditPersons?
 
-  let url = Bundle.main.url(forResource: "Credits", withExtension: "json")!
+  let url = Bundle.module.url(forResource: "Credits", withExtension: "json")!
 
   func getCreditPeople() async throws -> CreditPersons {
     do {

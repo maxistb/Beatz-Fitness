@@ -4,15 +4,16 @@
 //
 // swiftlint:disable line_length
 
-import NukeUI
 import SwiftUI
 import UIComponents
 
-struct BeatzHomeScreen: View {
+public struct BeatzHomeScreen: View {
   private var beatzImage = "https://lh3.googleusercontent.com/drive-viewer/AEYmBYTi0uRxRcnKSOUH_oa50qIq5BMT9S_sxtwcS4dN3nSbnwIAhAAsWlwsahfQzTMq1E4FwDlD2aP_V6XqVnTC6OgcW7PmWg=s1600"
   private var courseImage = "https://lh3.googleusercontent.com/drive-viewer/AEYmBYQzBVWhE4IguB9K1pcMDGT1yigd-X99XXJbDHIWT2lUxdKDeGPYCvLQESOA4ke-b5i6AFcMspRx7Z_8jUQZQjnlrXjVBg=s1600"
 
-  var body: some View {
+  public init() {}
+
+  public var body: some View {
     NavigationStack {
       Form {
         coursesAndTrainerSection

@@ -4,22 +4,24 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Beatz Fitness.xcscheme</key>
+		<key>Styleguide-Package.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>SwiftGen.xcscheme</key>
+		<key>Styleguide.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict/>
+	<dict>
+		<key>Styleguide</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>

@@ -5,6 +5,7 @@
 
 import Styleguide
 import SwiftUI
+import BeatzHome
 
 struct BottomTabView: View {
   @ObservedObject var viewModel = SplitViewModel()
