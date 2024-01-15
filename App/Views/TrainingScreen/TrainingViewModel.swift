@@ -110,15 +110,17 @@ extension TrainingViewModel {
   }
 
   func saveTraining() {
-    let training = Training.createTraining(split: split)
-    training.bodyWeight = bodyWeight
-    training.date = startingTime
-    training.endTraining = Date.now
-    training.notes = notes
-    split.lastTraining = training
-    saveExercisesForTraining(training)
+    if alertCase != .notDecimalInput {
+      let training = Training.createTraining(split: split)
+      training.bodyWeight = bodyWeight
+      training.date = startingTime
+      training.endTraining = Date.now
+      training.notes = notes
+      split.lastTraining = training
+      saveExercisesForTraining(training)
 
-    try? CoreDataStack.shared.mainContext.save()
+      try? CoreDataStack.shared.mainContext.save()
+    }
   }
 
   func initializeTrainingSets() {

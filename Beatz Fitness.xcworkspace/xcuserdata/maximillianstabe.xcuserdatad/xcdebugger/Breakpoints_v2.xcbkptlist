@@ -309,13 +309,13 @@
             filePath = "App/Views/TrainingScreen/TrainingViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "initializeTrainingSets()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "935174DE-8C9C-45DD-B13A-BC303A4F204B - 360e6e79e512b1a5"
+                  uuid = "935174DE-8C9C-45DD-B13A-BC303A4F204B - 360e6e79e512b1eb"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -325,12 +325,12 @@
                   urlString = "file:///Users/maximillianstabe/Desktop/Beatz%20Fitness/App/Views/TrainingScreen/TrainingViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "141"
-                  endingLineNumber = "141"
-                  offsetFromSymbolStart = "904">
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "928">
                </Location>
                <Location
-                  uuid = "935174DE-8C9C-45DD-B13A-BC303A4F204B - 360e6e79e512b1ca"
+                  uuid = "935174DE-8C9C-45DD-B13A-BC303A4F204B - 360e6e79e512b008"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -340,8 +340,8 @@
                   urlString = "file:///Users/maximillianstabe/Desktop/Beatz%20Fitness/App/Views/TrainingScreen/TrainingViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "142"
-                  endingLineNumber = "142"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
                   offsetFromSymbolStart = "1332">
                </Location>
             </Locations>

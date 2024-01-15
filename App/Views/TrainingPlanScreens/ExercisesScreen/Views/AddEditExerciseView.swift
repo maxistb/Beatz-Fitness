@@ -2,7 +2,7 @@
 // Created by Maximillian Stabe on 28.12.23.
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
-
+// swiftlint:disable function_body_length
 import SwiftUI
 import UIComponents
 
@@ -218,3 +218,5 @@ extension AddEditExerciseView {
     }
   }
 }
+
+// swiftlint:enable function_body_length

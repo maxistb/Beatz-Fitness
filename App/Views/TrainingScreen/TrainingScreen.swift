@@ -48,10 +48,11 @@ struct TrainingScreen: View {
     .sheet(isPresented: $trainingViewModel.showAddExerciseSheet) {
       BeatzExercisesView(
         appearance: .addTrainingExercises($trainingViewModel.copyExercises),
-        showCurrentView: $trainingViewModel.showAddExerciseSheet)
+        showCurrentView: $trainingViewModel.showAddExerciseSheet
+      )
     }
     .onChange(of: trainingViewModel.forceViewUpdate) { _ in }
-    .onAppear {  }
+    .onAppear {}
   }
 }
 
@@ -76,7 +77,11 @@ extension TrainingScreen {
         ForEach(exercise.exerciseTrainingSetArray, id: \.self) { trainingSet in
           let cellType = trainingViewModel.getExerciseCategoryForString(exerciseCategory: exercise.category)
 
-          cellType.createExerciseCell(currentSet: trainingSet, isTrainingView: isTrainingView)
+          cellType.createExerciseCell(
+            currentSet: trainingSet,
+            isTrainingView: isTrainingView,
+            alertCase: $trainingViewModel.alertCase
+          )
         }
         .onDelete { indexSet in
           trainingViewModel.deleteSet(exercise: exercise, indexSet: indexSet)
@@ -91,8 +96,8 @@ extension TrainingScreen {
         exercise: currentClickedExercise,
         exercises: $trainingViewModel.copyExercises
       )
-        .presentationDetents([.medium])
-        .presentationDragIndicator(.visible)
+      .presentationDetents([.medium])
+      .presentationDragIndicator(.visible)
     }
   }
 

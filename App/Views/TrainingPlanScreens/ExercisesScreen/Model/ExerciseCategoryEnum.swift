@@ -84,7 +84,11 @@ enum ExerciseCategory: String {
 }
 
 extension ExerciseCategory {
-  func createExerciseCell(currentSet: TrainingSet, isTrainingView: Bool) -> AnyView {
+  func createExerciseCell(
+    currentSet: TrainingSet,
+    isTrainingView: Bool,
+    alertCase: Binding<TrainingScreenAlerts>) -> AnyView
+  {
     switch self {
     case .weightlifting, .bodyweight:
       return AnyView(
@@ -101,7 +105,7 @@ extension ExerciseCategory {
             Binding(get: { currentSet.notes },
                     set: { currentSet.notes = $0 })
           ],
-          keyboardType: .decimalPad)
+          alertCase: alertCase)
       )
 
     case .staticexercise, .time:
@@ -110,7 +114,8 @@ extension ExerciseCategory {
           currentSet: currentSet,
           isTrainingView: isTrainingView,
           labels: ["Min.", "Sek.", "Notizen"],
-          placeholders: [currentSet.minutesPlaceholder, currentSet.secondsPlaceholder, currentSet.notesPlaceholder], bindings: [
+          placeholders: [currentSet.minutesPlaceholder, currentSet.secondsPlaceholder, currentSet.notesPlaceholder],
+          bindings: [
             Binding(get: { currentSet.minutes },
                     set: { currentSet.minutes = $0 }),
             Binding(get: { currentSet.seconds },
@@ -118,7 +123,7 @@ extension ExerciseCategory {
             Binding(get: { currentSet.notes },
                     set: { currentSet.notes = $0 })
           ],
-          keyboardType: .decimalPad)
+          alertCase: alertCase)
       )
 
     case .supported:
@@ -136,7 +141,7 @@ extension ExerciseCategory {
             Binding(get: { currentSet.notes },
                     set: { currentSet.notes = $0 })
           ],
-          keyboardType: .decimalPad)
+          alertCase: alertCase)
       )
 
     case .repsonly:
@@ -152,7 +157,8 @@ extension ExerciseCategory {
             Binding(get: { currentSet.notes },
                     set: { currentSet.notes = $0 })
           ],
-          keyboardType: .decimalPad))
+          alertCase: alertCase)
+      )
 
     case .cardio:
       return AnyView(
@@ -167,16 +173,15 @@ extension ExerciseCategory {
                 text: Binding(
                   get: { currentSet.minutes },
                   set: { currentSet.minutes = $0 }),
-                keyboardType: .decimalPad)
+                alertCase: alertCase)
               CommonSetTextField(
                 label: "Strecke",
                 placeholder: currentSet.distanceKMPlaceholder,
                 text: Binding(
                   get: { currentSet.distanceKM },
                   set: { currentSet.distanceKM = $0 }),
-                keyboardType: .decimalPad)
+                alertCase: alertCase)
             }
-            .keyboardType(.decimalPad)
             VStack(alignment: .leading) {
               CommonSetTextField(
                 label: "Sek.",
@@ -184,14 +189,14 @@ extension ExerciseCategory {
                 text: Binding(
                   get: { currentSet.seconds },
                   set: { currentSet.seconds = $0 }),
-                keyboardType: .decimalPad)
+                alertCase: alertCase)
               CommonSetTextField(
                 label: "kcal",
                 placeholder: currentSet.caloriesPlaceholder,
                 text: Binding(
                   get: { currentSet.calories },
                   set: { currentSet.calories = $0 }),
-                keyboardType: .decimalPad)
+                alertCase: alertCase)
             }
             CommonSetTextField(
               label: "Notizen",
@@ -199,7 +204,7 @@ extension ExerciseCategory {
               text: Binding(
                 get: { currentSet.notes },
                 set: { currentSet.notes = $0 }),
-              keyboardType: .default)
+              alertCase: alertCase)
               .padding(.leading, -20)
           }
           if isTrainingView {

@@ -37,7 +37,6 @@ struct BottomTabView: View {
           Text(L10n.beatz)
         }
         .toolbarBackground(.visible, for: .tabBar)
-
     }
     .navigationBarBackButtonHidden()
     .tint(Asset.Color.beatzColor.swiftUIColor)

@@ -3,6 +3,7 @@
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 
+import Combine
 import Styleguide
 import SwiftUI
 
@@ -12,22 +13,22 @@ struct ExerciseSetRow: View {
   let labels: [String]
   let placeholders: [String]
   let bindings: [Binding<String>]
-  let keyboardType: UIKeyboardType
+  let alertCase: Binding<TrainingScreenAlerts>
 
   var body: some View {
     HStack {
-      Image(systemName: "\(currentSet.order + 1).circle")
+      Image(systemName: "\(self.currentSet.order + 1).circle")
         .padding(.trailing, 20)
       HStack(alignment: .top) {
-        ForEach(0 ..< labels.count, id: \.self) { index in
+        ForEach(0 ..< self.labels.count, id: \.self) { index in
           CommonSetTextField(
-            label: labels[index],
-            placeholder: placeholders[index],
-            text: bindings[index],
-            keyboardType: keyboardType)
+            label: self.labels[index],
+            placeholder: self.placeholders[index],
+            text: self.bindings[index],
+            alertCase: alertCase)
         }
       }
-      if isTrainingView {
+      if self.isTrainingView {
         Spacer()
         Image(systemName: "ellipsis")
           .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
@@ -40,15 +41,47 @@ struct CommonSetTextField: View {
   var label: String
   var placeholder: String
   var text: Binding<String>
-  var keyboardType: UIKeyboardType
+  var alertCase: Binding<TrainingScreenAlerts>
+  private let numberFormatter: NumberFormatter
+
+  init(label: String, placeholder: String, text: Binding<String>, alertCase: Binding<TrainingScreenAlerts>) {
+    self.label = label
+    self.placeholder = placeholder
+    self.text = text
+    self.alertCase = alertCase
+
+    self.numberFormatter = {
+      let numberFormatter = NumberFormatter()
+      numberFormatter.numberStyle = .decimal
+      numberFormatter.maximumFractionDigits = 2
+      return numberFormatter
+    }()
+  }
 
   var body: some View {
     VStack(alignment: .leading) {
-      Text(label)
+      Text(self.label)
         .foregroundStyle(.gray).font(.system(size: 14))
-      TextField(placeholder, text: text)
-        .keyboardType(keyboardType)
-        .onSubmit { try? CoreDataStack.shared.mainContext.save() }
+      TextField(self.placeholder, text: self.text)
+        .keyboardType(.default)
+        .onReceive(Just(self.text)) { newValue in
+          if self.label != "Notizen" {
+            if newValue.wrappedValue.isDecimalNumber() {
+              self.text.wrappedValue = newValue.wrappedValue
+            } else {
+              alertCase.wrappedValue = .notDecimalInput
+              self.text.wrappedValue = ""
+            }
+          }
+        }
+        .onSubmit {
+          if self.label != "Notizen" {
+            if !self.text.wrappedValue.isDecimalNumber() {
+              alertCase.wrappedValue = .notDecimalInput
+              self.text.wrappedValue = ""
+            }
+          }
+        }
     }
     .padding(.leading, -20)
   }

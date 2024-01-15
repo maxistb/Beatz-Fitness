@@ -5,7 +5,12 @@
 
 import SwiftUI
 
-enum TrainingScreenAlerts {
+enum TrainingScreenAlerts: Equatable {
+  static func == (lhs: TrainingScreenAlerts, rhs: TrainingScreenAlerts) -> Bool {
+    lhs.getAlertMessage == rhs.getAlertMessage
+    && lhs.getAlertTitle == rhs.getAlertTitle
+  }
+
   case saveTraining(DismissAction, TrainingViewModel, Split)
   case exitTraining(DismissAction)
   case saveAsTrainingplan(TrainingViewModel)
