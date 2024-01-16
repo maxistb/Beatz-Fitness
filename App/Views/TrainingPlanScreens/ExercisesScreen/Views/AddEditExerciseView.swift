@@ -3,6 +3,8 @@
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 // swiftlint:disable function_body_length
+
+import BeatzCoreData
 import SwiftUI
 import UIComponents
 

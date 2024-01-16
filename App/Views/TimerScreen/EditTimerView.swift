@@ -5,6 +5,7 @@
 
 import CoreData
 import SwiftUI
+import BeatzCoreData
 
 struct EditTimerView: View {
   @State private var editMode: EditMode = .active

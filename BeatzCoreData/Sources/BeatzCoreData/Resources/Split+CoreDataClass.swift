@@ -24,7 +24,7 @@ public class Split: NSManagedObject {
     exercises.sorted { $0.order < $1.order }
   }
 
-  class func createSplit(
+  public class func createSplit(
     name: String,
     notes: String,
     lastTraining: Training?,

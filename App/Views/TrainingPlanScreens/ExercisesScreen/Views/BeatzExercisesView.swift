@@ -5,6 +5,7 @@
 
 import NukeUI
 import SwiftUI
+import BeatzCoreData
 
 enum BeatzExerciseAppearance {
   case addExercises(Split)

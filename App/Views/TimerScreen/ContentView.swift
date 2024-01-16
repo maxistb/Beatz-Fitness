@@ -5,6 +5,7 @@
 
 import ActivityKit
 import SwiftUI
+import BeatzCoreData
 
 struct TimerView: View {
   @ObservedObject var model: TimerViewModel

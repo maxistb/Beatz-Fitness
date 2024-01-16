@@ -3,6 +3,7 @@
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 
+import BeatzCoreData
 import CoreData
 import SwiftUI
 

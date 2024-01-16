@@ -4,6 +4,7 @@
 //
 
 import SwiftUI
+import BeatzCoreData
 
 struct SwapExerciseView: View {
   @Environment(\.dismiss) private var dismiss

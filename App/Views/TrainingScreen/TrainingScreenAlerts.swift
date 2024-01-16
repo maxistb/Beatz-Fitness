@@ -3,12 +3,13 @@
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 
+import BeatzCoreData
 import SwiftUI
 
 enum TrainingScreenAlerts: Equatable {
   static func == (lhs: TrainingScreenAlerts, rhs: TrainingScreenAlerts) -> Bool {
     lhs.getAlertMessage == rhs.getAlertMessage
-    && lhs.getAlertTitle == rhs.getAlertTitle
+      && lhs.getAlertTitle == rhs.getAlertTitle
   }
 
   case saveTraining(DismissAction, TrainingViewModel, Split)
@@ -78,8 +79,8 @@ enum TrainingScreenAlerts: Equatable {
   private var action: () -> Void {
     switch self {
     case .saveTraining(let dismissAction, let viewModel, _):
-        viewModel.saveTraining()
-        return dismissAction.callAsFunction
+      viewModel.saveTraining()
+      return dismissAction.callAsFunction
     case .exitTraining(let dismissAction):
       return dismissAction.callAsFunction
     case .saveAsTrainingplan(let viewModel):

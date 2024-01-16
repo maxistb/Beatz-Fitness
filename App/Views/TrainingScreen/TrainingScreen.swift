@@ -3,11 +3,12 @@
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 
+import BeatzCoreData
 import Styleguide
 import SwiftUI
 import UIComponents
 
-struct TrainingScreen: View {
+public struct TrainingScreen: View {
   @Environment(\.dismiss) var dismiss
   @ObservedObject private var timerViewModel = TimerViewModel()
   @ObservedObject private var trainingViewModel: TrainingViewModel
@@ -18,7 +19,7 @@ struct TrainingScreen: View {
     trainingViewModel.training?.name ?? trainingViewModel.split.name
   }
 
-  init(split: Split, training: Training? = nil) {
+  public init(split: Split, training: Training? = nil) {
     self.trainingViewModel = TrainingViewModel(split: split, training: training)
     self.isTrainingView = training == nil
     self.currentClickedExercise = trainingViewModel.copyExerciseArray.first
@@ -27,7 +28,7 @@ struct TrainingScreen: View {
     trainingViewModel.adjustExercise()
   }
 
-  var body: some View {
+  public var body: some View {
     List {
       createTopSection()
       if let training = trainingViewModel.training {

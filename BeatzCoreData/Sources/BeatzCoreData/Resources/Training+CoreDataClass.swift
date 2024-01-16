@@ -32,7 +32,7 @@ public class Training: NSManagedObject {
     return "Dauer: \(formattedBeginTraining) - \(formattedEndTraining ?? "Error") Uhr"
   }
 
-  class func createTraining(
+  public class func createTraining(
     split: Split
   ) -> Training {
     let training = Training(context: CoreDataStack.shared.mainContext)

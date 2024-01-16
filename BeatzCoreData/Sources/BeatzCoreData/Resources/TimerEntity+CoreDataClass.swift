@@ -23,7 +23,7 @@ public class TimerEntity: NSManagedObject {
   }
 }
 
-extension Int {
+public extension Int {
   var asTimestamp: String {
     let minute = self / 60 % 60
     let second = self % 60

@@ -3,9 +3,10 @@
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 
+import BeatzCoreData
 import SwiftUI
 
-struct DiaryScreen: View {
+public struct DiaryScreen: View {
   @FetchRequest(
     sortDescriptors: [
       NSSortDescriptor(
@@ -22,7 +23,9 @@ struct DiaryScreen: View {
     .map { GroupedDiary(date: $0.key, entries: $0.value) }
   }
 
-  var body: some View {
+  public init() {}
+
+  public var body: some View {
     NavigationStack {
       List(groupedTrainings, id: \.self) { groupedTraining in
         Section(groupedTraining.date.diaryHeaderFormat) {
@@ -39,4 +42,26 @@ struct DiaryScreen: View {
 private struct GroupedDiary: Hashable {
   let date: Date
   let entries: [Training]
+}
+
+extension Date {
+  var diaryHeaderFormat: String {
+    formatted(
+      .dateTime
+        .month(.wide)
+        .year()
+    )
+  }
+
+  func dayOfWeek() -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "E"
+    return dateFormatter.string(from: self).capitalized
+  }
+
+  func dayNumberString() -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "dd"
+    return dateFormatter.string(from: self)
+  }
 }

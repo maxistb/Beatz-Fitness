@@ -5,13 +5,18 @@
 
 import SwiftUI
 import UIComponents
+import BeatzCoreData
 
-struct DiaryCell: View {
+public struct DiaryCell: View {
   let training: Training
 
-  var body: some View {
+  public init(training: Training) {
+    self.training = training
+  }
+
+  public var body: some View {
     NavigationLink {
-      TrainingScreen(split: training.split, training: training)
+//      TrainingScreen(split: training.split, training: training)
     } label: {
       HStack(alignment: .top) {
         DatumWidget(dayName: training.date.dayOfWeek(), dayNumber: training.date.dayNumberString())

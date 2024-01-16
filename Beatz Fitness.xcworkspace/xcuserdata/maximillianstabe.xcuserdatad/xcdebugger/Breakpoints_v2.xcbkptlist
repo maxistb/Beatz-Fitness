@@ -62,10 +62,42 @@
             filePath = "App/Views/TrainingPlanScreens/ExercisesScreen/ViewModel/ExercisesViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "moveExercise(exercises:oldIndices:newIndex:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D17D12D5-7DB0-4B30-AB6F-12F9E0827B0B - c65811d767183468"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Beatz_Fitness.ExercisesViewModel.moveExercise(exercises: Swift.Set&lt;Beatz_Fitness.Exercise&gt;, oldIndices: Foundation.IndexSet, newIndex: Swift.Int) -&gt; ()"
+                  moduleName = "Beatz Fitness"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maximillianstabe/Desktop/Beatz%20Fitness/App/Views/TrainingPlanScreens/ExercisesScreen/ViewModel/ExercisesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "D17D12D5-7DB0-4B30-AB6F-12F9E0827B0B - 1266f8fc36ab79b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Beatz_Fitness.ExercisesViewModel.moveExercise(exercises: Swift.Set&lt;BeatzCoreData.Exercise&gt;, oldIndices: Foundation.IndexSet, newIndex: Swift.Int) -&gt; ()"
+                  moduleName = "Beatz Fitness"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maximillianstabe/Desktop/Beatz%20Fitness/App/Views/TrainingPlanScreens/ExercisesScreen/ViewModel/ExercisesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -309,8 +341,8 @@
             filePath = "App/Views/TrainingScreen/TrainingViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "initializeTrainingSets()"
             landmarkType = "7">
             <Locations>
@@ -345,6 +377,22 @@
                   offsetFromSymbolStart = "1332">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "651895CE-5E62-4597-B2D9-2B2BB9BC0896"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BeatzCoreData/Sources/BeatzCoreData/Resources/CoreDataStack.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "init()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

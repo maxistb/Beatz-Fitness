@@ -4,6 +4,7 @@
 //
 // swiftlint:disable function_body_length
 
+import BeatzCoreData
 import Foundation
 import Styleguide
 import SwiftUI

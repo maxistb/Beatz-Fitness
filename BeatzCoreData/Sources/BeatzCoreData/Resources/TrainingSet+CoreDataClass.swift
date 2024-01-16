@@ -35,7 +35,7 @@ public class TrainingSet: NSManagedObject {
   @NSManaged public var weightPlaceholder: String
   @NSManaged public var exercise: Exercise
 
-  class func createTrainingSet(exercise: Exercise, order: Int) -> TrainingSet {
+  public class func createTrainingSet(exercise: Exercise, order: Int) -> TrainingSet {
     let trainingSet = TrainingSet(context: CoreDataStack.shared.mainContext)
     trainingSet.calories = ""
     trainingSet.caloriesPlaceholder = ""
@@ -62,7 +62,7 @@ public class TrainingSet: NSManagedObject {
     return trainingSet
   }
 
-  class func deleteTrainingSet(trainingSet: TrainingSet) {
+  public class func deleteTrainingSet(trainingSet: TrainingSet) {
     CoreDataStack.shared.mainContext.delete(trainingSet)
     try? CoreDataStack.shared.mainContext.save()
   }

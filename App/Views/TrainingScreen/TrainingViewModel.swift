@@ -3,6 +3,7 @@
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 
+import BeatzCoreData
 import SwiftUI
 
 class TrainingViewModel: ObservableObject {
@@ -62,7 +63,6 @@ class TrainingViewModel: ObservableObject {
 
     for exercise in copyExercises {
       if let trainingExercise = lastTraining.exercises.first(where: { $0.name == exercise.name }) {
-
         for exerciseSet in exercise.trainingSets {
           if let trainingSet = trainingExercise.trainingSets.first(where: { $0.order == exerciseSet.order }) {
             exerciseSet.caloriesPlaceholder = trainingSet.calories

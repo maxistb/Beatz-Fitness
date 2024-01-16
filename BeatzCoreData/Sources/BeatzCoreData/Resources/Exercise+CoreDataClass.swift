@@ -29,7 +29,7 @@ public class Exercise: NSManagedObject {
     }
   }
 
-  class func createExercise(
+  public class func createExercise(
     name: String,
     category: String,
     countSets: Int,
@@ -50,7 +50,7 @@ public class Exercise: NSManagedObject {
     try? CoreDataStack.shared.mainContext.save()
   }
 
-  class func createTrainingExercise(
+  public class func createTrainingExercise(
     name: String,
     category: String,
     countSets: Int,

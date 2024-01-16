@@ -6,15 +6,18 @@
 import CoreData
 import Foundation
 
-class CoreDataStack {
-  static let shared = CoreDataStack()
+public class CoreDataStack {
+  public static let shared = CoreDataStack()
 
-  let persistentContainer: NSPersistentContainer
-  let backgroundContext: NSManagedObjectContext
-  let mainContext: NSManagedObjectContext
+  public let persistentContainer: NSPersistentContainer
+  public let backgroundContext: NSManagedObjectContext
+  public let mainContext: NSManagedObjectContext
 
   private init() {
-    persistentContainer = NSPersistentContainer(name: "CoreDataModel")
+    guard let modelURL = Bundle.module.url(forResource: "CoreDataModel", withExtension: "momd") else { fatalError() }
+    guard let model = NSManagedObjectModel(contentsOf: modelURL) else { fatalError() }
+
+    persistentContainer = NSPersistentContainer(name: "CoreDataModel", managedObjectModel: model)
     let description = persistentContainer.persistentStoreDescriptions.first
     description?.type = NSSQLiteStoreType
 

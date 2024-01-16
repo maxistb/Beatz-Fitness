@@ -6,6 +6,7 @@
 import Styleguide
 import SwiftUI
 import BeatzHome
+import Diary
 
 struct BottomTabView: View {
   @ObservedObject var viewModel = SplitViewModel()
@@ -16,14 +17,14 @@ struct BottomTabView: View {
           Image(systemName: "list.clipboard.fill")
           Text(L10n.trainingplans)
         }
-        .toolbarBackground(.visible, for: .tabBar)
+//        .toolbarBackground(.visible, for: .tabBar)
 
-      DiaryScreen()
-        .tabItem {
-          Image(systemName: "book")
-          Text(L10n.trainingbook)
-        }
-        .toolbarBackground(.visible, for: .tabBar)
+//      DiaryScreen()
+//        .tabItem {
+//          Image(systemName: "book")
+//          Text(L10n.trainingbook)
+//        }
+//        .toolbarBackground(.visible, for: .tabBar)
 
       TrainingDiaryScreen()
         .tabItem {
