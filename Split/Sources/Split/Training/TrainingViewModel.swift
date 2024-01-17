@@ -85,9 +85,14 @@ extension TrainingViewModel {
   func deleteSet(exercise: Exercise, indexSet: IndexSet, isInitial: Bool = false) {
     if !exercise.trainingSets.isEmpty {
       withAnimation {
-        exercise.trainingSets.removeFirst()
-        exercise.exerciseTrainingSetArray.enumerated().forEach { index, exerciseSet in
-          exerciseSet.order = Int16(index)
+        for indexToDelete in indexSet {
+          for trainingSet in exercise.trainingSets {
+            if trainingSet.order > indexToDelete {
+              trainingSet.order -= 1
+            } else if trainingSet.order == indexToDelete {
+              CoreDataStack.shared.mainContext.delete(trainingSet)
+            }
+          }
         }
 
         if !isInitial { exercise.countSets -= 1 }
