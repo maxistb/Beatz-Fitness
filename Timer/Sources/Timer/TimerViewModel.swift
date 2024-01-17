@@ -4,12 +4,11 @@
 //
 
 import Foundation
-
 import SwiftUI
 
-final class TimerViewModel: NSObject, ObservableObject, UNUserNotificationCenterDelegate {
+public final class TimerViewModel: NSObject, ObservableObject, UNUserNotificationCenterDelegate {
   // Represents the different states the timer can be in
-  enum TimerState {
+  public enum TimerState {
     case active
     case paused
     case resumed
@@ -54,9 +53,9 @@ final class TimerViewModel: NSObject, ObservableObject, UNUserNotificationCenter
   }
 
   // Powers the ProgressView
-  @Published var secondsToCompletion = 0
-  @Published var progress: Float = 0.0
-  @Published var completionDate = Date()
+  @Published public var secondsToCompletion = 0
+  @Published public var progress: Float = 0.0
+  @Published public var completionDate = Date()
 
   let minutesRange = 0...59
   let secondsRange = 0...59

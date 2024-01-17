@@ -3,30 +3,30 @@
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 
-import Styleguide
-import SwiftUI
 import BeatzHome
 import Diary
+import Split
+import Styleguide
+import SwiftUI
 
 struct BottomTabView: View {
-  @ObservedObject var viewModel = SplitViewModel()
   var body: some View {
     TabView {
-      TrainingPlanScreen(viewModel: viewModel)
+      SplitScreen()
         .tabItem {
           Image(systemName: "list.clipboard.fill")
           Text(L10n.trainingplans)
         }
-//        .toolbarBackground(.visible, for: .tabBar)
+        .toolbarBackground(.visible, for: .tabBar)
 
-//      DiaryScreen()
-//        .tabItem {
-//          Image(systemName: "book")
-//          Text(L10n.trainingbook)
-//        }
-//        .toolbarBackground(.visible, for: .tabBar)
+      DiaryScreen()
+        .tabItem {
+          Image(systemName: "book")
+          Text(L10n.trainingbook)
+        }
+        .toolbarBackground(.visible, for: .tabBar)
 
-      TrainingDiaryScreen()
+      DiaryScreen()
         .tabItem {
           Image(systemName: "chart.bar.xaxis")
           Text(L10n.statistic)

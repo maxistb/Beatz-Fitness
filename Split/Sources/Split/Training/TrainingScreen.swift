@@ -6,6 +6,7 @@
 import BeatzCoreData
 import Styleguide
 import SwiftUI
+import Timer
 import UIComponents
 
 public struct TrainingScreen: View {
@@ -47,7 +48,7 @@ public struct TrainingScreen: View {
     }
     .sheet(isPresented: $trainingViewModel.showTimer) { TimerView(model: timerViewModel) }
     .sheet(isPresented: $trainingViewModel.showAddExerciseSheet) {
-      BeatzExercisesView(
+      MachinesView(
         appearance: .addTrainingExercises($trainingViewModel.copyExercises),
         showCurrentView: $trainingViewModel.showAddExerciseSheet
       )

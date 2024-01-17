@@ -6,14 +6,14 @@
 import BeatzCoreData
 import SwiftUI
 
-struct AddTimerView: View {
+public struct AddTimerView: View {
   @Binding var isPresented: Bool
   var model: TimerViewModel
 
   @State private var minutes: Int = 1
   @State private var seconds: Int = 0
 
-  var body: some View {
+  public var body: some View {
     VStack {
       HStack {
         TimePickerView(title: "min", range: model.minutesRange, binding: $minutes)

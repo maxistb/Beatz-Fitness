@@ -3,9 +3,10 @@
 // Copyright © 2023 Maximillian Joel Stabe. All rights reserved.
 //
 
-import SwiftUI
-import UIComponents
 import BeatzCoreData
+import SwiftUI
+import Split
+import UIComponents
 
 public struct DiaryCell: View {
   let training: Training
@@ -16,7 +17,7 @@ public struct DiaryCell: View {
 
   public var body: some View {
     NavigationLink {
-//      TrainingScreen(split: training.split, training: training)
+      TrainingScreen(split: training.split, training: training)
     } label: {
       HStack(alignment: .top) {
         DatumWidget(dayName: training.date.dayOfWeek(), dayNumber: training.date.dayNumberString())

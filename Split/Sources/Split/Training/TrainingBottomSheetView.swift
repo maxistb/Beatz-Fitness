@@ -38,7 +38,7 @@ struct TrainingBottomSheetView: View {
       .sheet(isPresented: $showReplaceExerciseView) {
         if let exercise = exercise {
           if let exercises = exercises {
-            BeatzExercisesView(
+            MachinesView(
               appearance: .replaceExercise(exercises, exercise),
               showCurrentView: $showReplaceExerciseView
             )

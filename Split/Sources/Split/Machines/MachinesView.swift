@@ -22,7 +22,7 @@ enum BeatzExerciseAppearance {
   }
 }
 
-struct BeatzExercisesView: View {
+struct MachinesView: View {
   @ObservedObject private var viewModel = MachinesViewModel()
   @State private var appearance: BeatzExerciseAppearance
   @Binding var showCurrentView: Bool

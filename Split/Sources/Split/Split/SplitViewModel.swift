@@ -8,8 +8,10 @@ import CoreData
 import Foundation
 import SwiftUI
 
-class SplitViewModel: ObservableObject {
-  func createSplit(name: String, notes: String, lastTraining: Training?, exercises: Set<Exercise>) {
+public class SplitViewModel: ObservableObject {
+  public init() {}
+
+  public func createSplit(name: String, notes: String, lastTraining: Training?, exercises: Set<Exercise>) {
     let order = (try? CoreDataStack.shared.mainContext.fetch(Split.fetchRequest()).count) ?? 0
     Split.createSplit(
       name: name,
@@ -19,7 +21,7 @@ class SplitViewModel: ObservableObject {
       order: Int16(order))
   }
 
-  func deleteSplit(splits: FetchedResults<Split>, indicesToDelete: IndexSet) {
+  public func deleteSplit(splits: FetchedResults<Split>, indicesToDelete: IndexSet) {
     for indexToDelete in indicesToDelete {
       for split in splits {
         if split.order > indexToDelete {
@@ -32,7 +34,7 @@ class SplitViewModel: ObservableObject {
     try? CoreDataStack.shared.mainContext.save()
   }
 
-  func moveSplit(splits: FetchedResults<Split>, oldIndices: IndexSet, newIndex: Int) {
+  public func moveSplit(splits: FetchedResults<Split>, oldIndices: IndexSet, newIndex: Int) {
     var splitArray = Array(splits)
     splitArray.move(fromOffsets: oldIndices, toOffset: newIndex)
     for (index, split) in splitArray.enumerated() {

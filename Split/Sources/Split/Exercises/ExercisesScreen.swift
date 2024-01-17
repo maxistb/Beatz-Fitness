@@ -57,7 +57,7 @@ struct ExercisesScreen: View {
       AddEditExerciseView(appearance: .addExercise(split), showCurrentView: $showAddUebungSheet)
     }
     .sheet(isPresented: $showMachinesBeatzSheet) {
-      BeatzExercisesView(
+      MachinesView(
         appearance: .addExercises(split),
         showCurrentView: $showMachinesBeatzSheet
       )

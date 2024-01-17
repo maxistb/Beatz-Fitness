@@ -7,7 +7,7 @@ import BeatzCoreData
 import Styleguide
 import SwiftUI
 
-struct TrainingPlanScreen: View {
+public struct SplitScreen: View {
   @FetchRequest(
     sortDescriptors: [
       NSSortDescriptor(
@@ -16,9 +16,11 @@ struct TrainingPlanScreen: View {
     ])
   var splits: FetchedResults<Split>
   @State private var showAddSplitSheet = false
-  @StateObject var viewModel: SplitViewModel
+  @StateObject var viewModel: SplitViewModel = .init()
 
-  var body: some View {
+  public init() {}
+
+  public var body: some View {
     NavigationStack {
       Form {
         ownSplitSection
@@ -108,8 +110,4 @@ struct SwipeActionModifier: ViewModifier {
         .tint(.red)
       }
   }
-}
-
-#Preview {
-  TrainingPlanScreen(viewModel: SplitViewModel())
 }

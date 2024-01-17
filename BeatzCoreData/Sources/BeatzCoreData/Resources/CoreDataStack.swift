@@ -14,7 +14,7 @@ public class CoreDataStack {
   public let mainContext: NSManagedObjectContext
 
   private init() {
-    guard let modelURL = Bundle.module.url(forResource: "CoreDataModel", withExtension: "momd") else { fatalError() }
+    guard let modelURL = Bundle.module.url(forResource: "CoreDataModel", withExtension: "mom") else { fatalError() }
     guard let model = NSManagedObjectModel(contentsOf: modelURL) else { fatalError() }
 
     persistentContainer = NSPersistentContainer(name: "CoreDataModel", managedObjectModel: model)
@@ -32,5 +32,16 @@ public class CoreDataStack {
     backgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
     backgroundContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
     backgroundContext.parent = mainContext
+  }
+}
+
+extension CoreDataStack {
+  static func model(for name: String) -> NSManagedObjectModel {
+
+    guard let url = Bundle.module.url(forResource: name, withExtension: "mom") else { fatalError("Could not get URL for model: \(name)") }
+
+    guard let model = NSManagedObjectModel(contentsOf: url) else { fatalError("Could not get model for: \(url)") }
+
+    return model
   }
 }

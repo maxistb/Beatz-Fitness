@@ -4,12 +4,16 @@
 //
 
 import ActivityKit
-import SwiftUI
 import BeatzCoreData
+import SwiftUI
 
-struct TimerView: View {
+public struct TimerView: View {
   @ObservedObject var model: TimerViewModel
   @Environment(\.dismiss) private var dismiss
+
+  public init(model: TimerViewModel) {
+    self.model = model
+  }
 
   var timerControls: some View {
     HStack {
@@ -69,7 +73,7 @@ struct TimerView: View {
     .padding(.all, 32)
   }
 
-  var body: some View {
+  public var body: some View {
     NavigationView {
       VStack {
         if model.state == .cancelled {

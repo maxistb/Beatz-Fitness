@@ -29,7 +29,7 @@ public class Training: NSManagedObject {
   public var duration: String {
     let formattedBeginTraining = date.formatted(date: .omitted, time: .shortened)
     let formattedEndTraining = endTraining?.formatted(date: .omitted, time: .shortened)
-    return "Dauer: \(formattedBeginTraining) - \(formattedEndTraining ?? "Error") Uhr"
+    return "Dauer: \(formattedBeginTraining) - \(formattedEndTraining ?? "Error")"
   }
 
   public class func createTraining(
