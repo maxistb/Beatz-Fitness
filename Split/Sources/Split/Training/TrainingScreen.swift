@@ -63,7 +63,7 @@ extension TrainingScreen {
     Section {
       if let training = trainingViewModel.training {
         Text(training.date.formatted())
-        Text(training.duration)
+        Text(training.durationString)
       }
       TextField("Notizen", text: $trainingViewModel.notes)
       TextField("Körpergewicht", text: $trainingViewModel.bodyWeight)

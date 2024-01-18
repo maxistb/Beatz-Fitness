@@ -51,7 +51,7 @@ public struct StatisticScreen: View {
     Section("Splits") {
       ForEach(splits, id: \.self) { split in
         NavigationLink {
-          RandomView()
+          StatisticDetailView(split: split)
         } label: {
           Text(split.name)
         }
@@ -98,7 +98,7 @@ extension StatisticScreen {
     var destination: AnyView {
       switch self {
       case .trainingduration:
-        AnyView(RandomView())
+        AnyView(ChartEntry(header: "Trainingsdauer", xAxisLabel: "Dauer", yAxisLabel: "Zeit"))
       case .volume:
         AnyView(RandomView())
       case .setsPerExercise:
