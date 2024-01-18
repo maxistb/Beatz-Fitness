@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A06B5F82B59520B000F4E0D /* Statistic in Frameworks */ = {isa = PBXBuildFile; productRef = 7A06B5F72B59520B000F4E0D /* Statistic */; };
 		7A3188DF2B3849E60044761B /* Beatz_Fitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3188DE2B3849E60044761B /* Beatz_Fitness.swift */; };
 		7A3188F72B384CA40044761B /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 7A3188F62B384CA40044761B /* UIComponents */; };
 		7A3188FB2B3856100044761B /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 7A3188FA2B3856100044761B /* Styleguide */; };
@@ -52,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7A06B5F62B594F45000F4E0D /* Statistic */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Statistic; sourceTree = "<group>"; };
 		7A3188DB2B3849E60044761B /* Beatz Fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Beatz Fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A3188DE2B3849E60044761B /* Beatz_Fitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beatz_Fitness.swift; sourceTree = "<group>"; };
 		7A3188F42B384BA60044761B /* UIComponents */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UIComponents; path = Packages/UIComponents; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				7A9598482B3A0409004C3A4E /* Styleguide in Frameworks */,
 				7A5DEFCD2B57CF6C0058F59D /* Split in Frameworks */,
 				7A5DEFCA2B57CCBA0058F59D /* Timer in Frameworks */,
+				7A06B5F82B59520B000F4E0D /* Statistic in Frameworks */,
 				7A5DEFC42B55D1D10058F59D /* BeatzCoreData in Frameworks */,
 				7A5571A62B3C384200E61CE0 /* Nuke in Frameworks */,
 				7A3189032B38604C0044761B /* Pods_Beatz_Fitness.framework in Frameworks */,
@@ -118,6 +121,7 @@
 				7AF2463D2B5576CA00BAA1D7 /* BeatzHome */,
 				7A5DEFBF2B55CDA50058F59D /* Diary */,
 				7A5DEFCB2B57CEDC0058F59D /* Split */,
+				7A06B5F62B594F45000F4E0D /* Statistic */,
 				7A3188F82B3854A30044761B /* Styleguide */,
 				7A5DEFC82B57CBEF0058F59D /* Timer */,
 				7A3188F42B384BA60044761B /* UIComponents */,
@@ -136,8 +140,9 @@
 		7A3188DD2B3849E60044761B /* App */ = {
 			isa = PBXGroup;
 			children = (
-				7AB94A982B3865FD0043083F /* Initialization */,
-				7AB94A962B3865990043083F /* Views */,
+				7A5571832B3C0E2600E61CE0 /* TabView.swift */,
+				7A5C506D2B3D895A00A4D551 /* Launch Screen.storyboard */,
+				7A3188DE2B3849E60044761B /* Beatz_Fitness.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -160,23 +165,6 @@
 				7A5F48132B3AB8F1006375C0 /* Project-Debug.xcconfig */,
 			);
 			path = Configurations;
-			sourceTree = "<group>";
-		};
-		7AB94A962B3865990043083F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				7A5571832B3C0E2600E61CE0 /* TabView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		7AB94A982B3865FD0043083F /* Initialization */ = {
-			isa = PBXGroup;
-			children = (
-				7A3188DE2B3849E60044761B /* Beatz_Fitness.swift */,
-				7A5C506D2B3D895A00A4D551 /* Launch Screen.storyboard */,
-			);
-			path = Initialization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +201,7 @@
 				7A5DEFC32B55D1D10058F59D /* BeatzCoreData */,
 				7A5DEFC92B57CCBA0058F59D /* Timer */,
 				7A5DEFCC2B57CF6C0058F59D /* Split */,
+				7A06B5F72B59520B000F4E0D /* Statistic */,
 			);
 			productName = "Beatz Fitness";
 			productReference = 7A3188DB2B3849E60044761B /* Beatz Fitness.app */;
@@ -576,6 +565,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7A06B5F72B59520B000F4E0D /* Statistic */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Statistic;
+		};
 		7A3188F62B384CA40044761B /* UIComponents */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = UIComponents;

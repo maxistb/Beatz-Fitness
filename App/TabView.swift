@@ -6,6 +6,7 @@
 import BeatzHome
 import Diary
 import Split
+import Statistic
 import Styleguide
 import SwiftUI
 
@@ -26,7 +27,7 @@ struct BottomTabView: View {
         }
         .toolbarBackground(.visible, for: .tabBar)
 
-      DiaryScreen()
+      StatisticScreen()
         .tabItem {
           Image(systemName: "chart.bar.xaxis")
           Text(L10n.statistic)

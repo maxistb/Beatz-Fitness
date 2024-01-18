@@ -4,8 +4,8 @@
 //
 
 import BeatzCoreData
-import SwiftUI
 import Split
+import SwiftUI
 import UIComponents
 
 public struct DiaryCell: View {
