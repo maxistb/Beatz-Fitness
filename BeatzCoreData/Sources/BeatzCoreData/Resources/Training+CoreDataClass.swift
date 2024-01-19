@@ -32,7 +32,7 @@ public class Training: NSManagedObject {
     return "Dauer: \(formattedBeginTraining) - \(formattedEndTraining ?? "Error")"
   }
 
-  public var duration: Double {
+  public var durationMinutes: Double {
     if let endTraining = endTraining {
       endTraining.timeIntervalSince(date) / 60
     } else {

@@ -8,8 +8,7 @@ import Charts
 import CoreData
 import SwiftUI
 
-struct ChartEntry: View {
-  @State private var currentSelection: Selection = .threeMonths
+struct GeneralStatisticChart: View {
   @FetchRequest(
     entity: Training.entity(),
     sortDescriptors: [NSSortDescriptor(keyPath: \Training.date, ascending: true)],
@@ -19,23 +18,9 @@ struct ChartEntry: View {
     )
   )
   var trainings: FetchedResults<Training>
-
   let generalItem: GeneralStatisticItems
 
-  init(generalItem: GeneralStatisticItems) {
-    self.generalItem = generalItem
-
-    let predicate = NSPredicate(
-      format: "date >= %@",
-      Calendar.current.date(byAdding: .month, value: currentSelection.number, to: Date())! as CVarArg
-    )
-
-    self._trainings = FetchRequest(
-      entity: Training.entity(),
-      sortDescriptors: [NSSortDescriptor(keyPath: \Training.date, ascending: true)],
-      predicate: currentSelection == .all ? nil : predicate
-    )
-  }
+  @ObservedObject private var viewModel = GeneralStatisticViewModel()
 
   var body: some View {
     VStack {
@@ -46,7 +31,7 @@ struct ChartEntry: View {
   }
 
   var picker: some View {
-    Picker("", selection: $currentSelection) {
+    Picker("", selection: $viewModel.currentSelection) {
       Text("3 Monate").tag(Selection.threeMonths)
       Text("6 Monate").tag(Selection.sixMonths)
       Text("1 Jahr").tag(Selection.oneYear)
@@ -54,6 +39,9 @@ struct ChartEntry: View {
     }
     .pickerStyle(.segmented)
     .padding()
+    .onChange(of: viewModel.currentSelection) { _ in
+      viewModel.updatePredicate(trainings: trainings)
+    }
   }
 
   var chart: some View {
@@ -72,20 +60,20 @@ struct ChartEntry: View {
   private func getValueForCase(training: Training) -> Double {
     switch generalItem {
     case .trainingduration:
-      training.duration
+      training.durationMinutes
     case .volume:
-      GeneralStatisticCalc.shared.calculateVolume(for: training)
+      viewModel.calculateVolume(for: training)
     case .setsPerExercise:
-      GeneralStatisticCalc.shared.calculateSetsPerTraining(for: training)
+      viewModel.calculateSetsPerTraining(for: training)
     case .repsPerTraining:
-      GeneralStatisticCalc.shared.calculateRepsPerTraining(for: training)
+      viewModel.calculateRepsPerTraining(for: training)
     case .bodyWeight:
       Double(training.bodyWeight) ?? 0
     }
   }
 }
 
-extension ChartEntry {
+extension GeneralStatisticChart {
   enum Selection {
     case threeMonths
     case sixMonths

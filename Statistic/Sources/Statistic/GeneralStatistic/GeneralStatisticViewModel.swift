@@ -5,11 +5,21 @@
 
 import BeatzCoreData
 import Foundation
+import SwiftUI
 
-class GeneralStatisticCalc {
-  static let shared = GeneralStatisticCalc()
+class GeneralStatisticViewModel: ObservableObject {
+  @Published var currentSelection: GeneralStatisticChart.Selection = .threeMonths
 
-  private init() {}
+  func updatePredicate(trainings: FetchedResults<Training>) {
+    if currentSelection == .all {
+      trainings.nsPredicate = nil
+    } else {
+      trainings.nsPredicate = NSPredicate(
+        format: "date >= %@",
+        Calendar.current.date(byAdding: .month, value: currentSelection.number, to: Date())! as CVarArg
+      )
+    }
+  }
 
   func calculateVolume(for training: Training) -> Double {
     var totalWeight: Double = 0

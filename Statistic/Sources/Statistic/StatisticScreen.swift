@@ -31,9 +31,9 @@ public struct StatisticScreen: View {
 
   private var generalSection: some View {
     Section("Allgemein") {
-      ForEach(GeneralStatisticItems.allCases, id: \.name) { navItem in
-        NavigationLink(navItem.name) {
-          ChartEntry(generalItem: navItem)
+      ForEach(GeneralStatisticItems.allCases, id: \.name) { generalItem in
+        NavigationLink(generalItem.name) {
+          GeneralStatisticChart(generalItem: generalItem)
         }
       }
     }
@@ -41,7 +41,9 @@ public struct StatisticScreen: View {
 
   private var allStatisticSection: some View {
     Section("Gesamtstatistik") {
-      NavigationLink {} label: {
+      NavigationLink {
+        AllStatisticView()
+      } label: {
         Text("Gesamtstatistik")
       }
     }
