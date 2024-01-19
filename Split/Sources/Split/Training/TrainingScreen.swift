@@ -64,6 +64,14 @@ extension TrainingScreen {
       if let training = trainingViewModel.training {
         Text(training.date.formatted())
         Text(training.durationString)
+          .onChange(of: trainingViewModel.bodyWeight) { newValue in
+            training.bodyWeight = newValue
+            try? CoreDataStack.shared.mainContext.save()
+          }
+          .onChange(of: trainingViewModel.notes) { newValue in
+            training.notes = newValue
+            try? CoreDataStack.shared.mainContext.save()
+          }
       }
       TextField("Notizen", text: $trainingViewModel.notes)
       TextField("Körpergewicht", text: $trainingViewModel.bodyWeight)

@@ -11,6 +11,7 @@ import SwiftUI
 struct BeatzFitnessApp: App {
   var body: some Scene {
     WindowGroup {
+
       BottomTabView()
         .environment(\.managedObjectContext, CoreDataStack.shared.mainContext)
     }

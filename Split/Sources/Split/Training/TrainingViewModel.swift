@@ -33,6 +33,11 @@ class TrainingViewModel: ObservableObject {
     self.training = training
     self.startingTime = Date.now
     self.copyExercises = createExerciseCopy(from: split.exercises)
+
+    if let training = training {
+      self.bodyWeight = training.bodyWeight
+      self.notes = training.notes
+    }
   }
 
   private func createExerciseCopy(from exercises: Set<Exercise>) -> Set<Exercise> {
@@ -58,7 +63,6 @@ class TrainingViewModel: ObservableObject {
   }
 
   func adjustExercise() {
-    var iterationsNumber = 0
     guard let lastTraining = split.lastTraining else { return }
 
     for exercise in copyExercises {
@@ -124,6 +128,9 @@ extension TrainingViewModel {
       split.lastTraining = training
       saveExercisesForTraining(training)
 
+      #warning("Only for Testing purpose")
+      TestDataManager.shared.createDummyTraining()
+
       try? CoreDataStack.shared.mainContext.save()
     }
   }
@@ -184,6 +191,93 @@ extension TrainingViewModel {
       return .cardio
     default:
       return .weightlifting
+    }
+  }
+}
+
+public class TestDataManager {
+  public static let shared = TestDataManager()
+
+  private init() {}
+
+  public func createDummyTraining() {
+    let context = CoreDataStack.shared.mainContext
+    let currentDate = Date()
+    let calendar = Calendar.current
+
+    for dayOffset in 0...1000 {
+      guard let previousDay = calendar.date(byAdding: .day, value: -dayOffset, to: currentDate) else {
+        continue
+      }
+
+      if dayOffset % 3 == 0 {
+        let training = Training(context: context)
+        training.date = previousDay
+        training.name = "TestData"
+        training.bodyWeight = String(Double.random(in: 60...85).rounded())
+        training.id = UUID()
+
+        // Generate a random time interval between 60 and 150 minutes in seconds
+        let randomTimeInterval = TimeInterval(Int.random(in: 60 ... 160) * 60)
+
+        // Subtract the random time interval from previousDay to get the endTraining date
+        training.endTraining = previousDay.addingTimeInterval(randomTimeInterval)
+
+        training.bodyWeight = String(Double(Int.random(in: 80...85)))
+        generateData(training: training, previousDay: previousDay)
+      }
+    }
+
+    try? context.save()
+  }
+
+  func generateRandomDate() -> Date {
+    let randomTimeInterval = TimeInterval.random(in: -900...0) * 24 * 60 * 60 // within the last year
+    return Date().addingTimeInterval(randomTimeInterval)
+  }
+
+  func generateData(training: Training, previousDay: Date) {
+    let context = CoreDataStack.shared.mainContext
+    let newExercise = Exercise(context: context)
+    newExercise.name = "Brustpresse"
+    newExercise.countSets = Int16(Int.random(in: 1...15))
+    newExercise.id = UUID()
+    newExercise.training = training
+
+    for index in 0 ..< newExercise.countSets {
+      let trainingSet = TrainingSet(context: context)
+      trainingSet.id = UUID()
+      trainingSet.weight = String(Int.random(in: 10...40))
+      trainingSet.reps = String(Int.random(in: 8...14))
+      trainingSet.distanceKM = String(Int.random(in: 1...59))
+      trainingSet.calories = String(Int.random(in: 10...40))
+      trainingSet.minutes = String(Int.random(in: 1...3))
+      trainingSet.seconds = String(Int.random(in: 1...59))
+      trainingSet.category = "weightlifting"
+      trainingSet.date = previousDay
+      trainingSet.order = Int16(index + 1)
+      trainingSet.exercise = newExercise
+    }
+
+    let secondExercise = Exercise(context: context)
+    secondExercise.name = "Butterfly"
+    secondExercise.countSets = Int16(Int.random(in: 1...15))
+    secondExercise.id = UUID()
+    secondExercise.training = training
+
+    for index in 0 ..< secondExercise.countSets {
+      let trainingSet = TrainingSet(context: context)
+      trainingSet.id = UUID()
+      trainingSet.weight = String(Int.random(in: 10...40))
+      trainingSet.reps = String(Int.random(in: 8...14))
+      trainingSet.distanceKM = String(Int.random(in: 1...59))
+      trainingSet.calories = String(Int.random(in: 10...40))
+      trainingSet.minutes = String(Int.random(in: 1...3))
+      trainingSet.seconds = String(Int.random(in: 1...59))
+      trainingSet.category = "weightlifting"
+      trainingSet.date = previousDay
+      trainingSet.order = Int16(index + 1)
+      trainingSet.exercise = secondExercise
     }
   }
 }

@@ -31,9 +31,9 @@ public struct StatisticScreen: View {
 
   private var generalSection: some View {
     Section("Allgemein") {
-      ForEach(GeneralNavigationItems.allCases, id: \.name) { navItem in
+      ForEach(GeneralStatisticItems.allCases, id: \.name) { navItem in
         NavigationLink(navItem.name) {
-          navItem.destination
+          ChartEntry(generalItem: navItem)
         }
       }
     }
@@ -68,46 +68,48 @@ public struct StatisticScreen: View {
   }
 }
 
-extension StatisticScreen {
-  enum GeneralNavigationItems {
-    case trainingduration
-    case volume
-    case setsPerExercise
-    case repsPerTraining
-    case bodyWeight
+enum GeneralStatisticItems {
+  case trainingduration
+  case volume
+  case setsPerExercise
+  case repsPerTraining
+  case bodyWeight
 
-    static var allCases: [GeneralNavigationItems] {
-      [.trainingduration, .volume, .setsPerExercise, .repsPerTraining, .bodyWeight]
-    }
+  static var allCases: [GeneralStatisticItems] {
+    [.trainingduration, .volume, .setsPerExercise, .repsPerTraining, .bodyWeight]
+  }
 
-    var name: String {
-      switch self {
-      case .trainingduration:
-        "Trainingsdauer"
-      case .volume:
-        "Volumen"
-      case .setsPerExercise:
-        "Sätze pro Übung"
-      case .repsPerTraining:
-        "Wiederholungen pro Training"
-      case .bodyWeight:
-        "Körpergewicht"
-      }
+  var name: String {
+    switch self {
+    case .trainingduration:
+      "Trainingsdauer"
+    case .volume:
+      "Volumen"
+    case .setsPerExercise:
+      "Sätze pro Training"
+    case .repsPerTraining:
+      "Wiederholungen pro Training"
+    case .bodyWeight:
+      "Körpergewicht"
     }
+  }
 
-    var destination: AnyView {
-      switch self {
-      case .trainingduration:
-        AnyView(ChartEntry(header: "Trainingsdauer", xAxisLabel: "Dauer", yAxisLabel: "Zeit"))
-      case .volume:
-        AnyView(RandomView())
-      case .setsPerExercise:
-        AnyView(RandomView())
-      case .repsPerTraining:
-        AnyView(RandomView())
-      case .bodyWeight:
-        AnyView(RandomView())
-      }
+  var yAxisLabel: String {
+    switch self {
+    case .trainingduration:
+      "Minuten"
+    case .volume:
+      "Volumen"
+    case .setsPerExercise:
+      "Sätze/ Training"
+    case .repsPerTraining:
+      "Wdh./ Training"
+    case .bodyWeight:
+      "kg"
     }
+  }
+
+  var xAxisLabel: String {
+    "Datum"
   }
 }

@@ -20,18 +20,15 @@ struct ChartEntry: View {
   )
   var trainings: FetchedResults<Training>
 
-  let header: String
-  let xAxisLabel: String
-  let yAxisLabel: String
+  let generalItem: GeneralStatisticItems
 
-  init(header: String, xAxisLabel: String, yAxisLabel: String) {
-    self.header = header
-    self.xAxisLabel = xAxisLabel
-    self.yAxisLabel = yAxisLabel
+  init(generalItem: GeneralStatisticItems) {
+    self.generalItem = generalItem
 
-    let predicateArg: CVarArg = Calendar.current.date(byAdding: .month, value: currentSelection.number, to: Date())! as CVarArg
-
-    let predicate = NSPredicate(format: "date >= %@", predicateArg)
+    let predicate = NSPredicate(
+      format: "date >= %@",
+      Calendar.current.date(byAdding: .month, value: currentSelection.number, to: Date())! as CVarArg
+    )
 
     self._trainings = FetchRequest(
       entity: Training.entity(),
@@ -43,19 +40,9 @@ struct ChartEntry: View {
   var body: some View {
     VStack {
       picker
-      Chart(trainings, id: \.self) { training in
-        LineMark(
-          x: .value("Datum", training.date),
-          y: .value("Dauer", 100),
-          series: .value("AllData", "A")
-        )
-        .lineStyle(StrokeStyle(lineWidth: 0.5))
-      }
-      .chartXAxisLabel(xAxisLabel)
-      .chartYAxisLabel(yAxisLabel)
-      .padding()
+      chart
     }
-    .navigationTitle(self.header)
+    .navigationTitle(self.generalItem.name)
   }
 
   var picker: some View {
@@ -67,6 +54,34 @@ struct ChartEntry: View {
     }
     .pickerStyle(.segmented)
     .padding()
+  }
+
+  var chart: some View {
+    Chart(trainings, id: \.self) { training in
+      LineMark(
+        x: .value("Datum", training.date),
+        y: .value("Dauer", getValueForCase(training: training))
+      )
+      .lineStyle(StrokeStyle(lineWidth: 0.5))
+    }
+    .chartXAxisLabel(generalItem.xAxisLabel)
+    .chartYAxisLabel(generalItem.yAxisLabel)
+    .padding()
+  }
+
+  private func getValueForCase(training: Training) -> Double {
+    switch generalItem {
+    case .trainingduration:
+      training.duration
+    case .volume:
+      GeneralStatisticCalc.shared.calculateVolume(for: training)
+    case .setsPerExercise:
+      GeneralStatisticCalc.shared.calculateSetsPerTraining(for: training)
+    case .repsPerTraining:
+      GeneralStatisticCalc.shared.calculateRepsPerTraining(for: training)
+    case .bodyWeight:
+      Double(training.bodyWeight) ?? 0
+    }
   }
 }
 
