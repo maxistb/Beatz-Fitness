@@ -8,7 +8,7 @@ import Foundation
 class MachinesViewModel: ObservableObject {
   @Published var machines: Machines?
 
-  let url = Bundle.main.url(forResource: "Machines", withExtension: "json")!
+  let url = Bundle.module.url(forResource: "Machines", withExtension: "json")!
 
   func getMachines() async throws -> Machines {
     do {
