@@ -116,6 +116,9 @@ extension TrainingScreen {
       if isTrainingView {
         addExerciseText()
         saveTrainingButton()
+        Button("TestDaten Generieren") {
+          trainingViewModel.generateTestData()
+        }
       }
     }
   }

@@ -128,11 +128,13 @@ extension TrainingViewModel {
       split.lastTraining = training
       saveExercisesForTraining(training)
 
-      #warning("Only for Testing purpose")
-      TestDataManager.shared.createDummyTraining()
-
       try? CoreDataStack.shared.mainContext.save()
     }
+  }
+
+  func generateTestData() {
+    #warning("Only for Testing purpose")
+    TestDataManager.shared.createDummyTraining()
   }
 
   func initializeTrainingSets() {
@@ -218,7 +220,7 @@ public class TestDataManager {
         training.id = UUID()
 
         // Generate a random time interval between 60 and 150 minutes in seconds
-        let randomTimeInterval = TimeInterval(Int.random(in: 60 ... 160) * 60)
+        let randomTimeInterval = TimeInterval(Int.random(in: 60...160) * 60)
 
         // Subtract the random time interval from previousDay to get the endTraining date
         training.endTraining = previousDay.addingTimeInterval(randomTimeInterval)

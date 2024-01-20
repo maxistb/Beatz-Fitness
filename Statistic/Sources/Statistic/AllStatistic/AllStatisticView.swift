@@ -9,12 +9,13 @@ import SwiftUI
 struct AllStatisticView: View {
   @FetchRequest(
     entity: Training.entity(),
-    sortDescriptors: []
+    sortDescriptors: [],
+    predicate: NSPredicate(
+      format: "date >= %@",
+      Calendar.current.date(byAdding: .day, value: -1, to: .now)! as CVarArg
+    )
   )
   var trainings: FetchedResults<Training>
-
-  @State private var beginDate: Date = .now
-  @State private var endDate: Date = .now
 
   @ObservedObject private var viewModel = AllStatisticViewModel()
 
@@ -29,8 +30,14 @@ struct AllStatisticView: View {
 
   var datePickerSection: some View {
     Section {
-      DatePicker("Startdatum", selection: $beginDate, displayedComponents: .date)
-      DatePicker("Enddatum", selection: $endDate, displayedComponents: .date)
+      DatePicker("Startdatum", selection: $viewModel.beginDate, displayedComponents: .date)
+      DatePicker("Enddatum", selection: $viewModel.endDate, displayedComponents: .date)
+        .onChange(of: viewModel.beginDate) { _ in
+          viewModel.updatePredicate(trainings: trainings)
+        }
+        .onChange(of: viewModel.endDate) { _ in
+          viewModel.updatePredicate(trainings: trainings)
+        }
     }
   }
 

@@ -7,6 +7,20 @@ import BeatzCoreData
 import SwiftUI
 
 class AllStatisticViewModel: ObservableObject {
+  @Published var beginDate: Date = .now
+  @Published var endDate: Date = .now
+
+  // compute with day - 1, since otherwhise it wouldn't register trainings on same day as beginTraining
+  var adjustedBeginDate: Date {
+    Calendar.current.date(byAdding: .day, value: -1, to: beginDate) ?? .now
+  }
+
+  func updatePredicate(trainings: FetchedResults<Training>) {
+    trainings.nsPredicate = NSPredicate(
+      format: "date >= %@ AND date <= %@",
+      argumentArray: [adjustedBeginDate, endDate]
+    )
+  }
 
   func calculateAllTrainingDuration(for trainings: FetchedResults<Training>) -> String {
     var totalDurationMinutes: Double = 0
