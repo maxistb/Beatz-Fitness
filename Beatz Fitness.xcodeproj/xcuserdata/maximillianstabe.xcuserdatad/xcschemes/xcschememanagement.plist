@@ -56,6 +56,11 @@
 			<key>orderHint</key>
 			<integer>10</integer>
 		</dict>
+		<key>SwiftGen Generate.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>Test.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>

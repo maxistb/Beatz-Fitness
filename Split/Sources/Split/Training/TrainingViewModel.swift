@@ -95,7 +95,9 @@ class TrainingViewModel: ObservableObject {
 //    )
 //    do {
 //      let activity = try Activity<BeatzLiveActivity>
-//        .request(attributes: attributes, content: ActivityContent(state: state, staleDate: .distantFuture), pushType: nil)
+//        .request(attributes: attributes, 
+//  content: ActivityContent(state: state, staleDate: .distantFuture),
+//  pushType: nil)
 //      activityId = activity.id
 //    } catch {
 //      print(error.localizedDescription)
@@ -153,7 +155,6 @@ extension TrainingViewModel {
   }
 
   func generateTestData() {
-    #warning("Only for Testing purpose")
     TestDataManager.shared.createDummyTraining()
   }
 

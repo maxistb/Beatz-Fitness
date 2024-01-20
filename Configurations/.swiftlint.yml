@@ -30,9 +30,8 @@ included:
 
 excluded:
   - Configurations
-  - Packages
-  - Pods
-  - Packages/Styleguide/Sources/Styleguide/Generated
+  - ../Styleguide
+  - Styleguide
 
 disabled_rules:
   - nesting

@@ -22,8 +22,8 @@ public struct StatisticScreen: View {
       List {
         generalSection
         allStatisticSection
-        splitSection
-        explanationSection
+//        splitSection
+//        explanationSection
       }
       .navigationTitle("Statistiken")
     }
@@ -49,25 +49,25 @@ public struct StatisticScreen: View {
     }
   }
 
-  private var splitSection: some View {
-    Section("Splits") {
-      ForEach(splits, id: \.self) { split in
-        NavigationLink {
-          StatisticDetailView(split: split)
-        } label: {
-          Text(split.name)
-        }
-      }
-    }
-  }
+//  private var splitSection: some View {
+//    Section("Splits") {
+//      ForEach(splits, id: \.self) { split in
+//        NavigationLink {
+//          StatisticDetailView(split: split)
+//        } label: {
+//          Text(split.name)
+//        }
+//      }
+//    }
+//  }
 
-  private var explanationSection: some View {
-    Section("Erklärungen") {
-      NavigationLink {} label: {
-        Text("Informationen")
-      }
-    }
-  }
+//  private var explanationSection: some View {
+//    Section("Erklärungen") {
+//      NavigationLink {} label: {
+//        Text("Informationen")
+//      }
+//    }
+//  }
 }
 
 enum GeneralStatisticItems {

@@ -30,21 +30,32 @@ public struct DiaryScreen: View {
 
   public var body: some View {
     NavigationStack {
-      List(groupedTrainings, id: \.self) { groupedTraining in
-        Section(groupedTraining.date.diaryHeaderFormat) {
-          ForEach(groupedTraining.entries, id: \.self) { training in
-            DiaryCell(training: training)
-              .modifier(SwipeActionWithAlert(
-                buttonTitle: L10n.delete,
-                confirmationDialog: L10n.deleteSplitConfirmationDialog,
-                action: {
-                  deleteTraining(training: training)
-                })
-              )
+      List {
+        if !trainings.isEmpty {
+          ForEach(groupedTrainings, id: \.self) { groupedTraining in
+            createDiarySection(groupedTraining: groupedTraining)
           }
+        } else {
+          Text("Starte dein erstes Training und sieh dir hier die Resultate an.")
         }
       }
       .navigationTitle("📖 Tagebuch")
+    }
+  }
+
+  private func createDiarySection(groupedTraining: GroupedDiary) -> some View {
+    Section(groupedTraining.date.diaryHeaderFormat) {
+      ForEach(groupedTraining.entries, id: \.self) { training in
+        DiaryCell(training: training)
+          .modifier(SwipeActionWithAlert(
+            buttonTitle: L10n.delete,
+            confirmationDialog: L10n.deleteSplitConfirmationDialog,
+            action: {
+              deleteTraining(training: training)
+            }
+          )
+          )
+      }
     }
   }
 

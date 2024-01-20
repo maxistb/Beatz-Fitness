@@ -24,7 +24,11 @@ public struct SplitScreen: View {
   public var body: some View {
     NavigationStack {
       Form {
-        ownSplitSection
+        if !splits.isEmpty {
+          ownSplitSection
+        } else {
+          Text("Füge bei dem \"+\" deinen ersten Split hinzu.")
+        }
       }
       .navigationTitle(L10n.trainingsplansHeader)
       .toolbar { toolbarContent }

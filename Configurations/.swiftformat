@@ -1,5 +1,5 @@
 --swiftversion 5.3
---exclude Configurations,Packages,Pods
+--exclude Configurations
 
 --commas inline
 

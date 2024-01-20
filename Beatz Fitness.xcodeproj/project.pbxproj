@@ -6,6 +6,20 @@
 	objectVersion = 60;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		7AC1B8702B5C25A100C8F568 /* SwiftGen Generate */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 7AC1B8712B5C25A100C8F568 /* Build configuration list for PBXAggregateTarget "SwiftGen Generate" */;
+			buildPhases = (
+				7AC1B8742B5C25B000C8F568 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "SwiftGen Generate";
+			productName = "SwiftGen Generate";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		7A06B5F82B59520B000F4E0D /* Statistic in Frameworks */ = {isa = PBXBuildFile; productRef = 7A06B5F72B59520B000F4E0D /* Statistic */; };
 		7A3188DF2B3849E60044761B /* Beatz_Fitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3188DE2B3849E60044761B /* Beatz_Fitness.swift */; };
@@ -40,6 +54,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 7AC1B8582B5BB74900C8F568;
 			remoteInfo = BeatzLiveActivityExtension;
+		};
+		7AC1B8752B5C25F400C8F568 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A3188D32B3849E60044761B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7AC1B8702B5C25A100C8F568;
+			remoteInfo = "SwiftGen Generate";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -228,6 +249,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7AC1B8762B5C25F400C8F568 /* PBXTargetDependency */,
 				7AC1B8692B5BB74B00C8F568 /* PBXTargetDependency */,
 			);
 			name = "Beatz Fitness";
@@ -284,6 +306,9 @@
 					7AC1B8582B5BB74900C8F568 = {
 						CreatedOnToolsVersion = 15.2;
 					};
+					7AC1B8702B5C25A100C8F568 = {
+						CreatedOnToolsVersion = 15.2;
+					};
 				};
 			};
 			buildConfigurationList = 7A3188D62B3849E60044761B /* Build configuration list for PBXProject "Beatz Fitness" */;
@@ -307,6 +332,7 @@
 			targets = (
 				7A3188DA2B3849E60044761B /* Beatz Fitness */,
 				7AC1B8582B5BB74900C8F568 /* BeatzLiveActivityExtension */,
+				7AC1B8702B5C25A100C8F568 /* SwiftGen Generate */,
 			);
 		};
 /* End PBXProject section */
@@ -350,6 +376,24 @@
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		7AC1B8742B5C25B000C8F568 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftgen >/dev/null; then\n  swiftgen --config \"${PROJECT_DIR}/Styleguide/swiftgen.yml\"\nelse\n  echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -379,6 +423,11 @@
 			isa = PBXTargetDependency;
 			target = 7AC1B8582B5BB74900C8F568 /* BeatzLiveActivityExtension */;
 			targetProxy = 7AC1B8682B5BB74B00C8F568 /* PBXContainerItemProxy */;
+		};
+		7AC1B8762B5C25F400C8F568 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7AC1B8702B5C25A100C8F568 /* SwiftGen Generate */;
+			targetProxy = 7AC1B8752B5C25F400C8F568 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -648,6 +697,24 @@
 			};
 			name = Release;
 		};
+		7AC1B8722B5C25A100C8F568 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RY44N87S7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7AC1B8732B5C25A100C8F568 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9RY44N87S7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -674,6 +741,15 @@
 			buildConfigurations = (
 				7AC1B86C2B5BB74B00C8F568 /* Debug */,
 				7AC1B86D2B5BB74B00C8F568 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AC1B8712B5C25A100C8F568 /* Build configuration list for PBXAggregateTarget "SwiftGen Generate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AC1B8722B5C25A100C8F568 /* Debug */,
+				7AC1B8732B5C25A100C8F568 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

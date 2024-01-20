@@ -33,22 +33,10 @@ struct ExercisesScreen: View {
           .foregroundStyle(Asset.Color.beatzColor.swiftUIColor)
         notesTextField()
       }
-
-      Section("Übungen") {
-        ForEach(exercises, id: \.self) { exercise in
-          NavigationLink { AddEditExerciseView(appearance: .editExercise(exercise), showCurrentView: .constant(false)) }
-            label: { createExerciseLabel(exercise: exercise) }
-        }
-        .onDelete { indexSet in
-          ExercisesViewModel.shared.deleteExercise(exercises: split.exercises, indicesToDelete: indexSet)
-        }
-        .onMove { indices, newOffset in
-          ExercisesViewModel.shared.moveExercise(
-            exercises: split.exercises,
-            oldIndices: indices,
-            newIndex: newOffset
-          )
-        }
+      if !exercises.isEmpty {
+        exerciseSection
+      } else {
+        Text("Füge Übungen bei dem \"+\" hinzu!")
       }
     }
     .navigationTitle(split.name)
@@ -61,6 +49,25 @@ struct ExercisesScreen: View {
         appearance: .addExercises(split),
         showCurrentView: $showMachinesBeatzSheet
       )
+    }
+  }
+
+  private var exerciseSection: some View {
+    Section("Übungen") {
+      ForEach(exercises, id: \.self) { exercise in
+        NavigationLink { AddEditExerciseView(appearance: .editExercise(exercise), showCurrentView: .constant(false)) }
+          label: { createExerciseLabel(exercise: exercise) }
+      }
+      .onDelete { indexSet in
+        ExercisesViewModel.shared.deleteExercise(exercises: split.exercises, indicesToDelete: indexSet)
+      }
+      .onMove { indices, newOffset in
+        ExercisesViewModel.shared.moveExercise(
+          exercises: split.exercises,
+          oldIndices: indices,
+          newIndex: newOffset
+        )
+      }
     }
   }
 
