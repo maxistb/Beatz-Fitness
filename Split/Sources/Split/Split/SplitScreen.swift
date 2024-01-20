@@ -6,6 +6,7 @@
 import BeatzCoreData
 import Styleguide
 import SwiftUI
+import UIComponents
 
 public struct SplitScreen: View {
   @FetchRequest(
@@ -43,7 +44,13 @@ public struct SplitScreen: View {
         } label: {
           Text(split.name)
         }
-        .modifier(SwipeActionWithAlert(splits: splits, split: split, viewModel: viewModel))
+        .modifier(SwipeActionWithAlert(
+          buttonTitle: L10n.delete,
+          confirmationDialog: L10n.deleteSplitConfirmationDialog,
+          action: {
+            viewModel.deleteSplit(splits: splits, indicesToDelete: IndexSet(integer: IndexSet.Element(split.order)))
+          })
+        )
       }
       .onMove { indices, newOffset in
         viewModel.moveSplit(splits: splits, oldIndices: indices, newIndex: newOffset)
@@ -69,45 +76,5 @@ public struct SplitScreen: View {
         Image(systemName: "plus")
       })
     }
-  }
-}
-
-private struct SwipeActionWithAlert: ViewModifier {
-  @State private var showingAlert = false
-  let splits: FetchedResults<Split>
-  let split: Split
-  let viewModel: SplitViewModel
-
-  func body(content: Content) -> some View {
-    content
-      .swipeActions {
-        Button(action: {
-          showingAlert = true
-        }, label: {
-          Image(systemName: "trash")
-        })
-        .tint(.red)
-      }
-      .confirmationDialog(L10n.deleteSplitConfirmationDialog, isPresented: $showingAlert, titleVisibility: .visible) {
-        Button(L10n.delete) {
-          viewModel.deleteSplit(splits: splits, indicesToDelete: IndexSet(integer: IndexSet.Element(split.order)))
-        }
-      }
-  }
-}
-
-struct SwipeActionModifier: ViewModifier {
-  let action: ()
-
-  func body(content: Content) -> some View {
-    content
-      .swipeActions {
-        Button(action: {
-          action
-        }, label: {
-          Image(systemName: "trash")
-        })
-        .tint(.red)
-      }
   }
 }

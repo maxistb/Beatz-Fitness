@@ -4,14 +4,17 @@
 //
 
 import BeatzCoreData
+import Styleguide
 import SwiftUI
+import UIComponents
 
 public struct DiaryScreen: View {
   @FetchRequest(
     sortDescriptors: [
       NSSortDescriptor(
         keyPath: \Training.date,
-        ascending: false)
+        ascending: false
+      )
     ])
   var trainings: FetchedResults<Training>
 
@@ -31,11 +34,23 @@ public struct DiaryScreen: View {
         Section(groupedTraining.date.diaryHeaderFormat) {
           ForEach(groupedTraining.entries, id: \.self) { training in
             DiaryCell(training: training)
+              .modifier(SwipeActionWithAlert(
+                buttonTitle: L10n.delete,
+                confirmationDialog: L10n.deleteSplitConfirmationDialog,
+                action: {
+                  deleteTraining(training: training)
+                })
+              )
           }
         }
       }
       .navigationTitle("📖 Tagebuch")
     }
+  }
+
+  private func deleteTraining(training: Training) {
+    CoreDataStack.shared.mainContext.delete(training)
+    try? CoreDataStack.shared.mainContext.save()
   }
 }
 
