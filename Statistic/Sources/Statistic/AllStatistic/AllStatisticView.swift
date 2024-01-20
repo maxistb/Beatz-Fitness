@@ -50,11 +50,11 @@ struct AllStatisticView: View {
 
   var inTrainingSection: some View {
     Section("Im Training") {
-      Text("Gesamtgewicht: ")
-      Text("Gesamtwiederholungen: ")
-      Text("Gesamtsätze: ")
-      Text("Strecke gelaufen: ")
-      Text("kcal verbrannt: ")
+      Text("Gesamtgewicht: " + viewModel.calculateAllWeight(for: trainings))
+      Text("Gesamtwiederholungen: " + viewModel.calculateAllReps(for: trainings))
+      Text("Gesamtsätze: " + viewModel.calculateAllSets(for: trainings))
+      Text("Strecke gelaufen: " + viewModel.calculateDistance(for: trainings))
+      Text("kcal verbrannt: " + viewModel.calculateCalories(for: trainings))
     }
   }
 }
