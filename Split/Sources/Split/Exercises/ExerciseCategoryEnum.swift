@@ -88,8 +88,7 @@ extension ExerciseCategory {
   func createExerciseCell(
     currentSet: TrainingSet,
     isTrainingView: Bool,
-    alertCase: Binding<TrainingScreenAlerts>) -> AnyView
-  {
+    alertCase: Binding<TrainingScreenAlerts>) -> AnyView {
     switch self {
     case .weightlifting, .bodyweight:
       return AnyView(

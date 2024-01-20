@@ -81,6 +81,26 @@ class TrainingViewModel: ObservableObject {
       }
     }
   }
+
+  func startLiveActivity() {
+//    let state1 = BeatzLiveActivityAttributes
+//    let state = LiveActivityAttributes.ContentState(
+//      datum: startDate,
+//      timeSinceStart: updateTimeDisplay(),
+//      isTimerActive: isTimerActive,
+//      timerTime: timerTime,
+//      currentUebung: currentUebungName,
+//      currentSatz: currentSatz,
+//      saetzeCount: saetzeCount
+//    )
+//    do {
+//      let activity = try Activity<BeatzLiveActivity>
+//        .request(attributes: attributes, content: ActivityContent(state: state, staleDate: .distantFuture), pushType: nil)
+//      activityId = activity.id
+//    } catch {
+//      print(error.localizedDescription)
+//    }
+  }
 }
 
 // MARK: - Public Functions

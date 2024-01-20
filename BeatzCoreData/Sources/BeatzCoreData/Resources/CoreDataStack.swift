@@ -34,14 +34,3 @@ public class CoreDataStack {
     backgroundContext.parent = mainContext
   }
 }
-
-extension CoreDataStack {
-  static func model(for name: String) -> NSManagedObjectModel {
-
-    guard let url = Bundle.module.url(forResource: name, withExtension: "mom") else { fatalError("Could not get URL for model: \(name)") }
-
-    guard let model = NSManagedObjectModel(contentsOf: url) else { fatalError("Could not get model for: \(url)") }
-
-    return model
-  }
-}

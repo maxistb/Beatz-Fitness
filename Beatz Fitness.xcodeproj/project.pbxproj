@@ -25,8 +25,25 @@
 		7A5DEFCD2B57CF6C0058F59D /* Split in Frameworks */ = {isa = PBXBuildFile; productRef = 7A5DEFCC2B57CF6C0058F59D /* Split */; };
 		7A7B763F2B3B221E007BDAFE /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 7A7B763E2B3B221E007BDAFE /* Styleguide */; };
 		7A9598482B3A0409004C3A4E /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 7A9598472B3A0409004C3A4E /* Styleguide */; };
+		7AC1B85B2B5BB74900C8F568 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC1B85A2B5BB74900C8F568 /* WidgetKit.framework */; };
+		7AC1B85D2B5BB74900C8F568 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC1B85C2B5BB74900C8F568 /* SwiftUI.framework */; };
+		7AC1B8602B5BB74900C8F568 /* BeatzLiveActivityBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B85F2B5BB74900C8F568 /* BeatzLiveActivityBundle.swift */; };
+		7AC1B8622B5BB74900C8F568 /* BeatzLiveActivityLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B8612B5BB74900C8F568 /* BeatzLiveActivityLiveActivity.swift */; };
+		7AC1B8642B5BB74900C8F568 /* BeatzLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC1B8632B5BB74900C8F568 /* BeatzLiveActivity.swift */; };
+		7AC1B8662B5BB74B00C8F568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AC1B8652B5BB74B00C8F568 /* Assets.xcassets */; };
+		7AC1B86A2B5BB74B00C8F568 /* BeatzLiveActivityExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7AC1B8592B5BB74900C8F568 /* BeatzLiveActivityExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7AF2463F2B5578B100BAA1D7 /* BeatzHome in Frameworks */ = {isa = PBXBuildFile; productRef = 7AF2463E2B5578B100BAA1D7 /* BeatzHome */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7AC1B8682B5BB74B00C8F568 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A3188D32B3849E60044761B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7AC1B8582B5BB74900C8F568;
+			remoteInfo = BeatzLiveActivityExtension;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		7A3189052B38604C0044761B /* Embed Frameworks */ = {
@@ -50,6 +67,17 @@
 			name = "Embed ExtensionKit Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7AC1B86E2B5BB74B00C8F568 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7AC1B86A2B5BB74B00C8F568 /* BeatzLiveActivityExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +97,14 @@
 		7A5F48122B3AB87C006375C0 /* Project-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Base.xcconfig"; sourceTree = "<group>"; };
 		7A5F48132B3AB8F1006375C0 /* Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug.xcconfig"; sourceTree = "<group>"; };
 		7A5F48152B3ABAC1006375C0 /* .swiftlint.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; tabWidth = 1; };
+		7AC1B8592B5BB74900C8F568 /* BeatzLiveActivityExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BeatzLiveActivityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AC1B85A2B5BB74900C8F568 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		7AC1B85C2B5BB74900C8F568 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		7AC1B85F2B5BB74900C8F568 /* BeatzLiveActivityBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatzLiveActivityBundle.swift; sourceTree = "<group>"; };
+		7AC1B8612B5BB74900C8F568 /* BeatzLiveActivityLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatzLiveActivityLiveActivity.swift; sourceTree = "<group>"; };
+		7AC1B8632B5BB74900C8F568 /* BeatzLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatzLiveActivity.swift; sourceTree = "<group>"; };
+		7AC1B8652B5BB74B00C8F568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7AC1B8672B5BB74B00C8F568 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AF2463D2B5576CA00BAA1D7 /* BeatzHome */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BeatzHome; sourceTree = "<group>"; };
 		8B1468AC5C2803D917F6C27A /* Pods-Beatz Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beatz Fitness.debug.xcconfig"; path = "Target Support Files/Pods-Beatz Fitness/Pods-Beatz Fitness.debug.xcconfig"; sourceTree = "<group>"; };
 		90D8B8E2A0F26415F388C6D3 /* Pods-Beatz Fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beatz Fitness.release.xcconfig"; path = "Target Support Files/Pods-Beatz Fitness/Pods-Beatz Fitness.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +134,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7AC1B8562B5BB74900C8F568 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AC1B85D2B5BB74900C8F568 /* SwiftUI.framework in Frameworks */,
+				7AC1B85B2B5BB74900C8F568 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -115,6 +160,7 @@
 			children = (
 				7A3188DD2B3849E60044761B /* App */,
 				7A5F480D2B3AB4CB006375C0 /* Configurations */,
+				7AC1B85E2B5BB74900C8F568 /* BeatzLiveActivity */,
 				7A3188F92B3856100044761B /* Frameworks */,
 				360A0AD8BD8D8D3FEC04EE2F /* Pods */,
 				7A5DEFC22B55D16D0058F59D /* BeatzCoreData */,
@@ -133,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				7A3188DB2B3849E60044761B /* Beatz Fitness.app */,
+				7AC1B8592B5BB74900C8F568 /* BeatzLiveActivityExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				94D96A35215996C2FDB748A6 /* Pods_Beatz_Fitness.framework */,
+				7AC1B85A2B5BB74900C8F568 /* WidgetKit.framework */,
+				7AC1B85C2B5BB74900C8F568 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -167,6 +216,18 @@
 			path = Configurations;
 			sourceTree = "<group>";
 		};
+		7AC1B85E2B5BB74900C8F568 /* BeatzLiveActivity */ = {
+			isa = PBXGroup;
+			children = (
+				7AC1B85F2B5BB74900C8F568 /* BeatzLiveActivityBundle.swift */,
+				7AC1B8612B5BB74900C8F568 /* BeatzLiveActivityLiveActivity.swift */,
+				7AC1B8632B5BB74900C8F568 /* BeatzLiveActivity.swift */,
+				7AC1B8652B5BB74B00C8F568 /* Assets.xcassets */,
+				7AC1B8672B5BB74B00C8F568 /* Info.plist */,
+			);
+			path = BeatzLiveActivity;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -181,10 +242,12 @@
 				7A3188D92B3849E60044761B /* Resources */,
 				7A3189052B38604C0044761B /* Embed Frameworks */,
 				7A427FEC2B3A08E30064BA95 /* Embed ExtensionKit Extensions */,
+				7AC1B86E2B5BB74B00C8F568 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7AC1B8692B5BB74B00C8F568 /* PBXTargetDependency */,
 			);
 			name = "Beatz Fitness";
 			packageProductDependencies = (
@@ -207,6 +270,23 @@
 			productReference = 7A3188DB2B3849E60044761B /* Beatz Fitness.app */;
 			productType = "com.apple.product-type.application";
 		};
+		7AC1B8582B5BB74900C8F568 /* BeatzLiveActivityExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AC1B86B2B5BB74B00C8F568 /* Build configuration list for PBXNativeTarget "BeatzLiveActivityExtension" */;
+			buildPhases = (
+				7AC1B8552B5BB74900C8F568 /* Sources */,
+				7AC1B8562B5BB74900C8F568 /* Frameworks */,
+				7AC1B8572B5BB74900C8F568 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BeatzLiveActivityExtension;
+			productName = BeatzLiveActivityExtension;
+			productReference = 7AC1B8592B5BB74900C8F568 /* BeatzLiveActivityExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -214,11 +294,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1510;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					7A3188DA2B3849E60044761B = {
 						CreatedOnToolsVersion = 15.1;
+					};
+					7AC1B8582B5BB74900C8F568 = {
+						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
@@ -242,6 +325,7 @@
 			projectRoot = "";
 			targets = (
 				7A3188DA2B3849E60044761B /* Beatz Fitness */,
+				7AC1B8582B5BB74900C8F568 /* BeatzLiveActivityExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -252,6 +336,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A5C506E2B3D895A00A4D551 /* Launch Screen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AC1B8572B5BB74900C8F568 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AC1B8662B5BB74B00C8F568 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +403,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7AC1B8552B5BB74900C8F568 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AC1B8642B5BB74900C8F568 /* BeatzLiveActivity.swift in Sources */,
+				7AC1B8622B5BB74900C8F568 /* BeatzLiveActivityLiveActivity.swift in Sources */,
+				7AC1B8602B5BB74900C8F568 /* BeatzLiveActivityBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7AC1B8692B5BB74B00C8F568 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7AC1B8582B5BB74900C8F568 /* BeatzLiveActivityExtension */;
+			targetProxy = 7AC1B8682B5BB74B00C8F568 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		7A3188EE2B3849E70044761B /* Debug */ = {
@@ -455,6 +565,7 @@
 				INFOPLIST_FILE = "Configurations/Beatz-Fitness-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Beatz Fitness (Remastered)";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = NO;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -497,6 +608,7 @@
 				INFOPLIST_FILE = "Configurations/Beatz-Fitness-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Beatz Fitness (Remastered)";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = NO;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -519,6 +631,66 @@
 			};
 			name = Release;
 		};
+		7AC1B86C2B5BB74B00C8F568 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RY44N87S7;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeatzLiveActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BeatzLiveActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Maximillian-Stabe.Beatz-Fitness.BeatzLiveActivity";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7AC1B86D2B5BB74B00C8F568 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RY44N87S7;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeatzLiveActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BeatzLiveActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Maximillian-Stabe.Beatz-Fitness.BeatzLiveActivity";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -536,6 +708,15 @@
 			buildConfigurations = (
 				7A3188F12B3849E70044761B /* Debug */,
 				7A3188F22B3849E70044761B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AC1B86B2B5BB74B00C8F568 /* Build configuration list for PBXNativeTarget "BeatzLiveActivityExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AC1B86C2B5BB74B00C8F568 /* Debug */,
+				7AC1B86D2B5BB74B00C8F568 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
