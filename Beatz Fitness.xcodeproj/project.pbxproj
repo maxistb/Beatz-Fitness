@@ -11,8 +11,6 @@
 		7A3188DF2B3849E60044761B /* Beatz_Fitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3188DE2B3849E60044761B /* Beatz_Fitness.swift */; };
 		7A3188F72B384CA40044761B /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 7A3188F62B384CA40044761B /* UIComponents */; };
 		7A3188FB2B3856100044761B /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 7A3188FA2B3856100044761B /* Styleguide */; };
-		7A3189032B38604C0044761B /* Pods_Beatz_Fitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D96A35215996C2FDB748A6 /* Pods_Beatz_Fitness.framework */; };
-		7A3189042B38604C0044761B /* Pods_Beatz_Fitness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94D96A35215996C2FDB748A6 /* Pods_Beatz_Fitness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A5571842B3C0E2600E61CE0 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5571832B3C0E2600E61CE0 /* TabView.swift */; };
 		7A5571A62B3C384200E61CE0 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 7A5571A52B3C384200E61CE0 /* Nuke */; };
 		7A5571A82B3C384200E61CE0 /* NukeExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 7A5571A72B3C384200E61CE0 /* NukeExtensions */; };
@@ -52,7 +50,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7A3189042B38604C0044761B /* Pods_Beatz_Fitness.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,9 +103,6 @@
 		7AC1B8652B5BB74B00C8F568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7AC1B8672B5BB74B00C8F568 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AF2463D2B5576CA00BAA1D7 /* BeatzHome */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BeatzHome; sourceTree = "<group>"; };
-		8B1468AC5C2803D917F6C27A /* Pods-Beatz Fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beatz Fitness.debug.xcconfig"; path = "Target Support Files/Pods-Beatz Fitness/Pods-Beatz Fitness.debug.xcconfig"; sourceTree = "<group>"; };
-		90D8B8E2A0F26415F388C6D3 /* Pods-Beatz Fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beatz Fitness.release.xcconfig"; path = "Target Support Files/Pods-Beatz Fitness/Pods-Beatz Fitness.release.xcconfig"; sourceTree = "<group>"; };
-		94D96A35215996C2FDB748A6 /* Pods_Beatz_Fitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beatz_Fitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +121,6 @@
 				7A06B5F82B59520B000F4E0D /* Statistic in Frameworks */,
 				7A5DEFC42B55D1D10058F59D /* BeatzCoreData in Frameworks */,
 				7A5571A62B3C384200E61CE0 /* Nuke in Frameworks */,
-				7A3189032B38604C0044761B /* Pods_Beatz_Fitness.framework in Frameworks */,
 				7A3188FB2B3856100044761B /* Styleguide in Frameworks */,
 				7A5571AC2B3C384200E61CE0 /* NukeVideo in Frameworks */,
 				7A5571AA2B3C384200E61CE0 /* NukeUI in Frameworks */,
@@ -146,15 +139,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		360A0AD8BD8D8D3FEC04EE2F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8B1468AC5C2803D917F6C27A /* Pods-Beatz Fitness.debug.xcconfig */,
-				90D8B8E2A0F26415F388C6D3 /* Pods-Beatz Fitness.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		7A3188D22B3849E60044761B = {
 			isa = PBXGroup;
 			children = (
@@ -162,7 +146,6 @@
 				7A5F480D2B3AB4CB006375C0 /* Configurations */,
 				7AC1B85E2B5BB74900C8F568 /* BeatzLiveActivity */,
 				7A3188F92B3856100044761B /* Frameworks */,
-				360A0AD8BD8D8D3FEC04EE2F /* Pods */,
 				7A5DEFC22B55D16D0058F59D /* BeatzCoreData */,
 				7AF2463D2B5576CA00BAA1D7 /* BeatzHome */,
 				7A5DEFBF2B55CDA50058F59D /* Diary */,
@@ -197,7 +180,6 @@
 		7A3188F92B3856100044761B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				94D96A35215996C2FDB748A6 /* Pods_Beatz_Fitness.framework */,
 				7AC1B85A2B5BB74900C8F568 /* WidgetKit.framework */,
 				7AC1B85C2B5BB74900C8F568 /* SwiftUI.framework */,
 			);
@@ -235,7 +217,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A3188F02B3849E70044761B /* Build configuration list for PBXNativeTarget "Beatz Fitness" */;
 			buildPhases = (
-				3E321B0BAB23B44649FD0613 /* [CP] Check Pods Manifest.lock */,
 				7A3188D82B3849E60044761B /* Frameworks */,
 				7A5F48142B3AB9DE006375C0 /* SwiftLint */,
 				7A3188D72B3849E60044761B /* Sources */,
@@ -350,28 +331,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3E321B0BAB23B44649FD0613 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Beatz Fitness-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7A5F48142B3AB9DE006375C0 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -547,7 +506,6 @@
 		};
 		7A3188F12B3849E70044761B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B1468AC5C2803D917F6C27A /* Pods-Beatz Fitness.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -590,7 +548,6 @@
 		};
 		7A3188F22B3849E70044761B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90D8B8E2A0F26415F388C6D3 /* Pods-Beatz Fitness.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
